@@ -1,0 +1,227 @@
+\documentclass{article}
+\setlength{\topmargin}{-.5in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{.125in}
+\setlength{\textwidth}{6.25in}
+
+% comment
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\DeclareGraphicsExtensions{.png,.jpg}
+
+\title{Applied Data Science HW2}
+\author{Xiaoyao Yang\\ Columbia University}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Sergei’s problem}
+\label{sec:q1}
+
+\subsection{Categorical Variables with few level}
+\label{q1-1}
+
+First, we read data set using read.table function. And then we use For loop as well as model.matrix function to transfer Categorical Variables with limited level to Dummy Matrix. Noted that we only use for loop here one time and use model.matrix for other variables.
+
+<<r code,cache=TRUE>>=
+dat=read.table('columbia_data_set.csv',sep=',',header=T)
+n<-dim(dat)[1]
+hour<-dat$hour
+I_hour<-matrix(0,nrow=n,ncol=24)
+for (i in 1:n)
+{
+	I_hour[i,hour[i]]<-1
+}
+# hour<-as.factor(dat$hour)
+# model.matrix(~hour-1)->a
+
+###state
+state<-as.factor(dat$state)
+model.matrix(~state-1)->dummy_state
+###browser.id
+browser.id<-as.factor(dat$browser.id)
+model.matrix(~browser.id-1)->dummy_browser.id
+###ad.size
+ad.size<-as.factor(dat$ad.size)
+model.matrix(~ad.size-1)->dummy_ad.size
+###ad.size
+ad.size<-as.factor(dat$ad.size)
+model.matrix(~ad.size-1)->dummy_ad.size
+
+@
+
+And we can take a look at first several rows of our Dummy Set
+
+<<r-dummy>>=
+head(dummy_ad.size)
+@
+
+If we want to combined these Dummy Matrix. We can use cbind() function to do it.
+
+\subsection{Site.id}
+\label{q1-2}
+
+ 
+
+<<r table>>=
+table(dat$site.id)
+@
+From the table above we can see that there are too many different site.id. Thus, we pick up most frequent id and put other id in one column.
+
+As a result, there is 256 different level for site.id variable. After simulate the cumulative density function, we finally collect 136 variables from 256 and put the rest variable into ``Other'' column.
+
+
+<<r site.id,cache=TRUE>>=
+###site.id
+dat$site.id->site
+table(site)->site.t
+sort(site.t,decreasing=TRUE)->temp
+cumsum(temp)/sum(temp)->site.cdf
+names(temp)[site.cdf<0.99]->site.names
+as.numeric(site.names)->site.num
+# order number
+site.names[order(site.num)]->site.names  
+n.site<-length(site.names)
+I_site<-matrix(0,nrow=n,ncol=n.site+1)
+colnames(I_site)<-c(site.names,'Others')
+for (i in 1:n)
+{
+   which(site[i]==as.numeric(site.names))->l.temp
+   if(length(l.temp)==0) I_site[i,n.site+1]<-1
+   else I_site[i,l.temp]<-1
+ }
+
+@
+
+We can take a look at the first rows of our Dummy Matrix for Site.id
+
+<<r dummy>>=
+head(I_site)
+@
+
+\section{Textbook Page 39}
+\label{sec:q2}
+
+\subsection{Regression}
+\label{sec:LinearRegression}
+
+First, we generate 6 sets of data follow by Normal Distribution (they are independent to each other). Then, we use 3 of them as x1 and 3 of them as x2. 
+In this chapter, we use linear regression to classify our simulated data.
+
+<<linear-classifier,cache=TRUE,dev='png',fig.cap='Three class simulated data seperated by linear regression',out.width='.7\\linewidth',fig.align='center',echo=TRUE>>=
+set.seed(10)
+x1<-c(rnorm(100,5,2.5),rnorm(100,5,2),rnorm(100,10,2))
+x2<-c(rnorm(100,5,2),rnorm(100,10,2),rnorm(100,7,2.5))
+y<-c(rep(0,100),rep(1,100),rep(2,100))
+
+plot(c(0,17),c(0,20),type="n",xlab="X1",ylab="X2")
+points(x1[1:100],x2[1:100],col=1)
+points(x1[101:200],x2[101:200],col=2)
+points(x1[201:300],x2[201:300],col='cornflowerblue')
+dat2<-data.frame(y=y,x1=x1,x2=x2)
+
+reg<-lm(y~x1+x2)
+betas<-reg$coefficients
+x<-c(1:15000)/1000
+y<-(1-1/3-betas[1]-betas[2]*x)/betas[3]
+lines(x,y,lwd=2,col="green")
+y1<-y<-(1+1/3-betas[1]-betas[2]*x)/betas[3]
+lines(x,y1,lwd=2,col='green')
+@
+
+Figure~\ref{fig:linear-classifier} shows our data point as well as the linear regression classifier. Here we try to seperate three classes with Linear regression. We simply set each classes value as 0, 1 and 2. And if response value less than 2/3, we believe it belongs to class 0; if it is larger than 2/3 but less than 4/3, that point belongs to class 1; if the response value is larger than 4/3, we put it into class 2.
+
+There are several drawbacks for this methods. One of them is that we assumed all data should fall in to our plane and thus all possible points have response from 0 to 2, which is obviously not true. We might use Cross Validation to find the best seperate point (here is 2/3 and 4/3). Still, even though we can find different ways to improve linear regression method, it not regular to use linear regression to solve classification problem.
+
+\subsection{KNN}
+\label{knn}
+
+<<r knn,size='tiny'>>=
+grid<-function(){
+xx1<-seq(0,15,length=1000)
+xx2<-seq(0,20,length=1000)
+dat3<-matrix(0,ncol=2,nrow=1000*1000)
+for(i in 1:1000){
+  for(j in 1:1000){
+    dat3[j+i*1000-1000,1]<-xx1[i]
+    dat3[j+i*1000-1000,2]<-xx2[j]
+  }
+}
+mygrid<-data.frame(dat3)
+}
+
+NN<-function(){
+        Neighbors<<-rep(0,nrow(mygrid))
+        for (i in c(1:nrow(mygrid))){
+                distances<-(mygrid$X1[i]-x1)^2+(mygrid$X2[i]-x2)^2
+                sort.distances<-sort.int(distances,index.return=TRUE)
+#                 k=15
+               if ((sum(sort.distances$ix[1:15]>200)/15)>0.5) Neighbors[i]<-3
+               else if ((sum(sort.distances$ix[1:15]>100)/15)>0.5) Neighbors[i]<-2
+               else Neighbors[i]<-1
+        }
+        Neighbors<<-Neighbors
+}
+
+plotKNN<-function(){
+        plot(c(0,15),c(0,20),type="n",xlab="X1",ylab="X2")
+        points(mygrid$X1[Neighbors==1],mygrid$X2[Neighbors==1],col="skyblue")
+        points(mygrid$X1[Neighbors==2],mygrid$X2[Neighbors==2],col="pink")
+#         points(mygrid$X1[Neighbors==3],mygrid$X2[Neighbors==3],col="green")
+        points(x1[101:200],x2[101:200],col="RED",pch=20)
+        points(x1[1:100],x2[1:100],col="BLUE",pch=20)
+        points(x1[201:300],x2[201:300],col="black",pch=20)
+}
+@
+\begin{figure}
+\centering
+\includegraphics[width=.7\linewidth]{r-knn.png}
+\caption{KNN Classifier with 3 classes}
+\label{fig:knn}
+\end{figure}
+
+The KNN classifier is shown in Figure~\ref{fig:knn}. Instead of using knn funciton in package ``class'', we generate grid - a 1000000*2 Matrix - trying to cover every point in our plane. And by determining which class every point belongs to, we can obtain the KNN classifier boundry of our plane. If we want to draw that classifier line specifically, we can find the point whose at least two value of distance to class that calculated before are identical. Those point with identical distance consist of our KNN classifier.
+
+\pagebreak
+\subsection{Bayes Optimal Classifier}
+\label{sec:bc}
+
+<<r-bc>>=
+f1 <- function(x1,x2,mu1,sigma1,mu2,sigma2){
+  const1 <- 1/(2*pi*sigma1*sigma2)
+  f=exp((-(x1-mu1)^2/sigma1^2-(x2-mu2)^2/sigma2^2)/2)*const1
+  return(f)
+}
+BC <- function(){
+#   apply(a,1,which.max)
+         classifier<-matrix(0,nrow=nrow(mygrid),ncol=3)
+         classifier[,1]<-f1(mygrid$X1,mygrid$X2,mu1=5,sigma1=2.5,mu2=5,sigma2=2) 
+         classifier[,2]<-f1(mygrid$X1,mygrid$X2,mu1=5,sigma1=2,mu2=10,sigma2=2)
+         classifier[,3]<-f1(mygrid$X1,mygrid$X2,mu1=10,sigma1=2,mu2=7,sigma2=2.5)  
+    apply(classifier,1,which.max)->classifier1      
+    
+}
+plotBC<-function(){
+        plot(c(0,15),c(0,20),type="n",xlab="X1",ylab="X2")
+        points(mygrid$X1[classifier1==1],mygrid$X2[classifier1==1],col="skyblue")
+        points(mygrid$X1[classifier1==2],mygrid$X2[classifier1==2],col="pink")
+        points(mygrid$X1[classifier1==3],mygrid$X2[classifier1==3],col='grey')
+        points(x1[101:200],x2[101:200],col="RED",pch=20)
+        points(x1[1:100],x2[1:100],col="BLUE",pch=20)
+        points(x1[201:300],x2[201:300],col="black",pch=20)
+}
+@
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\linewidth]{bc.png}
+\caption{Bayes Optimal Classifier for 3 classes}
+\label{fig:bc}
+\end{figure}
+
+
+The Figure~\ref{fig:bc} one Page~\pageref{fig:bc} shows the Optimal Bayes Classifier. Here we use the same strategy as KNN. Since we have the exact density function of all three data set, we can calculate probability of every points form ``mygrid'' for each category. And then we can simply compare three probabilities for each point and determine which class it belongs to (belongs to class that has highest probability).
+
+
+\end{document}
