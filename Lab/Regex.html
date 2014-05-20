@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title></title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<pre><code class="r">x &lt;- 17
+x
+</code></pre>
+
+<pre><code>## [1] 17
+</code></pre>
+
+<pre><code class="r">save(x, file = &quot;thisVariable.rdata&quot;)
+rm(x)
+x
+</code></pre>
+
+<pre><code>## Error: object &#39;x&#39; not found
+</code></pre>
+
+<pre><code class="r">load(&quot;thisVariable.rdata&quot;)
+x
+</code></pre>
+
+<pre><code>## [1] 17
+</code></pre>
+
+<pre><code class="r">
+con &lt;- url(&quot;http://www.jaredlander.com/data/warTimes.rdata&quot;)
+load(con)
+head(warTimes)
+</code></pre>
+
+<pre><code>## [1] &quot;September 1, 1774 ACAEA September 3, 1783&quot;
+## [2] &quot;September 1, 1774 ACAEA March 17, 1776&quot;   
+## [3] &quot;1775ACAEA1783&quot;                            
+## [4] &quot;June 1775 ACAEA October 1776&quot;             
+## [5] &quot;July 1776 ACAEA March 1777&quot;               
+## [6] &quot;June 14, 1777 ACAEA October 17, 1777&quot;
+</code></pre>
+
+<pre><code class="r">
+require(stringr)
+</code></pre>
+
+<pre><code>## Loading required package: stringr
+</code></pre>
+
+<pre><code class="r">theTimes &lt;- str_split(string = warTimes, pattern = &quot;(ACAEA)|-&quot;, n = 2)
+theTimes
+</code></pre>
+
+<pre><code>## [[1]]
+## [1] &quot;September 1, 1774 &quot; &quot; September 3, 1783&quot;
+## 
+## [[2]]
+## [1] &quot;September 1, 1774 &quot; &quot; March 17, 1776&quot;   
+## 
+## [[3]]
+## [1] &quot;1775&quot; &quot;1783&quot;
+## 
+## [[4]]
+## [1] &quot;June 1775 &quot;    &quot; October 1776&quot;
+## 
+## [[5]]
+## [1] &quot;July 1776 &quot;  &quot; March 1777&quot;
+## 
+## [[6]]
+## [1] &quot;June 14, 1777 &quot;    &quot; October 17, 1777&quot;
+## 
+## [[7]]
+## [1] &quot;1777&quot; &quot;1778&quot;
+## 
+## [[8]]
+## [1] &quot;1775&quot; &quot;1782&quot;
+## 
+## [[9]]
+## [1] &quot;1776&quot; &quot;1794&quot;
+## 
+## [[10]]
+## [1] &quot;1778&quot; &quot;1782&quot;
+## 
+## [[11]]
+## [1] &quot;1775&quot; &quot;1782&quot;
+## 
+## [[12]]
+## [1] &quot;1779&quot; &quot;1782&quot;
+## 
+## [[13]]
+## [1] &quot;January &quot;       &quot; October, 1781&quot;
+## 
+## [[14]]
+## [1] &quot;1785&quot; &quot;1795&quot;
+## 
+## [[15]]
+## [1] &quot;1798&quot; &quot;1800&quot;
+## 
+## [[16]]
+## [1] &quot;1801&quot; &quot;1805&quot;
+## 
+## [[17]]
+## [1] &quot;August &quot;        &quot; November 1811&quot;
+## 
+## [[18]]
+## [1] &quot;June 18, 1812 &quot;  &quot; March 23, 1815&quot;
+## 
+## [[19]]
+## [1] &quot;1812&quot; &quot;1815&quot;
+## 
+## [[20]]
+## [1] &quot;1813&quot; &quot;1814&quot;
+## 
+## [[21]]
+## [1] &quot;1812&quot; &quot;1815&quot;
+## 
+## [[22]]
+## [1] &quot;1812&quot; &quot;1813&quot;
+## 
+## [[23]]
+## [1] &quot;1813&quot;
+## 
+## [[24]]
+## [1] &quot;1813&quot; &quot;1814&quot;
+## 
+## [[25]]
+## [1] &quot;1813&quot; &quot;1814&quot;
+## 
+## [[26]]
+## [1] &quot;1814&quot;
+## 
+## [[27]]
+## [1] &quot;1813&quot; &quot;1814&quot;
+## 
+## [[28]]
+## [1] &quot;1814&quot; &quot;1815&quot;
+## 
+## [[29]]
+## [1] &quot;1813&quot; &quot;1814&quot;
+## 
+## [[30]]
+## [1] &quot;1815&quot;
+## 
+## [[31]]
+## [1] &quot;November 22, 1817 &quot; &quot; April 12, 1818&quot;   
+## 
+## [[32]]
+## [1] &quot;1817&quot; &quot;1825&quot;
+## 
+## [[33]]
+## [1] &quot;1819&quot; &quot;1861&quot;
+## 
+## [[34]]
+## [1] &quot;November 5&quot; &quot;6, 1820&quot;   
+## 
+## [[35]]
+## [1] &quot;1823&quot;
+## 
+## [[36]]
+## [1] &quot;1825&quot; &quot;1828&quot;
+## 
+## [[37]]
+## [1] &quot;1827&quot;
+## 
+## [[38]]
+## [1] &quot;May&quot;         &quot;August 1832&quot;
+## 
+## [[39]]
+## [1] &quot;February 6 &quot; &quot; 9, 1832&quot;   
+## 
+## [[40]]
+## [1] &quot;1838&quot; &quot;1842&quot;
+## 
+## [[41]]
+## [1] &quot;December 23, 1835 &quot; &quot; August 14, 1842&quot;  
+## 
+## [[42]]
+## [1] &quot;December 1838 &quot; &quot; January 1839&quot; 
+## 
+## [[43]]
+## [1] &quot;October 19&quot; &quot;20, 1842&quot;  
+## 
+## [[44]]
+## [1] &quot;March 11, 1845&quot;
+## 
+## [[45]]
+## [1] &quot;April 25, 1846 &quot;   &quot; February 2, 1848&quot;
+## 
+## [[46]]
+## [1] &quot;1846&quot;
+## 
+## [[47]]
+## [1] &quot;1846&quot; &quot;1847&quot;
+## 
+## [[48]]
+## [1] &quot;1846&quot; &quot;1847&quot;
+## 
+## [[49]]
+## [1] &quot;1847&quot; &quot;1848&quot;
+## 
+## [[50]]
+## [1] &quot;1847&quot;
+## 
+## [[51]]
+## [1] &quot;1858&quot; &quot;1866&quot;
+## 
+## [[52]]
+## [1] &quot;1847&quot; &quot;1855&quot;
+## 
+## [[53]]
+## [1] &quot;April 28 &quot;           &quot; September 13, 1850&quot;
+## 
+## [[54]]
+## [1] &quot;1851&quot; &quot;1900&quot;
+## 
+## [[55]]
+## [1] &quot;July 13, 1854&quot;
+## 
+## [[56]]
+## [1] &quot;August 4, 1855&quot;
+## 
+## [[57]]
+## [1] &quot;October 1855&quot;
+## 
+## [[58]]
+## [1] &quot;1855&quot; &quot;1858&quot;
+## 
+## [[59]]
+## [1] &quot;1855&quot; &quot;1856&quot;
+## 
+## [[60]]
+## [1] &quot;1855&quot; &quot;1856&quot;
+## 
+## [[61]]
+## [1] &quot;1855&quot; &quot;1858&quot;
+## 
+## [[62]]
+## [1] &quot;1856&quot; &quot;1859&quot;
+## 
+## [[63]]
+## [1] &quot;6&quot;               &quot;16 October 1858&quot;
+## 
+## [[64]]
+## [1] &quot;1859&quot;
+## 
+## [[65]]
+## [1] &quot;March 6, 1860&quot;
+## 
+## [[66]]
+## [1] &quot;1860&quot;
+## 
+## [[67]]
+## [1] &quot;April 12, 1861 &quot; &quot; April 9, 1865&quot; 
+## 
+## [[68]]
+## [1] &quot;1861&quot; &quot;1865&quot;
+## 
+## [[69]]
+## [1] &quot;1861&quot; &quot;1865&quot;
+## 
+## [[70]]
+## [1] &quot;1862&quot; &quot;1865&quot;
+## 
+## [[71]]
+## [1] &quot;1862&quot; &quot;1865&quot;
+## 
+## [[72]]
+## [1] &quot;1862&quot; &quot;1865&quot;
+## 
+## [[73]]
+## [1] &quot;August 17 &quot;         &quot; December 26, 1862&quot;
+## 
+## [[74]]
+## [1] &quot;July 31, 1861&quot;
+## 
+## [[75]]
+## [1] &quot;1863&quot; &quot;1865&quot;
+## 
+## [[76]]
+## [1] &quot;July 20, 1863 &quot;     &quot; September 6, 1864&quot;
+## 
+## [[77]]
+## [1] &quot;1865&quot;
+## 
+## [[78]]
+## [1] &quot;1864&quot; &quot;1868&quot;
+## 
+## [[79]]
+## [1] &quot;1866&quot; &quot;1868&quot;
+## 
+## [[80]]
+## [1] &quot;June 1867&quot;
+## 
+## [[81]]
+## [1] &quot;1867&quot; &quot;1875&quot;
+## 
+## [[82]]
+## [1] &quot;June 17, 1870&quot;
+## 
+## [[83]]
+## [1] &quot;June 1, 1871 &quot; &quot; July 3, 1871&quot;
+## 
+## [[84]]
+## [1] &quot;July 6, 1872 &quot; &quot; June 4, 1873&quot;
+## 
+## [[85]]
+## [1] &quot;February 12, 1874&quot;
+## 
+## [[86]]
+## [1] &quot;June 27, 1874 &quot; &quot; June 1875&quot;    
+## 
+## [[87]]
+## [1] &quot;1876&quot; &quot;1877&quot;
+## 
+## [[88]]
+## [1] &quot;1877&quot;
+## 
+## [[89]]
+## [1] &quot;1878&quot;
+## 
+## [[90]]
+## [1] &quot;1878&quot; &quot;1879&quot;
+## 
+## [[91]]
+## [1] &quot;1879&quot;
+## 
+## [[92]]
+## [1] &quot;1879&quot; &quot;1880&quot;
+## 
+## [[93]]
+## [1] &quot;June &quot;      &quot; July 1882&quot;
+## 
+## [[94]]
+## [1] &quot;March 30 &quot;       &quot; April 24, 1885&quot;
+## 
+## [[95]]
+## [1] &quot;1887&quot; &quot;1889&quot;
+## 
+## [[96]]
+## [1] &quot;November 1890 &quot; &quot; January 1891&quot; 
+## 
+## [[97]]
+## [1] &quot;June 22 &quot;         &quot; October 5, 1891&quot;
+## 
+## [[98]]
+## [1] &quot;1891&quot;
+## 
+## [[99]]
+## [1] &quot;January 21&quot; &quot;9, 1894&quot;   
+## 
+## [[100]]
+## [1] &quot;1898&quot; &quot;1899&quot;
+## 
+## [[101]]
+## [1] &quot;April 25 &quot;        &quot; August 12, 1898&quot;
+## 
+## [[102]]
+## [1] &quot;1898&quot;
+## 
+## [[103]]
+## [1] &quot;1898&quot;
+## 
+## [[104]]
+## [1] &quot;1898&quot;
+## 
+## [[105]]
+## [1] &quot;1898&quot;
+## 
+## [[106]]
+## [1] &quot;1898&quot;
+## 
+## [[107]]
+## [1] &quot;1898&quot;
+## 
+## [[108]]
+## [1] &quot;June 2, 1899 &quot; &quot; July 4, 1902&quot;
+## 
+## [[109]]
+## [1] &quot;1899&quot; &quot;1913&quot;
+## 
+## [[110]]
+## [1] &quot;September 28, 1899 &quot; &quot; August 15, 1900&quot;   
+## 
+## [[111]]
+## [1] &quot;1912&quot; &quot;1933&quot;
+## 
+## [[112]]
+## [1] &quot;April 21, 1914 &quot; &quot; June 16, 1919&quot; 
+## 
+## [[113]]
+## [1] &quot;July 28, 1915 &quot;  &quot; August 1, 1934&quot;
+## 
+## [[114]]
+## [1] &quot;1916&quot; &quot;1924&quot;
+## 
+## [[115]]
+## [1] &quot;1917&quot; &quot;1918&quot;
+## 
+## [[116]]
+## [1] &quot;1917&quot; &quot;1918&quot;
+## 
+## [[117]]
+## [1] &quot;1917&quot; &quot;1918&quot;
+## 
+## [[118]]
+## [1] &quot;1917&quot; &quot;1918&quot;
+## 
+## [[119]]
+## [1] &quot;1917&quot; &quot;1918&quot;
+## 
+## [[120]]
+## [1] &quot;1917&quot; &quot;1918&quot;
+## 
+## [[121]]
+## [1] &quot;1918&quot; &quot;1920&quot;
+## 
+## [[122]]
+## [1] &quot;1918&quot; &quot;1920&quot;
+## 
+## [[123]]
+## [1] &quot;1918&quot; &quot;1920&quot;
+## 
+## [[124]]
+## [1] &quot;December 7, 1941 &quot;  &quot; September 2, 1945&quot;
+## 
+## [[125]]
+## [1] &quot;1941&quot; &quot;1945&quot;
+## 
+## [[126]]
+## [1] &quot;1941&quot; &quot;1945&quot;
+## 
+## [[127]]
+## [1] &quot;&quot;
+## 
+## [[128]]
+## [1] &quot;&quot;
+## 
+## [[129]]
+## [1] &quot;June 3, 1942 &quot;    &quot; August 15, 1943&quot;
+## 
+## [[130]]
+## [1] &quot;August 7, 1942 &quot;   &quot; February 9, 1943&quot;
+## 
+## [[131]]
+## [1] &quot;January 1942 &quot;    &quot; August 21, 1945&quot;
+## 
+## [[132]]
+## [1] &quot;November, 1943 &quot; &quot; February, 1944&quot;
+## 
+## [[133]]
+## [1] &quot;June &quot;           &quot; November, 1944&quot;
+## 
+## [[134]]
+## [1] &quot;October 20, 1944 &quot;  &quot; September 2, 1945&quot;
+## 
+## [[135]]
+## [1] &quot;January &quot;    &quot; June, 1945&quot;
+## 
+## [[136]]
+## [1] &quot;1 May &quot;         &quot; 1 August 1945&quot;
+## 
+## [[137]]
+## [1] &quot;16 February &quot;  &quot; 23 July 1945&quot;
+## 
+## [[138]]
+## [1] &quot;1941&quot; &quot;1945&quot;
+## 
+## [[139]]
+## [1] &quot;8&quot;                &quot;16 November 1942&quot;
+## 
+## [[140]]
+## [1] &quot;1942&quot; &quot;1943&quot;
+## 
+## [[141]]
+## [1] &quot;17 November 1942 &quot; &quot; 13 May 1943&quot;     
+## 
+## [[142]]
+## [1] &quot;9 July &quot;         &quot; 17 August 1943&quot;
+## 
+## [[143]]
+## [1] &quot;1942&quot; &quot;1945&quot;
+## 
+## [[144]]
+## [1] &quot;3 September 1943 &quot;  &quot; 16 September 1943&quot;
+## 
+## [[145]]
+## [1] &quot;January 22, 1944 &quot; &quot; June 4, 1944&quot;    
+## 
+## [[146]]
+## [1] &quot;22 January 1944 &quot;  &quot; 9 September 1944&quot;
+## 
+## [[147]]
+## [1] &quot;6 June 1944 &quot;   &quot; mid-July 1944&quot;
+## 
+## [[148]]
+## [1] &quot;6 June &quot;         &quot; 25 August 1944&quot;
+## 
+## [[149]]
+## [1] &quot;15 August 1944 &quot;    &quot; 14 September 1944&quot;
+## 
+## [[150]]
+## [1] &quot;25 August&quot;        &quot;17 December 1944&quot;
+## 
+## [[151]]
+## [1] &quot;25 August 1944 &quot; &quot; March 1945&quot;    
+## 
+## [[152]]
+## [1] &quot;16 December 1944 &quot; &quot; 28 January 1945&quot; 
+## 
+## [[153]]
+## [1] &quot;February 8, 1945 &quot; &quot; May 8, 1945&quot;     
+## 
+## [[154]]
+## [1] &quot;6 April 1945 &quot; &quot; 2 May 1945&quot;  
+## 
+## [[155]]
+## [1] &quot;1947&quot; &quot;1991&quot;
+## 
+## [[156]]
+## [1] &quot;1950&quot; &quot;1954&quot;
+## 
+## [[157]]
+## [1] &quot;1950&quot; &quot;1953&quot;
+## 
+## [[158]]
+## [1] &quot;1953&quot; &quot;1975&quot;
+## 
+## [[159]]
+## [1] &quot;1953&quot; &quot;1975&quot;
+## 
+## [[160]]
+## [1] &quot;1970&quot; &quot;1975&quot;
+## 
+## [[161]]
+## [1] &quot;April 28, 1965 &quot; &quot; September 1966&quot;
+## 
+## [[162]]
+## [1] &quot;25 October &quot;       &quot; 15 December 1983&quot;
+## 
+## [[163]]
+## [1] &quot;July 15 &quot;          &quot; October 25, 1958&quot;
+## 
+## [[164]]
+## [1] &quot;August 24, 1982 &quot;  &quot; February 7, 1984&quot;
+## 
+## [[165]]
+## [1] &quot;August 19, 1981&quot;
+## 
+## [[166]]
+## [1] &quot;March 1986&quot;
+## 
+## [[167]]
+## [1] &quot;April 15, 1986&quot;
+## 
+## [[168]]
+## [1] &quot;1987&quot; &quot;1988&quot;
+## 
+## [[169]]
+## [1] &quot;January 4, 1989&quot;
+## 
+## [[170]]
+## [1] &quot;20 December 1989 &quot; &quot; 31 January 1990&quot; 
+## 
+## [[171]]
+## [1] &quot;August 2, 1990 &quot;    &quot; February 28, 1991&quot;
+## 
+## [[172]]
+## [1] &quot;1991&quot; &quot;2003&quot;
+## 
+## [[173]]
+## [1] &quot;1992&quot; &quot;1994&quot;
+## 
+## [[174]]
+## [1] &quot;1993&quot; &quot;1995&quot;
+## 
+## [[175]]
+## [1] &quot;19 September 1994 &quot; &quot; 31 March 1995&quot;    
+## 
+## [[176]]
+## [1] &quot;August 20, 1998&quot;
+## 
+## [[177]]
+## [1] &quot;March 24 &quot;      &quot; June 10, 1999&quot;
+## 
+## [[178]]
+## [1] &quot;7 October 2001 &quot; &quot; present&quot;       
+## 
+## [[179]]
+## [1] &quot;7 October 2001 &quot; &quot; present&quot;       
+## 
+## [[180]]
+## [1] &quot;October 7, 2001 &quot; &quot; present&quot;        
+## 
+## [[181]]
+## [1] &quot;15 January 2002 &quot; &quot; present&quot;        
+## 
+## [[182]]
+## [1] &quot;7 October 2002 &quot; &quot; present&quot;       
+## 
+## [[183]]
+## [1] &quot;6 February 2007 &quot; &quot; present&quot;        
+## 
+## [[184]]
+## [1] &quot;March 20, 2003 &quot;    &quot; December 15, 2011&quot;
+## 
+## [[185]]
+## [1] &quot;March 16, 2004 &quot; &quot; present&quot;       
+## 
+## [[186]]
+## [1] &quot;January 14, 2010 &quot; &quot; present&quot;         
+## 
+## [[187]]
+## [1] &quot;2003&quot;
+## 
+## [[188]]
+## [1] &quot;March 19 &quot;         &quot; October 23, 2011&quot;
+</code></pre>
+
+<pre><code class="r">theStart &lt;- sapply(X = theTimes, FUN = function(x) x[1])
+theStart
+</code></pre>
+
+<pre><code>##   [1] &quot;September 1, 1774 &quot;  &quot;September 1, 1774 &quot;  &quot;1775&quot;               
+##   [4] &quot;June 1775 &quot;          &quot;July 1776 &quot;          &quot;June 14, 1777 &quot;     
+##   [7] &quot;1777&quot;                &quot;1775&quot;                &quot;1776&quot;               
+##  [10] &quot;1778&quot;                &quot;1775&quot;                &quot;1779&quot;               
+##  [13] &quot;January &quot;            &quot;1785&quot;                &quot;1798&quot;               
+##  [16] &quot;1801&quot;                &quot;August &quot;             &quot;June 18, 1812 &quot;     
+##  [19] &quot;1812&quot;                &quot;1813&quot;                &quot;1812&quot;               
+##  [22] &quot;1812&quot;                &quot;1813&quot;                &quot;1813&quot;               
+##  [25] &quot;1813&quot;                &quot;1814&quot;                &quot;1813&quot;               
+##  [28] &quot;1814&quot;                &quot;1813&quot;                &quot;1815&quot;               
+##  [31] &quot;November 22, 1817 &quot;  &quot;1817&quot;                &quot;1819&quot;               
+##  [34] &quot;November 5&quot;          &quot;1823&quot;                &quot;1825&quot;               
+##  [37] &quot;1827&quot;                &quot;May&quot;                 &quot;February 6 &quot;        
+##  [40] &quot;1838&quot;                &quot;December 23, 1835 &quot;  &quot;December 1838 &quot;     
+##  [43] &quot;October 19&quot;          &quot;March 11, 1845&quot;      &quot;April 25, 1846 &quot;    
+##  [46] &quot;1846&quot;                &quot;1846&quot;                &quot;1846&quot;               
+##  [49] &quot;1847&quot;                &quot;1847&quot;                &quot;1858&quot;               
+##  [52] &quot;1847&quot;                &quot;April 28 &quot;           &quot;1851&quot;               
+##  [55] &quot;July 13, 1854&quot;       &quot;August 4, 1855&quot;      &quot;October 1855&quot;       
+##  [58] &quot;1855&quot;                &quot;1855&quot;                &quot;1855&quot;               
+##  [61] &quot;1855&quot;                &quot;1856&quot;                &quot;6&quot;                  
+##  [64] &quot;1859&quot;                &quot;March 6, 1860&quot;       &quot;1860&quot;               
+##  [67] &quot;April 12, 1861 &quot;     &quot;1861&quot;                &quot;1861&quot;               
+##  [70] &quot;1862&quot;                &quot;1862&quot;                &quot;1862&quot;               
+##  [73] &quot;August 17 &quot;          &quot;July 31, 1861&quot;       &quot;1863&quot;               
+##  [76] &quot;July 20, 1863 &quot;      &quot;1865&quot;                &quot;1864&quot;               
+##  [79] &quot;1866&quot;                &quot;June 1867&quot;           &quot;1867&quot;               
+##  [82] &quot;June 17, 1870&quot;       &quot;June 1, 1871 &quot;       &quot;July 6, 1872 &quot;      
+##  [85] &quot;February 12, 1874&quot;   &quot;June 27, 1874 &quot;      &quot;1876&quot;               
+##  [88] &quot;1877&quot;                &quot;1878&quot;                &quot;1878&quot;               
+##  [91] &quot;1879&quot;                &quot;1879&quot;                &quot;June &quot;              
+##  [94] &quot;March 30 &quot;           &quot;1887&quot;                &quot;November 1890 &quot;     
+##  [97] &quot;June 22 &quot;            &quot;1891&quot;                &quot;January 21&quot;         
+## [100] &quot;1898&quot;                &quot;April 25 &quot;           &quot;1898&quot;               
+## [103] &quot;1898&quot;                &quot;1898&quot;                &quot;1898&quot;               
+## [106] &quot;1898&quot;                &quot;1898&quot;                &quot;June 2, 1899 &quot;      
+## [109] &quot;1899&quot;                &quot;September 28, 1899 &quot; &quot;1912&quot;               
+## [112] &quot;April 21, 1914 &quot;     &quot;July 28, 1915 &quot;      &quot;1916&quot;               
+## [115] &quot;1917&quot;                &quot;1917&quot;                &quot;1917&quot;               
+## [118] &quot;1917&quot;                &quot;1917&quot;                &quot;1917&quot;               
+## [121] &quot;1918&quot;                &quot;1918&quot;                &quot;1918&quot;               
+## [124] &quot;December 7, 1941 &quot;   &quot;1941&quot;                &quot;1941&quot;               
+## [127] &quot;&quot;                    &quot;&quot;                    &quot;June 3, 1942 &quot;      
+## [130] &quot;August 7, 1942 &quot;     &quot;January 1942 &quot;       &quot;November, 1943 &quot;    
+## [133] &quot;June &quot;               &quot;October 20, 1944 &quot;   &quot;January &quot;           
+## [136] &quot;1 May &quot;              &quot;16 February &quot;        &quot;1941&quot;               
+## [139] &quot;8&quot;                   &quot;1942&quot;                &quot;17 November 1942 &quot;  
+## [142] &quot;9 July &quot;             &quot;1942&quot;                &quot;3 September 1943 &quot;  
+## [145] &quot;January 22, 1944 &quot;   &quot;22 January 1944 &quot;    &quot;6 June 1944 &quot;       
+## [148] &quot;6 June &quot;             &quot;15 August 1944 &quot;     &quot;25 August&quot;          
+## [151] &quot;25 August 1944 &quot;     &quot;16 December 1944 &quot;   &quot;February 8, 1945 &quot;  
+## [154] &quot;6 April 1945 &quot;       &quot;1947&quot;                &quot;1950&quot;               
+## [157] &quot;1950&quot;                &quot;1953&quot;                &quot;1953&quot;               
+## [160] &quot;1970&quot;                &quot;April 28, 1965 &quot;     &quot;25 October &quot;        
+## [163] &quot;July 15 &quot;            &quot;August 24, 1982 &quot;    &quot;August 19, 1981&quot;    
+## [166] &quot;March 1986&quot;          &quot;April 15, 1986&quot;      &quot;1987&quot;               
+## [169] &quot;January 4, 1989&quot;     &quot;20 December 1989 &quot;   &quot;August 2, 1990 &quot;    
+## [172] &quot;1991&quot;                &quot;1992&quot;                &quot;1993&quot;               
+## [175] &quot;19 September 1994 &quot;  &quot;August 20, 1998&quot;     &quot;March 24 &quot;          
+## [178] &quot;7 October 2001 &quot;     &quot;7 October 2001 &quot;     &quot;October 7, 2001 &quot;   
+## [181] &quot;15 January 2002 &quot;    &quot;7 October 2002 &quot;     &quot;6 February 2007 &quot;   
+## [184] &quot;March 20, 2003 &quot;     &quot;March 16, 2004 &quot;     &quot;January 14, 2010 &quot;  
+## [187] &quot;2003&quot;                &quot;March 19 &quot;
+</code></pre>
+
+<pre><code class="r">theStart &lt;- str_trim(theStart)
+theStart
+</code></pre>
+
+<pre><code>##   [1] &quot;September 1, 1774&quot;  &quot;September 1, 1774&quot;  &quot;1775&quot;              
+##   [4] &quot;June 1775&quot;          &quot;July 1776&quot;          &quot;June 14, 1777&quot;     
+##   [7] &quot;1777&quot;               &quot;1775&quot;               &quot;1776&quot;              
+##  [10] &quot;1778&quot;               &quot;1775&quot;               &quot;1779&quot;              
+##  [13] &quot;January&quot;            &quot;1785&quot;               &quot;1798&quot;              
+##  [16] &quot;1801&quot;               &quot;August&quot;             &quot;June 18, 1812&quot;     
+##  [19] &quot;1812&quot;               &quot;1813&quot;               &quot;1812&quot;              
+##  [22] &quot;1812&quot;               &quot;1813&quot;               &quot;1813&quot;              
+##  [25] &quot;1813&quot;               &quot;1814&quot;               &quot;1813&quot;              
+##  [28] &quot;1814&quot;               &quot;1813&quot;               &quot;1815&quot;              
+##  [31] &quot;November 22, 1817&quot;  &quot;1817&quot;               &quot;1819&quot;              
+##  [34] &quot;November 5&quot;         &quot;1823&quot;               &quot;1825&quot;              
+##  [37] &quot;1827&quot;               &quot;May&quot;                &quot;February 6&quot;        
+##  [40] &quot;1838&quot;               &quot;December 23, 1835&quot;  &quot;December 1838&quot;     
+##  [43] &quot;October 19&quot;         &quot;March 11, 1845&quot;     &quot;April 25, 1846&quot;    
+##  [46] &quot;1846&quot;               &quot;1846&quot;               &quot;1846&quot;              
+##  [49] &quot;1847&quot;               &quot;1847&quot;               &quot;1858&quot;              
+##  [52] &quot;1847&quot;               &quot;April 28&quot;           &quot;1851&quot;              
+##  [55] &quot;July 13, 1854&quot;      &quot;August 4, 1855&quot;     &quot;October 1855&quot;      
+##  [58] &quot;1855&quot;               &quot;1855&quot;               &quot;1855&quot;              
+##  [61] &quot;1855&quot;               &quot;1856&quot;               &quot;6&quot;                 
+##  [64] &quot;1859&quot;               &quot;March 6, 1860&quot;      &quot;1860&quot;              
+##  [67] &quot;April 12, 1861&quot;     &quot;1861&quot;               &quot;1861&quot;              
+##  [70] &quot;1862&quot;               &quot;1862&quot;               &quot;1862&quot;              
+##  [73] &quot;August 17&quot;          &quot;July 31, 1861&quot;      &quot;1863&quot;              
+##  [76] &quot;July 20, 1863&quot;      &quot;1865&quot;               &quot;1864&quot;              
+##  [79] &quot;1866&quot;               &quot;June 1867&quot;          &quot;1867&quot;              
+##  [82] &quot;June 17, 1870&quot;      &quot;June 1, 1871&quot;       &quot;July 6, 1872&quot;      
+##  [85] &quot;February 12, 1874&quot;  &quot;June 27, 1874&quot;      &quot;1876&quot;              
+##  [88] &quot;1877&quot;               &quot;1878&quot;               &quot;1878&quot;              
+##  [91] &quot;1879&quot;               &quot;1879&quot;               &quot;June&quot;              
+##  [94] &quot;March 30&quot;           &quot;1887&quot;               &quot;November 1890&quot;     
+##  [97] &quot;June 22&quot;            &quot;1891&quot;               &quot;January 21&quot;        
+## [100] &quot;1898&quot;               &quot;April 25&quot;           &quot;1898&quot;              
+## [103] &quot;1898&quot;               &quot;1898&quot;               &quot;1898&quot;              
+## [106] &quot;1898&quot;               &quot;1898&quot;               &quot;June 2, 1899&quot;      
+## [109] &quot;1899&quot;               &quot;September 28, 1899&quot; &quot;1912&quot;              
+## [112] &quot;April 21, 1914&quot;     &quot;July 28, 1915&quot;      &quot;1916&quot;              
+## [115] &quot;1917&quot;               &quot;1917&quot;               &quot;1917&quot;              
+## [118] &quot;1917&quot;               &quot;1917&quot;               &quot;1917&quot;              
+## [121] &quot;1918&quot;               &quot;1918&quot;               &quot;1918&quot;              
+## [124] &quot;December 7, 1941&quot;   &quot;1941&quot;               &quot;1941&quot;              
+## [127] &quot;&quot;                   &quot;&quot;                   &quot;June 3, 1942&quot;      
+## [130] &quot;August 7, 1942&quot;     &quot;January 1942&quot;       &quot;November, 1943&quot;    
+## [133] &quot;June&quot;               &quot;October 20, 1944&quot;   &quot;January&quot;           
+## [136] &quot;1 May&quot;              &quot;16 February&quot;        &quot;1941&quot;              
+## [139] &quot;8&quot;                  &quot;1942&quot;               &quot;17 November 1942&quot;  
+## [142] &quot;9 July&quot;             &quot;1942&quot;               &quot;3 September 1943&quot;  
+## [145] &quot;January 22, 1944&quot;   &quot;22 January 1944&quot;    &quot;6 June 1944&quot;       
+## [148] &quot;6 June&quot;             &quot;15 August 1944&quot;     &quot;25 August&quot;         
+## [151] &quot;25 August 1944&quot;     &quot;16 December 1944&quot;   &quot;February 8, 1945&quot;  
+## [154] &quot;6 April 1945&quot;       &quot;1947&quot;               &quot;1950&quot;              
+## [157] &quot;1950&quot;               &quot;1953&quot;               &quot;1953&quot;              
+## [160] &quot;1970&quot;               &quot;April 28, 1965&quot;     &quot;25 October&quot;        
+## [163] &quot;July 15&quot;            &quot;August 24, 1982&quot;    &quot;August 19, 1981&quot;   
+## [166] &quot;March 1986&quot;         &quot;April 15, 1986&quot;     &quot;1987&quot;              
+## [169] &quot;January 4, 1989&quot;    &quot;20 December 1989&quot;   &quot;August 2, 1990&quot;    
+## [172] &quot;1991&quot;               &quot;1992&quot;               &quot;1993&quot;              
+## [175] &quot;19 September 1994&quot;  &quot;August 20, 1998&quot;    &quot;March 24&quot;          
+## [178] &quot;7 October 2001&quot;     &quot;7 October 2001&quot;     &quot;October 7, 2001&quot;   
+## [181] &quot;15 January 2002&quot;    &quot;7 October 2002&quot;     &quot;6 February 2007&quot;   
+## [184] &quot;March 20, 2003&quot;     &quot;March 16, 2004&quot;     &quot;January 14, 2010&quot;  
+## [187] &quot;2003&quot;               &quot;March 19&quot;
+</code></pre>
+
+<pre><code class="r">str_detect(string = theStart, pattern = &quot;January&quot;)
+</code></pre>
+
+<pre><code>##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [12] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [56] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [67] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [78] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [89] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+## [100] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [111] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [122] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
+## [133] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [144] FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [155] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [166] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [177] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE
+## [188] FALSE
+</code></pre>
+
+<pre><code class="r">theStart[str_detect(string = theStart, pattern = &quot;January&quot;)]
+</code></pre>
+
+<pre><code>## [1] &quot;January&quot;          &quot;January 21&quot;       &quot;January 1942&quot;    
+## [4] &quot;January&quot;          &quot;January 22, 1944&quot; &quot;22 January 1944&quot; 
+## [7] &quot;January 4, 1989&quot;  &quot;15 January 2002&quot;  &quot;January 14, 2010&quot;
+</code></pre>
+
+<pre><code class="r">str_extract(string = theStart, pattern = &quot;January&quot;)
+</code></pre>
+
+<pre><code>##   [1] NA        NA        NA        NA        NA        NA        NA       
+##   [8] NA        NA        NA        NA        NA        &quot;January&quot; NA       
+##  [15] NA        NA        NA        NA        NA        NA        NA       
+##  [22] NA        NA        NA        NA        NA        NA        NA       
+##  [29] NA        NA        NA        NA        NA        NA        NA       
+##  [36] NA        NA        NA        NA        NA        NA        NA       
+##  [43] NA        NA        NA        NA        NA        NA        NA       
+##  [50] NA        NA        NA        NA        NA        NA        NA       
+##  [57] NA        NA        NA        NA        NA        NA        NA       
+##  [64] NA        NA        NA        NA        NA        NA        NA       
+##  [71] NA        NA        NA        NA        NA        NA        NA       
+##  [78] NA        NA        NA        NA        NA        NA        NA       
+##  [85] NA        NA        NA        NA        NA        NA        NA       
+##  [92] NA        NA        NA        NA        NA        NA        NA       
+##  [99] &quot;January&quot; NA        NA        NA        NA        NA        NA       
+## [106] NA        NA        NA        NA        NA        NA        NA       
+## [113] NA        NA        NA        NA        NA        NA        NA       
+## [120] NA        NA        NA        NA        NA        NA        NA       
+## [127] NA        NA        NA        NA        &quot;January&quot; NA        NA       
+## [134] NA        &quot;January&quot; NA        NA        NA        NA        NA       
+## [141] NA        NA        NA        NA        &quot;January&quot; &quot;January&quot; NA       
+## [148] NA        NA        NA        NA        NA        NA        NA       
+## [155] NA        NA        NA        NA        NA        NA        NA       
+## [162] NA        NA        NA        NA        NA        NA        NA       
+## [169] &quot;January&quot; NA        NA        NA        NA        NA        NA       
+## [176] NA        NA        NA        NA        NA        &quot;January&quot; NA       
+## [183] NA        NA        NA        &quot;January&quot; NA        NA
+</code></pre>
+
+<pre><code class="r">
+theStart
+</code></pre>
+
+<pre><code>##   [1] &quot;September 1, 1774&quot;  &quot;September 1, 1774&quot;  &quot;1775&quot;              
+##   [4] &quot;June 1775&quot;          &quot;July 1776&quot;          &quot;June 14, 1777&quot;     
+##   [7] &quot;1777&quot;               &quot;1775&quot;               &quot;1776&quot;              
+##  [10] &quot;1778&quot;               &quot;1775&quot;               &quot;1779&quot;              
+##  [13] &quot;January&quot;            &quot;1785&quot;               &quot;1798&quot;              
+##  [16] &quot;1801&quot;               &quot;August&quot;             &quot;June 18, 1812&quot;     
+##  [19] &quot;1812&quot;               &quot;1813&quot;               &quot;1812&quot;              
+##  [22] &quot;1812&quot;               &quot;1813&quot;               &quot;1813&quot;              
+##  [25] &quot;1813&quot;               &quot;1814&quot;               &quot;1813&quot;              
+##  [28] &quot;1814&quot;               &quot;1813&quot;               &quot;1815&quot;              
+##  [31] &quot;November 22, 1817&quot;  &quot;1817&quot;               &quot;1819&quot;              
+##  [34] &quot;November 5&quot;         &quot;1823&quot;               &quot;1825&quot;              
+##  [37] &quot;1827&quot;               &quot;May&quot;                &quot;February 6&quot;        
+##  [40] &quot;1838&quot;               &quot;December 23, 1835&quot;  &quot;December 1838&quot;     
+##  [43] &quot;October 19&quot;         &quot;March 11, 1845&quot;     &quot;April 25, 1846&quot;    
+##  [46] &quot;1846&quot;               &quot;1846&quot;               &quot;1846&quot;              
+##  [49] &quot;1847&quot;               &quot;1847&quot;               &quot;1858&quot;              
+##  [52] &quot;1847&quot;               &quot;April 28&quot;           &quot;1851&quot;              
+##  [55] &quot;July 13, 1854&quot;      &quot;August 4, 1855&quot;     &quot;October 1855&quot;      
+##  [58] &quot;1855&quot;               &quot;1855&quot;               &quot;1855&quot;              
+##  [61] &quot;1855&quot;               &quot;1856&quot;               &quot;6&quot;                 
+##  [64] &quot;1859&quot;               &quot;March 6, 1860&quot;      &quot;1860&quot;              
+##  [67] &quot;April 12, 1861&quot;     &quot;1861&quot;               &quot;1861&quot;              
+##  [70] &quot;1862&quot;               &quot;1862&quot;               &quot;1862&quot;              
+##  [73] &quot;August 17&quot;          &quot;July 31, 1861&quot;      &quot;1863&quot;              
+##  [76] &quot;July 20, 1863&quot;      &quot;1865&quot;               &quot;1864&quot;              
+##  [79] &quot;1866&quot;               &quot;June 1867&quot;          &quot;1867&quot;              
+##  [82] &quot;June 17, 1870&quot;      &quot;June 1, 1871&quot;       &quot;July 6, 1872&quot;      
+##  [85] &quot;February 12, 1874&quot;  &quot;June 27, 1874&quot;      &quot;1876&quot;              
+##  [88] &quot;1877&quot;               &quot;1878&quot;               &quot;1878&quot;              
+##  [91] &quot;1879&quot;               &quot;1879&quot;               &quot;June&quot;              
+##  [94] &quot;March 30&quot;           &quot;1887&quot;               &quot;November 1890&quot;     
+##  [97] &quot;June 22&quot;            &quot;1891&quot;               &quot;January 21&quot;        
+## [100] &quot;1898&quot;               &quot;April 25&quot;           &quot;1898&quot;              
+## [103] &quot;1898&quot;               &quot;1898&quot;               &quot;1898&quot;              
+## [106] &quot;1898&quot;               &quot;1898&quot;               &quot;June 2, 1899&quot;      
+## [109] &quot;1899&quot;               &quot;September 28, 1899&quot; &quot;1912&quot;              
+## [112] &quot;April 21, 1914&quot;     &quot;July 28, 1915&quot;      &quot;1916&quot;              
+## [115] &quot;1917&quot;               &quot;1917&quot;               &quot;1917&quot;              
+## [118] &quot;1917&quot;               &quot;1917&quot;               &quot;1917&quot;              
+## [121] &quot;1918&quot;               &quot;1918&quot;               &quot;1918&quot;              
+## [124] &quot;December 7, 1941&quot;   &quot;1941&quot;               &quot;1941&quot;              
+## [127] &quot;&quot;                   &quot;&quot;                   &quot;June 3, 1942&quot;      
+## [130] &quot;August 7, 1942&quot;     &quot;January 1942&quot;       &quot;November, 1943&quot;    
+## [133] &quot;June&quot;               &quot;October 20, 1944&quot;   &quot;January&quot;           
+## [136] &quot;1 May&quot;              &quot;16 February&quot;        &quot;1941&quot;              
+## [139] &quot;8&quot;                  &quot;1942&quot;               &quot;17 November 1942&quot;  
+## [142] &quot;9 July&quot;             &quot;1942&quot;               &quot;3 September 1943&quot;  
+## [145] &quot;January 22, 1944&quot;   &quot;22 January 1944&quot;    &quot;6 June 1944&quot;       
+## [148] &quot;6 June&quot;             &quot;15 August 1944&quot;     &quot;25 August&quot;         
+## [151] &quot;25 August 1944&quot;     &quot;16 December 1944&quot;   &quot;February 8, 1945&quot;  
+## [154] &quot;6 April 1945&quot;       &quot;1947&quot;               &quot;1950&quot;              
+## [157] &quot;1950&quot;               &quot;1953&quot;               &quot;1953&quot;              
+## [160] &quot;1970&quot;               &quot;April 28, 1965&quot;     &quot;25 October&quot;        
+## [163] &quot;July 15&quot;            &quot;August 24, 1982&quot;    &quot;August 19, 1981&quot;   
+## [166] &quot;March 1986&quot;         &quot;April 15, 1986&quot;     &quot;1987&quot;              
+## [169] &quot;January 4, 1989&quot;    &quot;20 December 1989&quot;   &quot;August 2, 1990&quot;    
+## [172] &quot;1991&quot;               &quot;1992&quot;               &quot;1993&quot;              
+## [175] &quot;19 September 1994&quot;  &quot;August 20, 1998&quot;    &quot;March 24&quot;          
+## [178] &quot;7 October 2001&quot;     &quot;7 October 2001&quot;     &quot;October 7, 2001&quot;   
+## [181] &quot;15 January 2002&quot;    &quot;7 October 2002&quot;     &quot;6 February 2007&quot;   
+## [184] &quot;March 20, 2003&quot;     &quot;March 16, 2004&quot;     &quot;January 14, 2010&quot;  
+## [187] &quot;2003&quot;               &quot;March 19&quot;
+</code></pre>
+
+<pre><code class="r">str_extract(string = theStart, pattern = &quot;[0-9][0-9][0-9][0-9]&quot;)
+</code></pre>
+
+<pre><code>##   [1] &quot;1774&quot; &quot;1774&quot; &quot;1775&quot; &quot;1775&quot; &quot;1776&quot; &quot;1777&quot; &quot;1777&quot; &quot;1775&quot; &quot;1776&quot; &quot;1778&quot;
+##  [11] &quot;1775&quot; &quot;1779&quot; NA     &quot;1785&quot; &quot;1798&quot; &quot;1801&quot; NA     &quot;1812&quot; &quot;1812&quot; &quot;1813&quot;
+##  [21] &quot;1812&quot; &quot;1812&quot; &quot;1813&quot; &quot;1813&quot; &quot;1813&quot; &quot;1814&quot; &quot;1813&quot; &quot;1814&quot; &quot;1813&quot; &quot;1815&quot;
+##  [31] &quot;1817&quot; &quot;1817&quot; &quot;1819&quot; NA     &quot;1823&quot; &quot;1825&quot; &quot;1827&quot; NA     NA     &quot;1838&quot;
+##  [41] &quot;1835&quot; &quot;1838&quot; NA     &quot;1845&quot; &quot;1846&quot; &quot;1846&quot; &quot;1846&quot; &quot;1846&quot; &quot;1847&quot; &quot;1847&quot;
+##  [51] &quot;1858&quot; &quot;1847&quot; NA     &quot;1851&quot; &quot;1854&quot; &quot;1855&quot; &quot;1855&quot; &quot;1855&quot; &quot;1855&quot; &quot;1855&quot;
+##  [61] &quot;1855&quot; &quot;1856&quot; NA     &quot;1859&quot; &quot;1860&quot; &quot;1860&quot; &quot;1861&quot; &quot;1861&quot; &quot;1861&quot; &quot;1862&quot;
+##  [71] &quot;1862&quot; &quot;1862&quot; NA     &quot;1861&quot; &quot;1863&quot; &quot;1863&quot; &quot;1865&quot; &quot;1864&quot; &quot;1866&quot; &quot;1867&quot;
+##  [81] &quot;1867&quot; &quot;1870&quot; &quot;1871&quot; &quot;1872&quot; &quot;1874&quot; &quot;1874&quot; &quot;1876&quot; &quot;1877&quot; &quot;1878&quot; &quot;1878&quot;
+##  [91] &quot;1879&quot; &quot;1879&quot; NA     NA     &quot;1887&quot; &quot;1890&quot; NA     &quot;1891&quot; NA     &quot;1898&quot;
+## [101] NA     &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1899&quot; &quot;1899&quot; &quot;1899&quot;
+## [111] &quot;1912&quot; &quot;1914&quot; &quot;1915&quot; &quot;1916&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot;
+## [121] &quot;1918&quot; &quot;1918&quot; &quot;1918&quot; &quot;1941&quot; &quot;1941&quot; &quot;1941&quot; NA     NA     &quot;1942&quot; &quot;1942&quot;
+## [131] &quot;1942&quot; &quot;1943&quot; NA     &quot;1944&quot; NA     NA     NA     &quot;1941&quot; NA     &quot;1942&quot;
+## [141] &quot;1942&quot; NA     &quot;1942&quot; &quot;1943&quot; &quot;1944&quot; &quot;1944&quot; &quot;1944&quot; NA     &quot;1944&quot; NA    
+## [151] &quot;1944&quot; &quot;1944&quot; &quot;1945&quot; &quot;1945&quot; &quot;1947&quot; &quot;1950&quot; &quot;1950&quot; &quot;1953&quot; &quot;1953&quot; &quot;1970&quot;
+## [161] &quot;1965&quot; NA     NA     &quot;1982&quot; &quot;1981&quot; &quot;1986&quot; &quot;1986&quot; &quot;1987&quot; &quot;1989&quot; &quot;1989&quot;
+## [171] &quot;1990&quot; &quot;1991&quot; &quot;1992&quot; &quot;1993&quot; &quot;1994&quot; &quot;1998&quot; NA     &quot;2001&quot; &quot;2001&quot; &quot;2001&quot;
+## [181] &quot;2002&quot; &quot;2002&quot; &quot;2007&quot; &quot;2003&quot; &quot;2004&quot; &quot;2010&quot; &quot;2003&quot; NA
+</code></pre>
+
+<pre><code class="r">str_extract(string = theStart, pattern = &quot;[0-9]{4}&quot;)
+</code></pre>
+
+<pre><code>##   [1] &quot;1774&quot; &quot;1774&quot; &quot;1775&quot; &quot;1775&quot; &quot;1776&quot; &quot;1777&quot; &quot;1777&quot; &quot;1775&quot; &quot;1776&quot; &quot;1778&quot;
+##  [11] &quot;1775&quot; &quot;1779&quot; NA     &quot;1785&quot; &quot;1798&quot; &quot;1801&quot; NA     &quot;1812&quot; &quot;1812&quot; &quot;1813&quot;
+##  [21] &quot;1812&quot; &quot;1812&quot; &quot;1813&quot; &quot;1813&quot; &quot;1813&quot; &quot;1814&quot; &quot;1813&quot; &quot;1814&quot; &quot;1813&quot; &quot;1815&quot;
+##  [31] &quot;1817&quot; &quot;1817&quot; &quot;1819&quot; NA     &quot;1823&quot; &quot;1825&quot; &quot;1827&quot; NA     NA     &quot;1838&quot;
+##  [41] &quot;1835&quot; &quot;1838&quot; NA     &quot;1845&quot; &quot;1846&quot; &quot;1846&quot; &quot;1846&quot; &quot;1846&quot; &quot;1847&quot; &quot;1847&quot;
+##  [51] &quot;1858&quot; &quot;1847&quot; NA     &quot;1851&quot; &quot;1854&quot; &quot;1855&quot; &quot;1855&quot; &quot;1855&quot; &quot;1855&quot; &quot;1855&quot;
+##  [61] &quot;1855&quot; &quot;1856&quot; NA     &quot;1859&quot; &quot;1860&quot; &quot;1860&quot; &quot;1861&quot; &quot;1861&quot; &quot;1861&quot; &quot;1862&quot;
+##  [71] &quot;1862&quot; &quot;1862&quot; NA     &quot;1861&quot; &quot;1863&quot; &quot;1863&quot; &quot;1865&quot; &quot;1864&quot; &quot;1866&quot; &quot;1867&quot;
+##  [81] &quot;1867&quot; &quot;1870&quot; &quot;1871&quot; &quot;1872&quot; &quot;1874&quot; &quot;1874&quot; &quot;1876&quot; &quot;1877&quot; &quot;1878&quot; &quot;1878&quot;
+##  [91] &quot;1879&quot; &quot;1879&quot; NA     NA     &quot;1887&quot; &quot;1890&quot; NA     &quot;1891&quot; NA     &quot;1898&quot;
+## [101] NA     &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1899&quot; &quot;1899&quot; &quot;1899&quot;
+## [111] &quot;1912&quot; &quot;1914&quot; &quot;1915&quot; &quot;1916&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot;
+## [121] &quot;1918&quot; &quot;1918&quot; &quot;1918&quot; &quot;1941&quot; &quot;1941&quot; &quot;1941&quot; NA     NA     &quot;1942&quot; &quot;1942&quot;
+## [131] &quot;1942&quot; &quot;1943&quot; NA     &quot;1944&quot; NA     NA     NA     &quot;1941&quot; NA     &quot;1942&quot;
+## [141] &quot;1942&quot; NA     &quot;1942&quot; &quot;1943&quot; &quot;1944&quot; &quot;1944&quot; &quot;1944&quot; NA     &quot;1944&quot; NA    
+## [151] &quot;1944&quot; &quot;1944&quot; &quot;1945&quot; &quot;1945&quot; &quot;1947&quot; &quot;1950&quot; &quot;1950&quot; &quot;1953&quot; &quot;1953&quot; &quot;1970&quot;
+## [161] &quot;1965&quot; NA     NA     &quot;1982&quot; &quot;1981&quot; &quot;1986&quot; &quot;1986&quot; &quot;1987&quot; &quot;1989&quot; &quot;1989&quot;
+## [171] &quot;1990&quot; &quot;1991&quot; &quot;1992&quot; &quot;1993&quot; &quot;1994&quot; &quot;1998&quot; NA     &quot;2001&quot; &quot;2001&quot; &quot;2001&quot;
+## [181] &quot;2002&quot; &quot;2002&quot; &quot;2007&quot; &quot;2003&quot; &quot;2004&quot; &quot;2010&quot; &quot;2003&quot; NA
+</code></pre>
+
+<pre><code class="r">str_extract(string = theStart, pattern = &quot;\\d{4}&quot;)
+</code></pre>
+
+<pre><code>##   [1] &quot;1774&quot; &quot;1774&quot; &quot;1775&quot; &quot;1775&quot; &quot;1776&quot; &quot;1777&quot; &quot;1777&quot; &quot;1775&quot; &quot;1776&quot; &quot;1778&quot;
+##  [11] &quot;1775&quot; &quot;1779&quot; NA     &quot;1785&quot; &quot;1798&quot; &quot;1801&quot; NA     &quot;1812&quot; &quot;1812&quot; &quot;1813&quot;
+##  [21] &quot;1812&quot; &quot;1812&quot; &quot;1813&quot; &quot;1813&quot; &quot;1813&quot; &quot;1814&quot; &quot;1813&quot; &quot;1814&quot; &quot;1813&quot; &quot;1815&quot;
+##  [31] &quot;1817&quot; &quot;1817&quot; &quot;1819&quot; NA     &quot;1823&quot; &quot;1825&quot; &quot;1827&quot; NA     NA     &quot;1838&quot;
+##  [41] &quot;1835&quot; &quot;1838&quot; NA     &quot;1845&quot; &quot;1846&quot; &quot;1846&quot; &quot;1846&quot; &quot;1846&quot; &quot;1847&quot; &quot;1847&quot;
+##  [51] &quot;1858&quot; &quot;1847&quot; NA     &quot;1851&quot; &quot;1854&quot; &quot;1855&quot; &quot;1855&quot; &quot;1855&quot; &quot;1855&quot; &quot;1855&quot;
+##  [61] &quot;1855&quot; &quot;1856&quot; NA     &quot;1859&quot; &quot;1860&quot; &quot;1860&quot; &quot;1861&quot; &quot;1861&quot; &quot;1861&quot; &quot;1862&quot;
+##  [71] &quot;1862&quot; &quot;1862&quot; NA     &quot;1861&quot; &quot;1863&quot; &quot;1863&quot; &quot;1865&quot; &quot;1864&quot; &quot;1866&quot; &quot;1867&quot;
+##  [81] &quot;1867&quot; &quot;1870&quot; &quot;1871&quot; &quot;1872&quot; &quot;1874&quot; &quot;1874&quot; &quot;1876&quot; &quot;1877&quot; &quot;1878&quot; &quot;1878&quot;
+##  [91] &quot;1879&quot; &quot;1879&quot; NA     NA     &quot;1887&quot; &quot;1890&quot; NA     &quot;1891&quot; NA     &quot;1898&quot;
+## [101] NA     &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1899&quot; &quot;1899&quot; &quot;1899&quot;
+## [111] &quot;1912&quot; &quot;1914&quot; &quot;1915&quot; &quot;1916&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot;
+## [121] &quot;1918&quot; &quot;1918&quot; &quot;1918&quot; &quot;1941&quot; &quot;1941&quot; &quot;1941&quot; NA     NA     &quot;1942&quot; &quot;1942&quot;
+## [131] &quot;1942&quot; &quot;1943&quot; NA     &quot;1944&quot; NA     NA     NA     &quot;1941&quot; NA     &quot;1942&quot;
+## [141] &quot;1942&quot; NA     &quot;1942&quot; &quot;1943&quot; &quot;1944&quot; &quot;1944&quot; &quot;1944&quot; NA     &quot;1944&quot; NA    
+## [151] &quot;1944&quot; &quot;1944&quot; &quot;1945&quot; &quot;1945&quot; &quot;1947&quot; &quot;1950&quot; &quot;1950&quot; &quot;1953&quot; &quot;1953&quot; &quot;1970&quot;
+## [161] &quot;1965&quot; NA     NA     &quot;1982&quot; &quot;1981&quot; &quot;1986&quot; &quot;1986&quot; &quot;1987&quot; &quot;1989&quot; &quot;1989&quot;
+## [171] &quot;1990&quot; &quot;1991&quot; &quot;1992&quot; &quot;1993&quot; &quot;1994&quot; &quot;1998&quot; NA     &quot;2001&quot; &quot;2001&quot; &quot;2001&quot;
+## [181] &quot;2002&quot; &quot;2002&quot; &quot;2007&quot; &quot;2003&quot; &quot;2004&quot; &quot;2010&quot; &quot;2003&quot; NA
+</code></pre>
+
+<pre><code class="r">str_extract(theStart, pattern = &quot;\\d{1,3}&quot;)
+</code></pre>
+
+<pre><code>##   [1] &quot;1&quot;   &quot;1&quot;   &quot;177&quot; &quot;177&quot; &quot;177&quot; &quot;14&quot;  &quot;177&quot; &quot;177&quot; &quot;177&quot; &quot;177&quot; &quot;177&quot;
+##  [12] &quot;177&quot; NA    &quot;178&quot; &quot;179&quot; &quot;180&quot; NA    &quot;18&quot;  &quot;181&quot; &quot;181&quot; &quot;181&quot; &quot;181&quot;
+##  [23] &quot;181&quot; &quot;181&quot; &quot;181&quot; &quot;181&quot; &quot;181&quot; &quot;181&quot; &quot;181&quot; &quot;181&quot; &quot;22&quot;  &quot;181&quot; &quot;181&quot;
+##  [34] &quot;5&quot;   &quot;182&quot; &quot;182&quot; &quot;182&quot; NA    &quot;6&quot;   &quot;183&quot; &quot;23&quot;  &quot;183&quot; &quot;19&quot;  &quot;11&quot; 
+##  [45] &quot;25&quot;  &quot;184&quot; &quot;184&quot; &quot;184&quot; &quot;184&quot; &quot;184&quot; &quot;185&quot; &quot;184&quot; &quot;28&quot;  &quot;185&quot; &quot;13&quot; 
+##  [56] &quot;4&quot;   &quot;185&quot; &quot;185&quot; &quot;185&quot; &quot;185&quot; &quot;185&quot; &quot;185&quot; &quot;6&quot;   &quot;185&quot; &quot;6&quot;   &quot;186&quot;
+##  [67] &quot;12&quot;  &quot;186&quot; &quot;186&quot; &quot;186&quot; &quot;186&quot; &quot;186&quot; &quot;17&quot;  &quot;31&quot;  &quot;186&quot; &quot;20&quot;  &quot;186&quot;
+##  [78] &quot;186&quot; &quot;186&quot; &quot;186&quot; &quot;186&quot; &quot;17&quot;  &quot;1&quot;   &quot;6&quot;   &quot;12&quot;  &quot;27&quot;  &quot;187&quot; &quot;187&quot;
+##  [89] &quot;187&quot; &quot;187&quot; &quot;187&quot; &quot;187&quot; NA    &quot;30&quot;  &quot;188&quot; &quot;189&quot; &quot;22&quot;  &quot;189&quot; &quot;21&quot; 
+## [100] &quot;189&quot; &quot;25&quot;  &quot;189&quot; &quot;189&quot; &quot;189&quot; &quot;189&quot; &quot;189&quot; &quot;189&quot; &quot;2&quot;   &quot;189&quot; &quot;28&quot; 
+## [111] &quot;191&quot; &quot;21&quot;  &quot;28&quot;  &quot;191&quot; &quot;191&quot; &quot;191&quot; &quot;191&quot; &quot;191&quot; &quot;191&quot; &quot;191&quot; &quot;191&quot;
+## [122] &quot;191&quot; &quot;191&quot; &quot;7&quot;   &quot;194&quot; &quot;194&quot; NA    NA    &quot;3&quot;   &quot;7&quot;   &quot;194&quot; &quot;194&quot;
+## [133] NA    &quot;20&quot;  NA    &quot;1&quot;   &quot;16&quot;  &quot;194&quot; &quot;8&quot;   &quot;194&quot; &quot;17&quot;  &quot;9&quot;   &quot;194&quot;
+## [144] &quot;3&quot;   &quot;22&quot;  &quot;22&quot;  &quot;6&quot;   &quot;6&quot;   &quot;15&quot;  &quot;25&quot;  &quot;25&quot;  &quot;16&quot;  &quot;8&quot;   &quot;6&quot;  
+## [155] &quot;194&quot; &quot;195&quot; &quot;195&quot; &quot;195&quot; &quot;195&quot; &quot;197&quot; &quot;28&quot;  &quot;25&quot;  &quot;15&quot;  &quot;24&quot;  &quot;19&quot; 
+## [166] &quot;198&quot; &quot;15&quot;  &quot;198&quot; &quot;4&quot;   &quot;20&quot;  &quot;2&quot;   &quot;199&quot; &quot;199&quot; &quot;199&quot; &quot;19&quot;  &quot;20&quot; 
+## [177] &quot;24&quot;  &quot;7&quot;   &quot;7&quot;   &quot;7&quot;   &quot;15&quot;  &quot;7&quot;   &quot;6&quot;   &quot;20&quot;  &quot;16&quot;  &quot;14&quot;  &quot;200&quot;
+## [188] &quot;19&quot;
+</code></pre>
+
+<pre><code class="r">theStart
+</code></pre>
+
+<pre><code>##   [1] &quot;September 1, 1774&quot;  &quot;September 1, 1774&quot;  &quot;1775&quot;              
+##   [4] &quot;June 1775&quot;          &quot;July 1776&quot;          &quot;June 14, 1777&quot;     
+##   [7] &quot;1777&quot;               &quot;1775&quot;               &quot;1776&quot;              
+##  [10] &quot;1778&quot;               &quot;1775&quot;               &quot;1779&quot;              
+##  [13] &quot;January&quot;            &quot;1785&quot;               &quot;1798&quot;              
+##  [16] &quot;1801&quot;               &quot;August&quot;             &quot;June 18, 1812&quot;     
+##  [19] &quot;1812&quot;               &quot;1813&quot;               &quot;1812&quot;              
+##  [22] &quot;1812&quot;               &quot;1813&quot;               &quot;1813&quot;              
+##  [25] &quot;1813&quot;               &quot;1814&quot;               &quot;1813&quot;              
+##  [28] &quot;1814&quot;               &quot;1813&quot;               &quot;1815&quot;              
+##  [31] &quot;November 22, 1817&quot;  &quot;1817&quot;               &quot;1819&quot;              
+##  [34] &quot;November 5&quot;         &quot;1823&quot;               &quot;1825&quot;              
+##  [37] &quot;1827&quot;               &quot;May&quot;                &quot;February 6&quot;        
+##  [40] &quot;1838&quot;               &quot;December 23, 1835&quot;  &quot;December 1838&quot;     
+##  [43] &quot;October 19&quot;         &quot;March 11, 1845&quot;     &quot;April 25, 1846&quot;    
+##  [46] &quot;1846&quot;               &quot;1846&quot;               &quot;1846&quot;              
+##  [49] &quot;1847&quot;               &quot;1847&quot;               &quot;1858&quot;              
+##  [52] &quot;1847&quot;               &quot;April 28&quot;           &quot;1851&quot;              
+##  [55] &quot;July 13, 1854&quot;      &quot;August 4, 1855&quot;     &quot;October 1855&quot;      
+##  [58] &quot;1855&quot;               &quot;1855&quot;               &quot;1855&quot;              
+##  [61] &quot;1855&quot;               &quot;1856&quot;               &quot;6&quot;                 
+##  [64] &quot;1859&quot;               &quot;March 6, 1860&quot;      &quot;1860&quot;              
+##  [67] &quot;April 12, 1861&quot;     &quot;1861&quot;               &quot;1861&quot;              
+##  [70] &quot;1862&quot;               &quot;1862&quot;               &quot;1862&quot;              
+##  [73] &quot;August 17&quot;          &quot;July 31, 1861&quot;      &quot;1863&quot;              
+##  [76] &quot;July 20, 1863&quot;      &quot;1865&quot;               &quot;1864&quot;              
+##  [79] &quot;1866&quot;               &quot;June 1867&quot;          &quot;1867&quot;              
+##  [82] &quot;June 17, 1870&quot;      &quot;June 1, 1871&quot;       &quot;July 6, 1872&quot;      
+##  [85] &quot;February 12, 1874&quot;  &quot;June 27, 1874&quot;      &quot;1876&quot;              
+##  [88] &quot;1877&quot;               &quot;1878&quot;               &quot;1878&quot;              
+##  [91] &quot;1879&quot;               &quot;1879&quot;               &quot;June&quot;              
+##  [94] &quot;March 30&quot;           &quot;1887&quot;               &quot;November 1890&quot;     
+##  [97] &quot;June 22&quot;            &quot;1891&quot;               &quot;January 21&quot;        
+## [100] &quot;1898&quot;               &quot;April 25&quot;           &quot;1898&quot;              
+## [103] &quot;1898&quot;               &quot;1898&quot;               &quot;1898&quot;              
+## [106] &quot;1898&quot;               &quot;1898&quot;               &quot;June 2, 1899&quot;      
+## [109] &quot;1899&quot;               &quot;September 28, 1899&quot; &quot;1912&quot;              
+## [112] &quot;April 21, 1914&quot;     &quot;July 28, 1915&quot;      &quot;1916&quot;              
+## [115] &quot;1917&quot;               &quot;1917&quot;               &quot;1917&quot;              
+## [118] &quot;1917&quot;               &quot;1917&quot;               &quot;1917&quot;              
+## [121] &quot;1918&quot;               &quot;1918&quot;               &quot;1918&quot;              
+## [124] &quot;December 7, 1941&quot;   &quot;1941&quot;               &quot;1941&quot;              
+## [127] &quot;&quot;                   &quot;&quot;                   &quot;June 3, 1942&quot;      
+## [130] &quot;August 7, 1942&quot;     &quot;January 1942&quot;       &quot;November, 1943&quot;    
+## [133] &quot;June&quot;               &quot;October 20, 1944&quot;   &quot;January&quot;           
+## [136] &quot;1 May&quot;              &quot;16 February&quot;        &quot;1941&quot;              
+## [139] &quot;8&quot;                  &quot;1942&quot;               &quot;17 November 1942&quot;  
+## [142] &quot;9 July&quot;             &quot;1942&quot;               &quot;3 September 1943&quot;  
+## [145] &quot;January 22, 1944&quot;   &quot;22 January 1944&quot;    &quot;6 June 1944&quot;       
+## [148] &quot;6 June&quot;             &quot;15 August 1944&quot;     &quot;25 August&quot;         
+## [151] &quot;25 August 1944&quot;     &quot;16 December 1944&quot;   &quot;February 8, 1945&quot;  
+## [154] &quot;6 April 1945&quot;       &quot;1947&quot;               &quot;1950&quot;              
+## [157] &quot;1950&quot;               &quot;1953&quot;               &quot;1953&quot;              
+## [160] &quot;1970&quot;               &quot;April 28, 1965&quot;     &quot;25 October&quot;        
+## [163] &quot;July 15&quot;            &quot;August 24, 1982&quot;    &quot;August 19, 1981&quot;   
+## [166] &quot;March 1986&quot;         &quot;April 15, 1986&quot;     &quot;1987&quot;              
+## [169] &quot;January 4, 1989&quot;    &quot;20 December 1989&quot;   &quot;August 2, 1990&quot;    
+## [172] &quot;1991&quot;               &quot;1992&quot;               &quot;1993&quot;              
+## [175] &quot;19 September 1994&quot;  &quot;August 20, 1998&quot;    &quot;March 24&quot;          
+## [178] &quot;7 October 2001&quot;     &quot;7 October 2001&quot;     &quot;October 7, 2001&quot;   
+## [181] &quot;15 January 2002&quot;    &quot;7 October 2002&quot;     &quot;6 February 2007&quot;   
+## [184] &quot;March 20, 2003&quot;     &quot;March 16, 2004&quot;     &quot;January 14, 2010&quot;  
+## [187] &quot;2003&quot;               &quot;March 19&quot;
+</code></pre>
+
+<pre><code class="r">str_extract(theStart, pattern = &quot;^\\d{4}&quot;)
+</code></pre>
+
+<pre><code>##   [1] NA     NA     &quot;1775&quot; NA     NA     NA     &quot;1777&quot; &quot;1775&quot; &quot;1776&quot; &quot;1778&quot;
+##  [11] &quot;1775&quot; &quot;1779&quot; NA     &quot;1785&quot; &quot;1798&quot; &quot;1801&quot; NA     NA     &quot;1812&quot; &quot;1813&quot;
+##  [21] &quot;1812&quot; &quot;1812&quot; &quot;1813&quot; &quot;1813&quot; &quot;1813&quot; &quot;1814&quot; &quot;1813&quot; &quot;1814&quot; &quot;1813&quot; &quot;1815&quot;
+##  [31] NA     &quot;1817&quot; &quot;1819&quot; NA     &quot;1823&quot; &quot;1825&quot; &quot;1827&quot; NA     NA     &quot;1838&quot;
+##  [41] NA     NA     NA     NA     NA     &quot;1846&quot; &quot;1846&quot; &quot;1846&quot; &quot;1847&quot; &quot;1847&quot;
+##  [51] &quot;1858&quot; &quot;1847&quot; NA     &quot;1851&quot; NA     NA     NA     &quot;1855&quot; &quot;1855&quot; &quot;1855&quot;
+##  [61] &quot;1855&quot; &quot;1856&quot; NA     &quot;1859&quot; NA     &quot;1860&quot; NA     &quot;1861&quot; &quot;1861&quot; &quot;1862&quot;
+##  [71] &quot;1862&quot; &quot;1862&quot; NA     NA     &quot;1863&quot; NA     &quot;1865&quot; &quot;1864&quot; &quot;1866&quot; NA    
+##  [81] &quot;1867&quot; NA     NA     NA     NA     NA     &quot;1876&quot; &quot;1877&quot; &quot;1878&quot; &quot;1878&quot;
+##  [91] &quot;1879&quot; &quot;1879&quot; NA     NA     &quot;1887&quot; NA     NA     &quot;1891&quot; NA     &quot;1898&quot;
+## [101] NA     &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; NA     &quot;1899&quot; NA    
+## [111] &quot;1912&quot; NA     NA     &quot;1916&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot;
+## [121] &quot;1918&quot; &quot;1918&quot; &quot;1918&quot; NA     &quot;1941&quot; &quot;1941&quot; NA     NA     NA     NA    
+## [131] NA     NA     NA     NA     NA     NA     NA     &quot;1941&quot; NA     &quot;1942&quot;
+## [141] NA     NA     &quot;1942&quot; NA     NA     NA     NA     NA     NA     NA    
+## [151] NA     NA     NA     NA     &quot;1947&quot; &quot;1950&quot; &quot;1950&quot; &quot;1953&quot; &quot;1953&quot; &quot;1970&quot;
+## [161] NA     NA     NA     NA     NA     NA     NA     &quot;1987&quot; NA     NA    
+## [171] NA     &quot;1991&quot; &quot;1992&quot; &quot;1993&quot; NA     NA     NA     NA     NA     NA    
+## [181] NA     NA     NA     NA     NA     NA     &quot;2003&quot; NA
+</code></pre>
+
+<pre><code class="r">str_extract(theStart, pattern = &quot;\\d{4}$&quot;)
+</code></pre>
+
+<pre><code>##   [1] &quot;1774&quot; &quot;1774&quot; &quot;1775&quot; &quot;1775&quot; &quot;1776&quot; &quot;1777&quot; &quot;1777&quot; &quot;1775&quot; &quot;1776&quot; &quot;1778&quot;
+##  [11] &quot;1775&quot; &quot;1779&quot; NA     &quot;1785&quot; &quot;1798&quot; &quot;1801&quot; NA     &quot;1812&quot; &quot;1812&quot; &quot;1813&quot;
+##  [21] &quot;1812&quot; &quot;1812&quot; &quot;1813&quot; &quot;1813&quot; &quot;1813&quot; &quot;1814&quot; &quot;1813&quot; &quot;1814&quot; &quot;1813&quot; &quot;1815&quot;
+##  [31] &quot;1817&quot; &quot;1817&quot; &quot;1819&quot; NA     &quot;1823&quot; &quot;1825&quot; &quot;1827&quot; NA     NA     &quot;1838&quot;
+##  [41] &quot;1835&quot; &quot;1838&quot; NA     &quot;1845&quot; &quot;1846&quot; &quot;1846&quot; &quot;1846&quot; &quot;1846&quot; &quot;1847&quot; &quot;1847&quot;
+##  [51] &quot;1858&quot; &quot;1847&quot; NA     &quot;1851&quot; &quot;1854&quot; &quot;1855&quot; &quot;1855&quot; &quot;1855&quot; &quot;1855&quot; &quot;1855&quot;
+##  [61] &quot;1855&quot; &quot;1856&quot; NA     &quot;1859&quot; &quot;1860&quot; &quot;1860&quot; &quot;1861&quot; &quot;1861&quot; &quot;1861&quot; &quot;1862&quot;
+##  [71] &quot;1862&quot; &quot;1862&quot; NA     &quot;1861&quot; &quot;1863&quot; &quot;1863&quot; &quot;1865&quot; &quot;1864&quot; &quot;1866&quot; &quot;1867&quot;
+##  [81] &quot;1867&quot; &quot;1870&quot; &quot;1871&quot; &quot;1872&quot; &quot;1874&quot; &quot;1874&quot; &quot;1876&quot; &quot;1877&quot; &quot;1878&quot; &quot;1878&quot;
+##  [91] &quot;1879&quot; &quot;1879&quot; NA     NA     &quot;1887&quot; &quot;1890&quot; NA     &quot;1891&quot; NA     &quot;1898&quot;
+## [101] NA     &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1899&quot; &quot;1899&quot; &quot;1899&quot;
+## [111] &quot;1912&quot; &quot;1914&quot; &quot;1915&quot; &quot;1916&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot;
+## [121] &quot;1918&quot; &quot;1918&quot; &quot;1918&quot; &quot;1941&quot; &quot;1941&quot; &quot;1941&quot; NA     NA     &quot;1942&quot; &quot;1942&quot;
+## [131] &quot;1942&quot; &quot;1943&quot; NA     &quot;1944&quot; NA     NA     NA     &quot;1941&quot; NA     &quot;1942&quot;
+## [141] &quot;1942&quot; NA     &quot;1942&quot; &quot;1943&quot; &quot;1944&quot; &quot;1944&quot; &quot;1944&quot; NA     &quot;1944&quot; NA    
+## [151] &quot;1944&quot; &quot;1944&quot; &quot;1945&quot; &quot;1945&quot; &quot;1947&quot; &quot;1950&quot; &quot;1950&quot; &quot;1953&quot; &quot;1953&quot; &quot;1970&quot;
+## [161] &quot;1965&quot; NA     NA     &quot;1982&quot; &quot;1981&quot; &quot;1986&quot; &quot;1986&quot; &quot;1987&quot; &quot;1989&quot; &quot;1989&quot;
+## [171] &quot;1990&quot; &quot;1991&quot; &quot;1992&quot; &quot;1993&quot; &quot;1994&quot; &quot;1998&quot; NA     &quot;2001&quot; &quot;2001&quot; &quot;2001&quot;
+## [181] &quot;2002&quot; &quot;2002&quot; &quot;2007&quot; &quot;2003&quot; &quot;2004&quot; &quot;2010&quot; &quot;2003&quot; NA
+</code></pre>
+
+<pre><code class="r">str_extract(theStart, pattern = &quot;^\\d{4}$&quot;)
+</code></pre>
+
+<pre><code>##   [1] NA     NA     &quot;1775&quot; NA     NA     NA     &quot;1777&quot; &quot;1775&quot; &quot;1776&quot; &quot;1778&quot;
+##  [11] &quot;1775&quot; &quot;1779&quot; NA     &quot;1785&quot; &quot;1798&quot; &quot;1801&quot; NA     NA     &quot;1812&quot; &quot;1813&quot;
+##  [21] &quot;1812&quot; &quot;1812&quot; &quot;1813&quot; &quot;1813&quot; &quot;1813&quot; &quot;1814&quot; &quot;1813&quot; &quot;1814&quot; &quot;1813&quot; &quot;1815&quot;
+##  [31] NA     &quot;1817&quot; &quot;1819&quot; NA     &quot;1823&quot; &quot;1825&quot; &quot;1827&quot; NA     NA     &quot;1838&quot;
+##  [41] NA     NA     NA     NA     NA     &quot;1846&quot; &quot;1846&quot; &quot;1846&quot; &quot;1847&quot; &quot;1847&quot;
+##  [51] &quot;1858&quot; &quot;1847&quot; NA     &quot;1851&quot; NA     NA     NA     &quot;1855&quot; &quot;1855&quot; &quot;1855&quot;
+##  [61] &quot;1855&quot; &quot;1856&quot; NA     &quot;1859&quot; NA     &quot;1860&quot; NA     &quot;1861&quot; &quot;1861&quot; &quot;1862&quot;
+##  [71] &quot;1862&quot; &quot;1862&quot; NA     NA     &quot;1863&quot; NA     &quot;1865&quot; &quot;1864&quot; &quot;1866&quot; NA    
+##  [81] &quot;1867&quot; NA     NA     NA     NA     NA     &quot;1876&quot; &quot;1877&quot; &quot;1878&quot; &quot;1878&quot;
+##  [91] &quot;1879&quot; &quot;1879&quot; NA     NA     &quot;1887&quot; NA     NA     &quot;1891&quot; NA     &quot;1898&quot;
+## [101] NA     &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; &quot;1898&quot; NA     &quot;1899&quot; NA    
+## [111] &quot;1912&quot; NA     NA     &quot;1916&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot; &quot;1917&quot;
+## [121] &quot;1918&quot; &quot;1918&quot; &quot;1918&quot; NA     &quot;1941&quot; &quot;1941&quot; NA     NA     NA     NA    
+## [131] NA     NA     NA     NA     NA     NA     NA     &quot;1941&quot; NA     &quot;1942&quot;
+## [141] NA     NA     &quot;1942&quot; NA     NA     NA     NA     NA     NA     NA    
+## [151] NA     NA     NA     NA     &quot;1947&quot; &quot;1950&quot; &quot;1950&quot; &quot;1953&quot; &quot;1953&quot; &quot;1970&quot;
+## [161] NA     NA     NA     NA     NA     NA     NA     &quot;1987&quot; NA     NA    
+## [171] NA     &quot;1991&quot; &quot;1992&quot; &quot;1993&quot; NA     NA     NA     NA     NA     NA    
+## [181] NA     NA     NA     NA     NA     NA     &quot;2003&quot; NA
+</code></pre>
+
+<pre><code class="r">
+theStart
+</code></pre>
+
+<pre><code>##   [1] &quot;September 1, 1774&quot;  &quot;September 1, 1774&quot;  &quot;1775&quot;              
+##   [4] &quot;June 1775&quot;          &quot;July 1776&quot;          &quot;June 14, 1777&quot;     
+##   [7] &quot;1777&quot;               &quot;1775&quot;               &quot;1776&quot;              
+##  [10] &quot;1778&quot;               &quot;1775&quot;               &quot;1779&quot;              
+##  [13] &quot;January&quot;            &quot;1785&quot;               &quot;1798&quot;              
+##  [16] &quot;1801&quot;               &quot;August&quot;             &quot;June 18, 1812&quot;     
+##  [19] &quot;1812&quot;               &quot;1813&quot;               &quot;1812&quot;              
+##  [22] &quot;1812&quot;               &quot;1813&quot;               &quot;1813&quot;              
+##  [25] &quot;1813&quot;               &quot;1814&quot;               &quot;1813&quot;              
+##  [28] &quot;1814&quot;               &quot;1813&quot;               &quot;1815&quot;              
+##  [31] &quot;November 22, 1817&quot;  &quot;1817&quot;               &quot;1819&quot;              
+##  [34] &quot;November 5&quot;         &quot;1823&quot;               &quot;1825&quot;              
+##  [37] &quot;1827&quot;               &quot;May&quot;                &quot;February 6&quot;        
+##  [40] &quot;1838&quot;               &quot;December 23, 1835&quot;  &quot;December 1838&quot;     
+##  [43] &quot;October 19&quot;         &quot;March 11, 1845&quot;     &quot;April 25, 1846&quot;    
+##  [46] &quot;1846&quot;               &quot;1846&quot;               &quot;1846&quot;              
+##  [49] &quot;1847&quot;               &quot;1847&quot;               &quot;1858&quot;              
+##  [52] &quot;1847&quot;               &quot;April 28&quot;           &quot;1851&quot;              
+##  [55] &quot;July 13, 1854&quot;      &quot;August 4, 1855&quot;     &quot;October 1855&quot;      
+##  [58] &quot;1855&quot;               &quot;1855&quot;               &quot;1855&quot;              
+##  [61] &quot;1855&quot;               &quot;1856&quot;               &quot;6&quot;                 
+##  [64] &quot;1859&quot;               &quot;March 6, 1860&quot;      &quot;1860&quot;              
+##  [67] &quot;April 12, 1861&quot;     &quot;1861&quot;               &quot;1861&quot;              
+##  [70] &quot;1862&quot;               &quot;1862&quot;               &quot;1862&quot;              
+##  [73] &quot;August 17&quot;          &quot;July 31, 1861&quot;      &quot;1863&quot;              
+##  [76] &quot;July 20, 1863&quot;      &quot;1865&quot;               &quot;1864&quot;              
+##  [79] &quot;1866&quot;               &quot;June 1867&quot;          &quot;1867&quot;              
+##  [82] &quot;June 17, 1870&quot;      &quot;June 1, 1871&quot;       &quot;July 6, 1872&quot;      
+##  [85] &quot;February 12, 1874&quot;  &quot;June 27, 1874&quot;      &quot;1876&quot;              
+##  [88] &quot;1877&quot;               &quot;1878&quot;               &quot;1878&quot;              
+##  [91] &quot;1879&quot;               &quot;1879&quot;               &quot;June&quot;              
+##  [94] &quot;March 30&quot;           &quot;1887&quot;               &quot;November 1890&quot;     
+##  [97] &quot;June 22&quot;            &quot;1891&quot;               &quot;January 21&quot;        
+## [100] &quot;1898&quot;               &quot;April 25&quot;           &quot;1898&quot;              
+## [103] &quot;1898&quot;               &quot;1898&quot;               &quot;1898&quot;              
+## [106] &quot;1898&quot;               &quot;1898&quot;               &quot;June 2, 1899&quot;      
+## [109] &quot;1899&quot;               &quot;September 28, 1899&quot; &quot;1912&quot;              
+## [112] &quot;April 21, 1914&quot;     &quot;July 28, 1915&quot;      &quot;1916&quot;              
+## [115] &quot;1917&quot;               &quot;1917&quot;               &quot;1917&quot;              
+## [118] &quot;1917&quot;               &quot;1917&quot;               &quot;1917&quot;              
+## [121] &quot;1918&quot;               &quot;1918&quot;               &quot;1918&quot;              
+## [124] &quot;December 7, 1941&quot;   &quot;1941&quot;               &quot;1941&quot;              
+## [127] &quot;&quot;                   &quot;&quot;                   &quot;June 3, 1942&quot;      
+## [130] &quot;August 7, 1942&quot;     &quot;January 1942&quot;       &quot;November, 1943&quot;    
+## [133] &quot;June&quot;               &quot;October 20, 1944&quot;   &quot;January&quot;           
+## [136] &quot;1 May&quot;              &quot;16 February&quot;        &quot;1941&quot;              
+## [139] &quot;8&quot;                  &quot;1942&quot;               &quot;17 November 1942&quot;  
+## [142] &quot;9 July&quot;             &quot;1942&quot;               &quot;3 September 1943&quot;  
+## [145] &quot;January 22, 1944&quot;   &quot;22 January 1944&quot;    &quot;6 June 1944&quot;       
+## [148] &quot;6 June&quot;             &quot;15 August 1944&quot;     &quot;25 August&quot;         
+## [151] &quot;25 August 1944&quot;     &quot;16 December 1944&quot;   &quot;February 8, 1945&quot;  
+## [154] &quot;6 April 1945&quot;       &quot;1947&quot;               &quot;1950&quot;              
+## [157] &quot;1950&quot;               &quot;1953&quot;               &quot;1953&quot;              
+## [160] &quot;1970&quot;               &quot;April 28, 1965&quot;     &quot;25 October&quot;        
+## [163] &quot;July 15&quot;            &quot;August 24, 1982&quot;    &quot;August 19, 1981&quot;   
+## [166] &quot;March 1986&quot;         &quot;April 15, 1986&quot;     &quot;1987&quot;              
+## [169] &quot;January 4, 1989&quot;    &quot;20 December 1989&quot;   &quot;August 2, 1990&quot;    
+## [172] &quot;1991&quot;               &quot;1992&quot;               &quot;1993&quot;              
+## [175] &quot;19 September 1994&quot;  &quot;August 20, 1998&quot;    &quot;March 24&quot;          
+## [178] &quot;7 October 2001&quot;     &quot;7 October 2001&quot;     &quot;October 7, 2001&quot;   
+## [181] &quot;15 January 2002&quot;    &quot;7 October 2002&quot;     &quot;6 February 2007&quot;   
+## [184] &quot;March 20, 2003&quot;     &quot;March 16, 2004&quot;     &quot;January 14, 2010&quot;  
+## [187] &quot;2003&quot;               &quot;March 19&quot;
+</code></pre>
+
+<pre><code class="r">str_replace(theStart, pattern = &quot;\\d&quot;, replacement = &quot;x&quot;)
+</code></pre>
+
+<pre><code>##   [1] &quot;September x, 1774&quot;  &quot;September x, 1774&quot;  &quot;x775&quot;              
+##   [4] &quot;June x775&quot;          &quot;July x776&quot;          &quot;June x4, 1777&quot;     
+##   [7] &quot;x777&quot;               &quot;x775&quot;               &quot;x776&quot;              
+##  [10] &quot;x778&quot;               &quot;x775&quot;               &quot;x779&quot;              
+##  [13] &quot;January&quot;            &quot;x785&quot;               &quot;x798&quot;              
+##  [16] &quot;x801&quot;               &quot;August&quot;             &quot;June x8, 1812&quot;     
+##  [19] &quot;x812&quot;               &quot;x813&quot;               &quot;x812&quot;              
+##  [22] &quot;x812&quot;               &quot;x813&quot;               &quot;x813&quot;              
+##  [25] &quot;x813&quot;               &quot;x814&quot;               &quot;x813&quot;              
+##  [28] &quot;x814&quot;               &quot;x813&quot;               &quot;x815&quot;              
+##  [31] &quot;November x2, 1817&quot;  &quot;x817&quot;               &quot;x819&quot;              
+##  [34] &quot;November x&quot;         &quot;x823&quot;               &quot;x825&quot;              
+##  [37] &quot;x827&quot;               &quot;May&quot;                &quot;February x&quot;        
+##  [40] &quot;x838&quot;               &quot;December x3, 1835&quot;  &quot;December x838&quot;     
+##  [43] &quot;October x9&quot;         &quot;March x1, 1845&quot;     &quot;April x5, 1846&quot;    
+##  [46] &quot;x846&quot;               &quot;x846&quot;               &quot;x846&quot;              
+##  [49] &quot;x847&quot;               &quot;x847&quot;               &quot;x858&quot;              
+##  [52] &quot;x847&quot;               &quot;April x8&quot;           &quot;x851&quot;              
+##  [55] &quot;July x3, 1854&quot;      &quot;August x, 1855&quot;     &quot;October x855&quot;      
+##  [58] &quot;x855&quot;               &quot;x855&quot;               &quot;x855&quot;              
+##  [61] &quot;x855&quot;               &quot;x856&quot;               &quot;x&quot;                 
+##  [64] &quot;x859&quot;               &quot;March x, 1860&quot;      &quot;x860&quot;              
+##  [67] &quot;April x2, 1861&quot;     &quot;x861&quot;               &quot;x861&quot;              
+##  [70] &quot;x862&quot;               &quot;x862&quot;               &quot;x862&quot;              
+##  [73] &quot;August x7&quot;          &quot;July x1, 1861&quot;      &quot;x863&quot;              
+##  [76] &quot;July x0, 1863&quot;      &quot;x865&quot;               &quot;x864&quot;              
+##  [79] &quot;x866&quot;               &quot;June x867&quot;          &quot;x867&quot;              
+##  [82] &quot;June x7, 1870&quot;      &quot;June x, 1871&quot;       &quot;July x, 1872&quot;      
+##  [85] &quot;February x2, 1874&quot;  &quot;June x7, 1874&quot;      &quot;x876&quot;              
+##  [88] &quot;x877&quot;               &quot;x878&quot;               &quot;x878&quot;              
+##  [91] &quot;x879&quot;               &quot;x879&quot;               &quot;June&quot;              
+##  [94] &quot;March x0&quot;           &quot;x887&quot;               &quot;November x890&quot;     
+##  [97] &quot;June x2&quot;            &quot;x891&quot;               &quot;January x1&quot;        
+## [100] &quot;x898&quot;               &quot;April x5&quot;           &quot;x898&quot;              
+## [103] &quot;x898&quot;               &quot;x898&quot;               &quot;x898&quot;              
+## [106] &quot;x898&quot;               &quot;x898&quot;               &quot;June x, 1899&quot;      
+## [109] &quot;x899&quot;               &quot;September x8, 1899&quot; &quot;x912&quot;              
+## [112] &quot;April x1, 1914&quot;     &quot;July x8, 1915&quot;      &quot;x916&quot;              
+## [115] &quot;x917&quot;               &quot;x917&quot;               &quot;x917&quot;              
+## [118] &quot;x917&quot;               &quot;x917&quot;               &quot;x917&quot;              
+## [121] &quot;x918&quot;               &quot;x918&quot;               &quot;x918&quot;              
+## [124] &quot;December x, 1941&quot;   &quot;x941&quot;               &quot;x941&quot;              
+## [127] &quot;&quot;                   &quot;&quot;                   &quot;June x, 1942&quot;      
+## [130] &quot;August x, 1942&quot;     &quot;January x942&quot;       &quot;November, x943&quot;    
+## [133] &quot;June&quot;               &quot;October x0, 1944&quot;   &quot;January&quot;           
+## [136] &quot;x May&quot;              &quot;x6 February&quot;        &quot;x941&quot;              
+## [139] &quot;x&quot;                  &quot;x942&quot;               &quot;x7 November 1942&quot;  
+## [142] &quot;x July&quot;             &quot;x942&quot;               &quot;x September 1943&quot;  
+## [145] &quot;January x2, 1944&quot;   &quot;x2 January 1944&quot;    &quot;x June 1944&quot;       
+## [148] &quot;x June&quot;             &quot;x5 August 1944&quot;     &quot;x5 August&quot;         
+## [151] &quot;x5 August 1944&quot;     &quot;x6 December 1944&quot;   &quot;February x, 1945&quot;  
+## [154] &quot;x April 1945&quot;       &quot;x947&quot;               &quot;x950&quot;              
+## [157] &quot;x950&quot;               &quot;x953&quot;               &quot;x953&quot;              
+## [160] &quot;x970&quot;               &quot;April x8, 1965&quot;     &quot;x5 October&quot;        
+## [163] &quot;July x5&quot;            &quot;August x4, 1982&quot;    &quot;August x9, 1981&quot;   
+## [166] &quot;March x986&quot;         &quot;April x5, 1986&quot;     &quot;x987&quot;              
+## [169] &quot;January x, 1989&quot;    &quot;x0 December 1989&quot;   &quot;August x, 1990&quot;    
+## [172] &quot;x991&quot;               &quot;x992&quot;               &quot;x993&quot;              
+## [175] &quot;x9 September 1994&quot;  &quot;August x0, 1998&quot;    &quot;March x4&quot;          
+## [178] &quot;x October 2001&quot;     &quot;x October 2001&quot;     &quot;October x, 2001&quot;   
+## [181] &quot;x5 January 2002&quot;    &quot;x October 2002&quot;     &quot;x February 2007&quot;   
+## [184] &quot;March x0, 2003&quot;     &quot;March x6, 2004&quot;     &quot;January x4, 2010&quot;  
+## [187] &quot;x003&quot;               &quot;March x9&quot;
+</code></pre>
+
+<pre><code class="r">str_replace_all(theStart, pattern = &quot;\\d&quot;, replacement = &quot;x&quot;)
+</code></pre>
+
+<pre><code>##   [1] &quot;September x, xxxx&quot;  &quot;September x, xxxx&quot;  &quot;xxxx&quot;              
+##   [4] &quot;June xxxx&quot;          &quot;July xxxx&quot;          &quot;June xx, xxxx&quot;     
+##   [7] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [10] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [13] &quot;January&quot;            &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [16] &quot;xxxx&quot;               &quot;August&quot;             &quot;June xx, xxxx&quot;     
+##  [19] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [22] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [25] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [28] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [31] &quot;November xx, xxxx&quot;  &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [34] &quot;November x&quot;         &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [37] &quot;xxxx&quot;               &quot;May&quot;                &quot;February x&quot;        
+##  [40] &quot;xxxx&quot;               &quot;December xx, xxxx&quot;  &quot;December xxxx&quot;     
+##  [43] &quot;October xx&quot;         &quot;March xx, xxxx&quot;     &quot;April xx, xxxx&quot;    
+##  [46] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [49] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [52] &quot;xxxx&quot;               &quot;April xx&quot;           &quot;xxxx&quot;              
+##  [55] &quot;July xx, xxxx&quot;      &quot;August x, xxxx&quot;     &quot;October xxxx&quot;      
+##  [58] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [61] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;x&quot;                 
+##  [64] &quot;xxxx&quot;               &quot;March x, xxxx&quot;      &quot;xxxx&quot;              
+##  [67] &quot;April xx, xxxx&quot;     &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [70] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [73] &quot;August xx&quot;          &quot;July xx, xxxx&quot;      &quot;xxxx&quot;              
+##  [76] &quot;July xx, xxxx&quot;      &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [79] &quot;xxxx&quot;               &quot;June xxxx&quot;          &quot;xxxx&quot;              
+##  [82] &quot;June xx, xxxx&quot;      &quot;June x, xxxx&quot;       &quot;July x, xxxx&quot;      
+##  [85] &quot;February xx, xxxx&quot;  &quot;June xx, xxxx&quot;      &quot;xxxx&quot;              
+##  [88] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+##  [91] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;June&quot;              
+##  [94] &quot;March xx&quot;           &quot;xxxx&quot;               &quot;November xxxx&quot;     
+##  [97] &quot;June xx&quot;            &quot;xxxx&quot;               &quot;January xx&quot;        
+## [100] &quot;xxxx&quot;               &quot;April xx&quot;           &quot;xxxx&quot;              
+## [103] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+## [106] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;June x, xxxx&quot;      
+## [109] &quot;xxxx&quot;               &quot;September xx, xxxx&quot; &quot;xxxx&quot;              
+## [112] &quot;April xx, xxxx&quot;     &quot;July xx, xxxx&quot;      &quot;xxxx&quot;              
+## [115] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+## [118] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+## [121] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+## [124] &quot;December x, xxxx&quot;   &quot;xxxx&quot;               &quot;xxxx&quot;              
+## [127] &quot;&quot;                   &quot;&quot;                   &quot;June x, xxxx&quot;      
+## [130] &quot;August x, xxxx&quot;     &quot;January xxxx&quot;       &quot;November, xxxx&quot;    
+## [133] &quot;June&quot;               &quot;October xx, xxxx&quot;   &quot;January&quot;           
+## [136] &quot;x May&quot;              &quot;xx February&quot;        &quot;xxxx&quot;              
+## [139] &quot;x&quot;                  &quot;xxxx&quot;               &quot;xx November xxxx&quot;  
+## [142] &quot;x July&quot;             &quot;xxxx&quot;               &quot;x September xxxx&quot;  
+## [145] &quot;January xx, xxxx&quot;   &quot;xx January xxxx&quot;    &quot;x June xxxx&quot;       
+## [148] &quot;x June&quot;             &quot;xx August xxxx&quot;     &quot;xx August&quot;         
+## [151] &quot;xx August xxxx&quot;     &quot;xx December xxxx&quot;   &quot;February x, xxxx&quot;  
+## [154] &quot;x April xxxx&quot;       &quot;xxxx&quot;               &quot;xxxx&quot;              
+## [157] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+## [160] &quot;xxxx&quot;               &quot;April xx, xxxx&quot;     &quot;xx October&quot;        
+## [163] &quot;July xx&quot;            &quot;August xx, xxxx&quot;    &quot;August xx, xxxx&quot;   
+## [166] &quot;March xxxx&quot;         &quot;April xx, xxxx&quot;     &quot;xxxx&quot;              
+## [169] &quot;January x, xxxx&quot;    &quot;xx December xxxx&quot;   &quot;August x, xxxx&quot;    
+## [172] &quot;xxxx&quot;               &quot;xxxx&quot;               &quot;xxxx&quot;              
+## [175] &quot;xx September xxxx&quot;  &quot;August xx, xxxx&quot;    &quot;March xx&quot;          
+## [178] &quot;x October xxxx&quot;     &quot;x October xxxx&quot;     &quot;October x, xxxx&quot;   
+## [181] &quot;xx January xxxx&quot;    &quot;x October xxxx&quot;     &quot;x February xxxx&quot;   
+## [184] &quot;March xx, xxxx&quot;     &quot;March xx, xxxx&quot;     &quot;January xx, xxxx&quot;  
+## [187] &quot;xxxx&quot;               &quot;March xx&quot;
+</code></pre>
+
+<pre><code class="r">str_replace_all(theStart, pattern = &quot;\\d{1,4}&quot;, replacement = &quot;x&quot;)
+</code></pre>
+
+<pre><code>##   [1] &quot;September x, x&quot; &quot;September x, x&quot; &quot;x&quot;              &quot;June x&quot;        
+##   [5] &quot;July x&quot;         &quot;June x, x&quot;      &quot;x&quot;              &quot;x&quot;             
+##   [9] &quot;x&quot;              &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+##  [13] &quot;January&quot;        &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+##  [17] &quot;August&quot;         &quot;June x, x&quot;      &quot;x&quot;              &quot;x&quot;             
+##  [21] &quot;x&quot;              &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+##  [25] &quot;x&quot;              &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+##  [29] &quot;x&quot;              &quot;x&quot;              &quot;November x, x&quot;  &quot;x&quot;             
+##  [33] &quot;x&quot;              &quot;November x&quot;     &quot;x&quot;              &quot;x&quot;             
+##  [37] &quot;x&quot;              &quot;May&quot;            &quot;February x&quot;     &quot;x&quot;             
+##  [41] &quot;December x, x&quot;  &quot;December x&quot;     &quot;October x&quot;      &quot;March x, x&quot;    
+##  [45] &quot;April x, x&quot;     &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+##  [49] &quot;x&quot;              &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+##  [53] &quot;April x&quot;        &quot;x&quot;              &quot;July x, x&quot;      &quot;August x, x&quot;   
+##  [57] &quot;October x&quot;      &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+##  [61] &quot;x&quot;              &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+##  [65] &quot;March x, x&quot;     &quot;x&quot;              &quot;April x, x&quot;     &quot;x&quot;             
+##  [69] &quot;x&quot;              &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+##  [73] &quot;August x&quot;       &quot;July x, x&quot;      &quot;x&quot;              &quot;July x, x&quot;     
+##  [77] &quot;x&quot;              &quot;x&quot;              &quot;x&quot;              &quot;June x&quot;        
+##  [81] &quot;x&quot;              &quot;June x, x&quot;      &quot;June x, x&quot;      &quot;July x, x&quot;     
+##  [85] &quot;February x, x&quot;  &quot;June x, x&quot;      &quot;x&quot;              &quot;x&quot;             
+##  [89] &quot;x&quot;              &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+##  [93] &quot;June&quot;           &quot;March x&quot;        &quot;x&quot;              &quot;November x&quot;    
+##  [97] &quot;June x&quot;         &quot;x&quot;              &quot;January x&quot;      &quot;x&quot;             
+## [101] &quot;April x&quot;        &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+## [105] &quot;x&quot;              &quot;x&quot;              &quot;x&quot;              &quot;June x, x&quot;     
+## [109] &quot;x&quot;              &quot;September x, x&quot; &quot;x&quot;              &quot;April x, x&quot;    
+## [113] &quot;July x, x&quot;      &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+## [117] &quot;x&quot;              &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+## [121] &quot;x&quot;              &quot;x&quot;              &quot;x&quot;              &quot;December x, x&quot; 
+## [125] &quot;x&quot;              &quot;x&quot;              &quot;&quot;               &quot;&quot;              
+## [129] &quot;June x, x&quot;      &quot;August x, x&quot;    &quot;January x&quot;      &quot;November, x&quot;   
+## [133] &quot;June&quot;           &quot;October x, x&quot;   &quot;January&quot;        &quot;x May&quot;         
+## [137] &quot;x February&quot;     &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+## [141] &quot;x November x&quot;   &quot;x July&quot;         &quot;x&quot;              &quot;x September x&quot; 
+## [145] &quot;January x, x&quot;   &quot;x January x&quot;    &quot;x June x&quot;       &quot;x June&quot;        
+## [149] &quot;x August x&quot;     &quot;x August&quot;       &quot;x August x&quot;     &quot;x December x&quot;  
+## [153] &quot;February x, x&quot;  &quot;x April x&quot;      &quot;x&quot;              &quot;x&quot;             
+## [157] &quot;x&quot;              &quot;x&quot;              &quot;x&quot;              &quot;x&quot;             
+## [161] &quot;April x, x&quot;     &quot;x October&quot;      &quot;July x&quot;         &quot;August x, x&quot;   
+## [165] &quot;August x, x&quot;    &quot;March x&quot;        &quot;April x, x&quot;     &quot;x&quot;             
+## [169] &quot;January x, x&quot;   &quot;x December x&quot;   &quot;August x, x&quot;    &quot;x&quot;             
+## [173] &quot;x&quot;              &quot;x&quot;              &quot;x September x&quot;  &quot;August x, x&quot;   
+## [177] &quot;March x&quot;        &quot;x October x&quot;    &quot;x October x&quot;    &quot;October x, x&quot;  
+## [181] &quot;x January x&quot;    &quot;x October x&quot;    &quot;x February x&quot;   &quot;March x, x&quot;    
+## [185] &quot;March x, x&quot;     &quot;January x, x&quot;   &quot;x&quot;              &quot;March x&quot;
+</code></pre>
+
+<pre><code class="r"># s/\d/x/g
+commands &lt;- c(&quot;&lt;a href=index.html&gt;This is a link&lt;/a&gt;&quot;, &quot;&lt;b&gt;This is bold text&lt;/b&gt;&quot;)
+commands
+</code></pre>
+
+<pre><code>## [1] &quot;&lt;a href=index.html&gt;This is a link&lt;/a&gt;&quot;
+## [2] &quot;&lt;b&gt;This is bold text&lt;/b&gt;&quot;
+</code></pre>
+
+<pre><code class="r">
+str_replace_all(commands, pattern = &quot;&lt;.+?&gt;&quot;, replacement = &quot;&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;This is a link&quot;    &quot;This is bold text&quot;
+</code></pre>
+
+<pre><code class="r">str_replace_all(commands, pattern = &quot;&lt;.+?&gt;(.+?)&lt;.+?&gt;&quot;, replacement = &quot;\\1&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;This is a link&quot;    &quot;This is bold text&quot;
+</code></pre>
+
+<pre><code class="r">str_replace_all(commands, pattern = &quot;&lt;.+?&gt;(.+?)&lt;.+?&gt;&quot;, replacement = &quot;xxx\\1xxx&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;xxxThis is a linkxxx&quot;    &quot;xxxThis is bold textxxx&quot;
+</code></pre>
+
+<pre><code class="r">str_replace_all(commands, pattern = &quot;&lt;(.+?)&gt;(.+?)&lt;(.+?)&gt;&quot;, replacement = &quot;Closing tag: \\3, opening tag: \\1, middle text: \\2&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;Closing tag: /a, opening tag: a href=index.html, middle text: This is a link&quot;
+## [2] &quot;Closing tag: /b, opening tag: b, middle text: This is bold text&quot;
+</code></pre>
+
+<pre><code class="r">
+# sed awk grep
+</code></pre>
+
+</body>
+
+</html>
+

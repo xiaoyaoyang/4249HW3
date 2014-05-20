@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title></title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<pre><code class="r">acs &lt;- read.table(&quot;http://www.jaredlander.com/data/acs_ny.csv&quot;, sep = &quot;,&quot;, header = TRUE, 
+    stringsAsFactors = FALSE)
+
+dim(acs)
+</code></pre>
+
+<pre><code>## [1] 22745    18
+</code></pre>
+
+<p>Formula:<br/>
+response ~ predictor</p>
+
+<pre><code class="r">require(ggplot2)
+ggplot(acs, aes(x = FamilyIncome)) + geom_density(fill = &quot;grey50&quot;) + geom_vline(xintercept = 150000)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt=""/> </p>
+
+<pre><code class="r">acs$Income &lt;- acs$FamilyIncome &gt;= 150000
+require(useful)
+topright(acs)
+</code></pre>
+
+<pre><code>##   FoodStamp HeatingFuel Insurance       Language Income
+## 1        No         Gas      2500        English  FALSE
+## 2        No         Oil         0        English  FALSE
+## 3        No         Oil      6600 Other European  FALSE
+## 4        No         Oil         0        English  FALSE
+## 5        No         Gas       660        Spanish  FALSE
+</code></pre>
+
+<pre><code class="r">theFormula &lt;- Income ~ NumBedrooms + NumChildren + NumPeople + NumRooms + NumVehicles + 
+    NumWorkers + OwnRent + YearBuilt + ElectricBill + FoodStamp + HeatingFuel + Insurance + 
+    Language - 1
+theFormula
+</code></pre>
+
+<pre><code>## Income ~ NumBedrooms + NumChildren + NumPeople + NumRooms + NumVehicles + 
+##     NumWorkers + OwnRent + YearBuilt + ElectricBill + FoodStamp + 
+##     HeatingFuel + Insurance + Language - 1
+</code></pre>
+
+<pre><code class="r">acsX &lt;- build.x(formula = theFormula, data = acs, contrasts = FALSE)
+class(acsX)
+</code></pre>
+
+<pre><code>## [1] &quot;matrix&quot;
+</code></pre>
+
+<pre><code class="r">dim(acsX)
+</code></pre>
+
+<pre><code>## [1] 22745    41
+</code></pre>
+
+<pre><code class="r">
+acsY &lt;- build.y(theFormula, data = acs)
+corner(acsX)
+</code></pre>
+
+<pre><code>##   NumBedrooms NumChildren NumPeople NumRooms NumVehicles
+## 1           4           1         3        9           1
+## 2           3           2         4        6           2
+## 3           4           0         2        8           3
+## 4           2           1         2        4           1
+## 5           3           1         2        5           1
+</code></pre>
+
+<pre><code class="r">head(acsY)
+</code></pre>
+
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE FALSE
+</code></pre>
+
+<pre><code class="r">require(glmnet)
+acs1 &lt;- glmnet(x = acsX, y = acsY, family = &quot;binomial&quot;, alpha = 0)
+plot(acs1)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAh1BMVEX9/v0AAAAAADkAAGUAAP8AOY8AZrUAzQAA//85AAA5ADk5AGU5OWU5OY85ZrU5j9plAABlADllAGVlOQBlOY9ltf2POQCPOTmPOWWPZgCPj2WPtY+P29qP2/21ZgC1tWW1/rW1/tq1/v3ajzna/rXa/v39tWX924/9/rX9/tr9/v3/AAD/AP93/JZYAAAALXRSTlP///////////////////////////////////////////////////////8A//82ddCdAAAACXBIWXMAAAsSAAALEgHS3X78AAAZRklEQVR4nO2diXrcthVGO/bYHjdxpTi13Dax21q1RqL0/s9XcQGJfd/I+58vsaQhCYI4uAAILvOXAZDkL60zANoA8USBeKJAPFEgnigQTxSIJwrEEwXiiQLxRIF4okA8USCeKBBPFIgnCsQTBeKJAvFEgXiiQDxRIJ4oEE8UiCcKxBMF4okC8USBeKJAPFEgnigQTxSIJwrEEyWT+Ke7L+OP6y8/9rl98wxUP4BM4u9P424fTm8j8916++YZqH4AecRff/39dbff3/wRWWFbb988A/UPIIv4p69/JrVUrbdvnoEGB5BF/P1NWhfVevvmGWhwADnEXz/9TMp36+2bZ6DFAeQQf38auQnZbVfbN89AiwPA6VwfGdjr6Vzr44b4RuLB3oB4okA8USCeKBBPFIgnCsQTBeKJAvFEgXiiQDxRIJ4oEE+UjOJPO9++eQaqHgDE95MBiG+zffMMQHyb7ZtnYDfiT6BnCopP2BaUBuKJkiz++nFqODTPZEF8z6SKX+7eHB7e/QxMGjQlVfzj5x/CT/+kQVMQ8URJ7uMfb9HH7xGM6okC8UTJJZ4b3HnODYGmIOKJAvFEgXgiPD+Lf0M8CWTtGWbubpeRnHoiD/HdoGjPEPFPdzeGJRDfCWq4Dzma+sffvukXQHwXaLWjjz86Bu0Qf2yM2iH+yFi0Q/xxsWqH+KPi0A7xx8SpHeKPiId2iD8cz17aIf5geFofIP5Q+GuH+AMRoh3iD0OYdog/CKHaIf4QhGuH+AMQox3id0+cdojfO5HaIX7fxIb7APG7Jl47xO+YhHAfIH63pGmH+J2Sqh3id0m6dojfITm0Q/zuyKMd4ndGLu0Qvyvy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" alt=""/> </p>
+
+<pre><code class="r">acsCV1 &lt;- cv.glmnet(x = acsX, y = acsY, family = &quot;binomial&quot;, alpha = 0, nfold = 5)
+plot(acsCV1)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAgVBMVEX9/v0AAAAAADkAAGUAOWUAOY8AZo8AZrU5AAA5ADk5AGU5OWU5OY85ZrU5j9plAABlADllAGVlOQBlOTllZmVltf2POQCPOTmPOWWPj2WPtY+P29qP2/2pqam1ZgC1Zjm1/rW1/v3ajzna/rXa/v39tWX924/9/rX9/tr9/v3/AADdiaOXAAAAK3RSTlP//////////////////////////////////////////////////////wD/ne+1LwAAAAlwSFlzAAALEgAACxIB0t1+/AAAEehJREFUeJztnQ1z47YVRUOnrpzNxt7dxnbalZRatWTR//8HVo/6AkmQBAWAxMO9Z+rxjLmBWB/j4gEEyV9KAskvc58AmQeKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQAonfvzzLt92Xt/iHJv0w3WffQyDxm0I+fFv82v7w4Icm/TDdZ99DGPG7338cPnx995/2X13wQ5N+mO6z7yOI+P3rz664CX5o0g/Tffa9BBG/eewcZ4IfmvTDdJ99LyHE776+d3148EOTfpjus+8nhPhNITzaPjz4oUk/TPfZ98PpXM5n3wPF53z2PXDlDhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFB/xBUmZiOI9/lsSm+nEj/874F9ORCgeFEY9KBQPCqMeFIoHhVEPCsWDwqgHheJBYdSDQvG5szK5/phRnx0rC/Lj+r+i+CywmD7LNr8MGPWqsXXr0xfFZ0m38KnE7x6q/RyWB2Yy6iMwLHwi8adH65Tb+/fmIYoPiMMAPq34j+9vte/uTRNXLF18fvHuPZ7cwojKbeIx/uOJY3wkegbzBMR3Q/Ee3FCypyqeODNctg+L//wsW18m003niBO3z9VWpmUbtc/hdC4h3OdrVtkdvuOId5/OUbwTblm+cpAdN+o5nQtEo5rrkV7ZtgqvWZ5+Oud4Wx654L5C0zZe79IpVvWM+l76q7d2rltlU7wehpfmGr38FPWpzOO5Vu9BtzaLdMd5fDo9nrToX5M1pLdyXZN4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" alt=""/> </p>
+
+<pre><code class="r">acsCV1$lambda.min
+</code></pre>
+
+<pre><code>## [1] 0.01273
+</code></pre>
+
+<pre><code class="r">acsCV1$lambda.1se
+</code></pre>
+
+<pre><code>## [1] 0.04265
+</code></pre>
+
+<pre><code class="r">acs1$lambda
+</code></pre>
+
+<pre><code>##   [1] 127.25759 115.95238 105.65149  96.26570  87.71372  79.92148  72.82147
+##   [8]  66.35221  60.45767  55.08677  50.19302  45.73401  41.67112  37.96918
+##  [15]  34.59610  31.52268  28.72229  26.17068  23.84575  21.72736  19.79716
+##  [22]  18.03843  16.43595  14.97583  13.64541  12.43319  11.32866  10.32226
+##  [29]   9.40525   8.56972   7.80841   7.11473   6.48268   5.90677   5.38203
+##  [36]   4.90391   4.46826   4.07131   3.70963   3.38007   3.07980   2.80620
+##  [43]   2.55690   2.32975   2.12278   1.93420   1.76237   1.60581   1.46315
+##  [50]   1.33317   1.21474   1.10682   1.00849   0.91890   0.83727   0.76289
+##  [57]   0.69512   0.63336   0.57710   0.52583   0.47912   0.43655   0.39777
+##  [64]   0.36243   0.33024   0.30090   0.27417   0.24981   0.22762   0.20740
+##  [71]   0.18897   0.17219   0.15689   0.14295   0.13025   0.11868   0.10814
+##  [78]   0.09853   0.08978   0.08180   0.07454   0.06791   0.06188   0.05638
+##  [85]   0.05137   0.04681   0.04265   0.03886   0.03541   0.03226   0.02940
+##  [92]   0.02679   0.02441   0.02224   0.02026   0.01846   0.01682   0.01533
+##  [99]   0.01397   0.01273
+</code></pre>
+
+<pre><code class="r">as.data.frame(as.matrix(coef(acs1)))
+</code></pre>
+
+<pre><code>##                                s0         s1         s2         s3         s4
+## (Intercept)            -1.382e+00 -1.394e+00 -1.395e+00 -1.397e+00 -1.398e+00
+## NumBedrooms             7.580e-38  6.445e-04  7.072e-04  7.758e-04  8.511e-04
+## NumChildren             8.099e-39  6.869e-05  7.536e-05  8.265e-05  9.064e-05
+## NumPeople               2.467e-38  2.095e-04  2.299e-04  2.522e-04  2.766e-04
+## NumRooms                3.900e-38  3.317e-04  3.640e-04  3.993e-04  4.381e-04
+## NumVehicles             7.347e-38  6.248e-04  6.855e-04  7.520e-04  8.250e-04
+## NumWorkers              9.581e-38  8.154e-04  8.947e-04  9.816e-04  1.077e-03
+## OwnRentMortgage         1.637e-37  1.389e-03  1.524e-03  1.671e-03  1.833e-03
+## OwnRentOutright         1.613e-38  1.425e-04  1.569e-04  1.728e-04  1.904e-04
+## OwnRentRented          -1.737e-37 -1.475e-03 -1.618e-03 -1.774e-03 -1.946e-03
+## YearBuilt15            -1.355e-37 -1.153e-03 -1.265e-03 -1.388e-03 -1.523e-03
+## YearBuilt1940-1949     -2.920e-38 -2.485e-04 -2.726e-04 -2.991e-04 -3.281e-04
+## YearBuilt1950-1959      2.430e-38  2.067e-04  2.269e-04  2.489e-04  2.731e-04
+## YearBuilt1960-1969      2.349e-38  1.996e-04  2.190e-04  2.402e-04  2.634e-04
+## YearBuilt1970-1979     -1.949e-38 -1.661e-04 -1.822e-04 -2.000e-04 -2.194e-04
+## YearBuilt1980-1989      2.821e-38  2.407e-04  2.641e-04  2.898e-04  3.181e-04
+## YearBuilt1990-1999      1.397e-38  1.192e-04  1.308e-04  1.435e-04  1.575e-04
+## YearBuilt2000-2004      4.113e-38  3.503e-04  3.843e-04  4.217e-04  4.627e-04
+## YearBuilt2005           7.556e-38  6.436e-04  7.062e-04  7.749e-04  8.502e-04
+## YearBuilt2006           4.879e-38  4.155e-04  4.560e-04  5.003e-04  5.489e-04
+## YearBuilt2007           7.146e-38  6.093e-04  6.686e-04  7.337e-04  8.051e-04
+## YearBuilt2008          -3.762e-38 -3.200e-04 -3.510e-04 -3.851e-04 -4.225e-04
+## YearBuilt2009           1.639e-38  1.408e-04  1.546e-04  1.698e-04  1.865e-04
+## YearBuilt2010           8.605e-38  7.337e-04  8.052e-04  8.836e-04  9.696e-04
+## YearBuiltBefore 1939   -4.466e-38 -3.803e-04 -4.173e-04 -4.578e-04 -5.023e-04
+## ElectricBill            8.001e-40  6.809e-06  7.471e-06  8.196e-06  8.992e-06
+## FoodStampNo             1.642e-37  1.394e-03  1.530e-03  1.678e-03  1.841e-03
+## FoodStampYes           -1.642e-37 -1.394e-03 -1.530e-03 -1.678e-03 -1.840e-03
+## HeatingFuelCoal        -1.455e-37 -1.240e-03 -1.360e-03 -1.493e-03 -1.638e-03
+## HeatingFuelElectricity -4.599e-38 -3.908e-04 -4.288e-04 -4.703e-04 -5.159e-04
+## HeatingFuelGas          1.015e-38  8.683e-05  9.531e-05  1.046e-04  1.149e-04
+## HeatingFuelNone        -1.150e-37 -9.783e-04 -1.073e-03 -1.177e-03 -1.292e-03
+## HeatingFuelOil          4.181e-38  3.556e-04  3.901e-04  4.280e-04  4.695e-04
+## HeatingFuelOther       -7.440e-38 -6.332e-04 -6.947e-04 -7.622e-04 -8.362e-04
+## HeatingFuelSolar       -7.107e-40 -6.552e-06 -7.136e-06 -7.881e-06 -8.710e-06
+## HeatingFuelWood        -1.455e-37 -1.240e-03 -1.360e-03 -1.493e-03 -1.638e-03
+## Insurance               1.291e-40  1.099e-06  1.206e-06  1.323e-06  1.452e-06
+## LanguageAsian Pacific   9.199e-38  7.843e-04  8.607e-04  9.445e-04  1.036e-03
+## LanguageEnglish        -5.086e-38 -4.328e-04 -4.749e-04 -5.210e-04 -5.716e-04
+## LanguageOther           8.644e-38  7.358e-04  8.073e-04  8.857e-04  9.717e-04
+## LanguageOther European  7.409e-38  6.300e-04  6.911e-04  7.582e-04  8.317e-04
+## LanguageSpanish        -2.238e-38 -1.905e-04 -2.090e-04 -2.293e-04 -2.516e-04
+##                                s5         s6         s7         s8         s9
+## (Intercept)            -1.400e+00 -1.402e+00 -1.403e+00 -1.406e+00 -1.408e+00
+## NumBedrooms             9.336e-04  1.024e-03  1.123e-03  1.232e-03  1.351e-03
+## NumChildren             9.939e-05  1.090e-04  1.195e-04  1.310e-04  1.436e-04
+## NumPeople               3.034e-04  3.327e-04  3.649e-04  4.001e-04  4.387e-04
+## NumRooms                4.805e-04  5.271e-04  5.782e-04  6.342e-04  6.956e-04
+## NumVehicles             9.050e-04  9.927e-04  1.089e-03  1.194e-03  1.310e-03
+## NumWorkers              1.181e-03  1.296e-03  1.422e-03  1.559e-03  1.710e-03
+## OwnRentMortgage         2.010e-03  2.204e-03  2.417e-03  2.650e-03  2.905e-03
+## OwnRentOutright         2.098e-04  2.313e-04  2.551e-04  2.816e-04  3.108e-04
+## OwnRentRented          -2.134e-03 -2.340e-03 -2.566e-03 -2.813e-03 -3.084e-03
+## YearBuilt15            -1.671e-03 -1.833e-03 -2.011e-03 -2.206e-03 -2.420e-03
+## YearBuilt1940-1949     -3.600e-04 -3.949e-04 -4.332e-04 -4.751e-04 -5.211e-04
+## YearBuilt1950-1959      2.996e-04  3.286e-04  3.605e-04  3.954e-04  4.338e-04
+## YearBuilt1960-1969      2.889e-04  3.169e-04  3.475e-04  3.811e-04  4.179e-04
+## YearBuilt1970-1979     -2.408e-04 -2.642e-04 -2.898e-04 -3.180e-04 -3.489e-04
+## YearBuilt1980-1989      3.490e-04  3.830e-04  4.203e-04  4.612e-04  5.061e-04
+## YearBuilt1990-1999      1.728e-04  1.897e-04  2.081e-04  2.284e-04  2.506e-04
+## YearBuilt2000-2004      5.076e-04  5.569e-04  6.110e-04  6.703e-04  7.353e-04
+## YearBuilt2005           9.328e-04  1.023e-03  1.123e-03  1.232e-03  1.351e-03
+## YearBuilt2006           6.023e-04  6.608e-04  7.249e-04  7.953e-04  8.724e-04
+## YearBuilt2007           8.834e-04  9.693e-04  1.064e-03  1.167e-03  1.280e-03
+## YearBuilt2008          -4.634e-04 -5.083e-04 -5.576e-04 -6.115e-04 -6.707e-04
+## YearBuilt2009           2.049e-04  2.250e-04  2.472e-04  2.716e-04  2.984e-04
+## YearBuilt2010           1.064e-03  1.167e-03  1.281e-03  1.406e-03  1.542e-03
+## YearBuiltBefore 1939   -5.511e-04 -6.046e-04 -6.633e-04 -7.277e-04 -7.982e-04
+## ElectricBill            9.865e-06  1.082e-05  1.187e-05  1.302e-05  1.428e-05
+## FoodStampNo             2.019e-03  2.214e-03  2.428e-03  2.663e-03  2.919e-03
+## FoodStampYes           -2.019e-03 -2.214e-03 -2.428e-03 -2.662e-03 -2.919e-03
+## HeatingFuelCoal        -1.797e-03 -1.972e-03 -2.164e-03 -2.374e-03 -2.604e-03
+## HeatingFuelElectricity -5.659e-04 -6.206e-04 -6.807e-04 -7.465e-04 -8.185e-04
+## HeatingFuelGas          1.261e-04  1.384e-04  1.520e-04  1.669e-04  1.832e-04
+## HeatingFuelNone        -1.417e-03 -1.554e-03 -1.705e-03 -1.870e-03 -2.051e-03
+## HeatingFuelOil          5.151e-04  5.650e-04  6.197e-04  6.797e-04  7.454e-04
+## HeatingFuelOther       -9.174e-04 -1.006e-03 -1.104e-03 -1.211e-03 -1.328e-03
+## HeatingFuelSolar       -9.632e-06 -1.066e-05 -1.180e-05 -1.308e-05 -1.450e-05
+## HeatingFuelWood        -1.797e-03 -1.972e-03 -2.164e-03 -2.374e-03 -2.604e-03
+## Insurance               1.593e-06  1.747e-06  1.917e-06  2.103e-06  2.307e-06
+## LanguageAsian Pacific   1.137e-03  1.248e-03  1.369e-03  1.502e-03  1.648e-03
+## LanguageEnglish        -6.270e-04 -6.879e-04 -7.545e-04 -8.277e-04 -9.078e-04
+## LanguageOther           1.066e-03  1.169e-03  1.283e-03  1.407e-03  1.543e-03
+## LanguageOther European  9.123e-04  1.001e-03  1.098e-03  1.204e-03  1.320e-03
+## LanguageSpanish        -2.760e-04 -3.028e-04 -3.322e-04 -3.644e-04 -3.997e-04
+##                               s10        s11        s12        s13        s14
+## (Intercept)            -1.410e+00 -1.413e+00 -1.416e+00 -1.419e+00 -1.423e+00
+## NumBedrooms             1.481e-03  1.624e-03  1.781e-03  1.953e-03  2.141e-03
+## NumChildren             1.574e-04  1.725e-04  1.890e-04  2.071e-04  2.268e-04
+## NumPeople               4.810e-04  5.273e-04  5.780e-04  6.335e-04  6.942e-04
+## NumRooms                7.628e-04  8.365e-04  9.173e-04  1.006e-03  1.103e-03
+## NumVehicles             1.436e-03  1.575e-03  1.727e-03  1.893e-03  2.075e-03
+## NumWorkers              1.876e-03  2.057e-03  2.256e-03  2.474e-03  2.713e-03
+## OwnRentMortgage         3.184e-03  3.490e-03  3.825e-03  4.191e-03  4.592e-03
+## OwnRentOutright         3.434e-04  3.795e-04  4.197e-04  4.644e-04  5.143e-04
+## OwnRentRented          -3.381e-03 -3.706e-03 -4.062e-03 -4.451e-03 -4.876e-03
+## YearBuilt15            -2.654e-03 -2.911e-03 -3.193e-03 -3.501e-03 -3.839e-03
+## YearBuilt1940-1949     -5.716e-04 -6.268e-04 -6.874e-04 -7.538e-04 -8.264e-04
+## YearBuilt1950-1959      4.757e-04  5.218e-04  5.722e-04  6.274e-04  6.880e-04
+## YearBuilt1960-1969      4.581e-04  5.023e-04  5.506e-04  6.034e-04  6.613e-04
+## YearBuilt1970-1979     -3.828e-04 -4.199e-04 -4.607e-04 -5.053e-04 -5.543e-04
+## YearBuilt1980-1989      5.554e-04  6.094e-04  6.687e-04  7.337e-04  8.050e-04
+## YearBuilt1990-1999      2.750e-04  3.018e-04  3.311e-04  3.633e-04  3.987e-04
+## YearBuilt2000-2004      8.066e-04  8.848e-04  9.704e-04  1.064e-03  1.167e-03
+## YearBuilt2005           1.482e-03  1.626e-03  1.783e-03  1.956e-03  2.145e-03
+## YearBuilt2006           9.570e-04  1.050e-03  1.151e-03  1.263e-03  1.385e-03
+## YearBuilt2007           1.405e-03  1.541e-03  1.691e-03  1.855e-03  2.035e-03
+## YearBuilt2008          -7.355e-04 -8.065e-04 -8.843e-04 -9.695e-04 -1.063e-03
+## YearBuilt2009           3.279e-04  3.604e-04  3.961e-04  4.355e-04  4.788e-04
+## YearBuilt2010           1.692e-03  1.857e-03  2.037e-03  2.235e-03  2.452e-03
+## YearBuiltBefore 1939   -8.756e-04 -9.604e-04 -1.053e-03 -1.155e-03 -1.267e-03
+## ElectricBill            1.566e-05  1.718e-05  1.884e-05  2.066e-05  2.265e-05
+## FoodStampNo             3.201e-03  3.509e-03  3.846e-03  4.216e-03  4.620e-03
+## FoodStampYes           -3.200e-03 -3.508e-03 -3.845e-03 -4.214e-03 -4.618e-03
+## HeatingFuelCoal        -2.857e-03 -3.135e-03 -3.439e-03 -3.772e-03 -4.138e-03
+## HeatingFuelElectricity -8.975e-04 -9.840e-04 -1.079e-03 -1.182e-03 -1.296e-03
+## HeatingFuelGas          2.012e-04  2.209e-04  2.425e-04  2.663e-04  2.925e-04
+## HeatingFuelNone        -2.249e-03 -2.466e-03 -2.704e-03 -2.965e-03 -3.251e-03
+## HeatingFuelOil          8.175e-04  8.965e-04  9.830e-04  1.078e-03  1.181e-03
+## HeatingFuelOther       -1.457e-03 -1.598e-03 -1.752e-03 -1.921e-03 -2.107e-03
+## HeatingFuelSolar       -1.609e-05 -1.788e-05 -1.988e-05 -2.212e-05 -2.465e-05
+## HeatingFuelWood        -2.857e-03 -3.135e-03 -3.439e-03 -3.772e-03 -4.138e-03
+## Insurance               2.530e-06  2.775e-06  3.043e-06  3.337e-06  3.659e-06
+## LanguageAsian Pacific   1.809e-03  1.984e-03  2.177e-03  2.389e-03  2.620e-03
+## LanguageEnglish        -9.957e-04 -1.092e-03 -1.197e-03 -1.313e-03 -1.440e-03
+## LanguageOther           1.693e-03  1.857e-03  2.036e-03  2.233e-03  2.448e-03
+## LanguageOther European  1.447e-03  1.587e-03  1.740e-03  1.908e-03  2.091e-03
+## LanguageSpanish        -4.385e-04 -4.809e-04 -5.274e-04 -5.784e-04 -6.343e-04
+##                               s15        s16        s17        s18        s19
+## (Intercept)            -1.427e+00 -1.431e+00 -1.436e+00 -1.441e+00 -1.447e+00
+## NumBedrooms             2.346e-03  2.571e-03  2.818e-03  3.087e-03  3.382e-03
+## NumChildren             2.484e-04  2.720e-04  2.978e-04  3.259e-04  3.566e-04
+## NumPeople               7.607e-04  8.334e-04  9.128e-04  9.997e-04  1.095e-03
+## NumRooms                1.209e-03  1.325e-03  1.452e-03  1.591e-03  1.743e-03
+## NumVehicles             2.275e-03  2.493e-03  2.732e-03  2.993e-03  3.279e-03
+## NumWorkers              2.974e-03  3.261e-03  3.574e-03  3.918e-03  4.293e-03
+## OwnRentMortgage         5.030e-03  5.508e-03  6.031e-03  6.603e-03  7.226e-03
+## OwnRentOutright         5.700e-04  6.322e-04  7.017e-04  7.796e-04  8.670e-04
+## OwnRentRented          -5.342e-03 -5.850e-03 -6.406e-03 -7.014e-03 -7.677e-03
+## YearBuilt15            -4.210e-03 -4.615e-03 -5.060e-03 -5.546e-03 -6.079e-03
+## YearBuilt1940-1949     -9.061e-04 -9.932e-04 -1.089e-03 -1.193e-03 -1.307e-03
+## YearBuilt1950-1959      7.543e-04  8.269e-04  9.064e-04  9.935e-04  1.089e-03
+## YearBuilt1960-1969      7.246e-04  7.939e-04  8.696e-04  9.524e-04  1.043e-03
+## YearBuilt1970-1979     -6.080e-04 -6.668e-04 -7.313e-04 -8.020e-04 -8.795e-04
+## YearBuilt1980-1989      8.832e-04  9.691e-04  1.063e-03  1.166e-03  1.280e-03
+## YearBuilt1990-1999      4.374e-04  4.799e-04  5.265e-04  5.777e-04  6.337e-04
+## YearBuilt2000-2004      1.280e-03  1.404e-03  1.539e-03  1.687e-03  1.850e-03
+## YearBuilt2005           2.353e-03  2.580e-03  2.829e-03  3.102e-03  3.400e-03
+## YearBuilt2006           1.519e-03  1.666e-03  1.826e-03  2.003e-03  2.195e-03
+## YearBuilt2007           2.233e-03  2.449e-03  2.686e-03  2.947e-03  3.232e-03
+## YearBuilt2008          -1.165e-03 -1.277e-03 -1.399e-03 -1.533e-03 -1.679e-03
+## YearBuilt2009           5.265e-04  5.790e-04  6.370e-04  7.008e-04  7.713e-04
+## YearBuilt2010           2.690e-03  2.951e-03  3.237e-03  3.550e-03  3.894e-03
+## YearBuiltBefore 1939   -1.389e-03 -1.523e-03 -1.670e-03 -1.831e-03 -2.007e-03
+## ElectricBill            2.483e-05  2.722e-05  2.983e-05  3.270e-05  3.583e-05
+## FoodStampNo             5.062e-03  5.546e-03  6.075e-03  6.653e-03  7.284e-03
+## FoodStampYes           -5.060e-03 -5.543e-03 -6.071e-03 -6.649e-03 -7.280e-03
+## HeatingFuelCoal        -4.539e-03 -4.978e-03 -5.460e-03 -5.988e-03 -6.566e-03
+## HeatingFuelElectricity -1.420e-03 -1.556e-03 -1.705e-03 -1.868e-03 -2.045e-03
+## HeatingFuelGas          3.212e-04  3.528e-04  3.876e-04  4.257e-04  4.677e-04
+## HeatingFuelNone        -3.563e-03 -3.906e-03 -4.280e-03 -4.690e-03 -5.139e-03
+## HeatingFuelOil          1.295e-03  1.420e-03  1.556e-03  1.705e-03  1.868e-03
+## HeatingFuelOther       -2.310e-03 -2.532e-03 -2.775e-03 -3.042e-03 -3.334e-03
+## HeatingFuelSolar       -2.749e-05 -3.069e-05 -3.431e-05 -3.840e-05 -4.304e-05
+## HeatingFuelWood        -4.538e-03 -4.978e-03 -5.459e-03 -5.987e-03 -6.565e-03
+## Insurance               4.012e-06  4.399e-06  4.822e-06  5.286e-06  5.793e-06
+## LanguageAsian Pacific   2.875e-03  3.153e-03  3.459e-03  3.794e-03  4.161e-03
+## LanguageEnglish        -1.578e-03 -1.730e-03 -1.897e-03 -2.079e-03 -2.278e-03
+## LanguageOther           2.684e-03  2.942e-03  3.225e-03  3.535e-03  3.874e-03
+## LanguageOther European  2.292e-03  2.511e-03  2.752e-03  3.015e-03  3.302e-03
+## LanguageSpanish        -6.956e-04 -7.626e-04 -8.361e-04 -9.166e-04 -1.005e-03
+##                               s20        s21        s22        s23        s24
+## (Intercept)            -1.453e+00 -1.460e+00 -1.467e+00 -1.475e+00 -1.484e+00
+## NumBedrooms             3.704e-03  4.050e-03  4.433e-03  4.851e-03  5.308e-03
+## NumChildren             3.900e-04  4.257e-04  4.653e-04  5.083e-04  5.550e-04
+## NumPeople               1.198e-03  1.310e-03  1.433e-03  1.567e-03  1.713e-03
+## NumRooms                1.910e-03  2.090e-03  2.288e-03  2.505e-03  2.742e-03
+## NumVehicles             3.592e-03  3.929e-03  4.302e-03  4.708e-03  5.152e-03
+## NumWorkers              4.704e-03  5.152e-03  5.643e-03  6.180e-03  6.766e-03
+## OwnRentMortgage         7.907e-03  8.634e-03  9.440e-03  1.032e-02  1.127e-02
+## OwnRentOutright         9.651e-04  1.075e-03  1.199e-03  1.339e-03  1.498e-03
+## OwnRentRented          -8.400e-03 -9.180e-03 -1.004e-02 -1.097e-02 -1.199e-02
+## YearBuilt15            -6.662e-03 -7.296e-03 -7.993e-03 -8.755e-03 -9.588e-03
+## YearBuilt1940-1949     -1.433e-03 -1.569e-03 -1.719e-03 -1.882e-03 -2.061e-03
+## YearBuilt1950-1959      1.193e-03  1.305e-03  1.430e-03  1.566e-03  1.714e-03
+## YearBuilt1960-1969      1.142e-03  1.248e-03  1.365e-03  1.493e-03  1.632e-03
+## YearBuilt1970-1979     -9.643e-04 -1.057e-03 -1.159e-03 -1.270e-03 -1.392e-03
+## YearBuilt1980-1989      1.404e-03  1.540e-03  1.689e-03  1.853e-03  2.032e-03
+## YearBuilt1990-1999      6.952e-04  7.633e-04  8.373e-04  9.185e-04  1.008e-03
+## YearBuilt2000-2004      2.028e-03  2.222e-03  2.435e-03  2.667e-03  2.922e-03
+## YearBuilt2005           3.727e-03  4.084e-03  4.476e-03  4.904e-03  5.373e-03
+## YearBuilt2006           2.406e-03  2.637e-03  2.890e-03  3.166e-03  3.469e-03
+## YearBuilt2007           3.544e-03  3.886e-03  4.261e-03  4.672e-03  5.122e-03
+## YearBuilt2008          -1.839e-03 -2.014e-03 -2.205e-03 -2.414e-03 -2.641e-03
+## YearBuilt2009           8.490e-04  9.360e-04  1.031e-03  1.136e-03  1.252e-03
+## YearBuilt2010           4.271e-03  4.681e-03  5.133e-03  5.628e-03  6.170e-03
+## YearBuiltBefore 1939   -2.200e-03 -2.409e-03 -2.640e-03 -2.892e-03 -3.168e-03
+## ElectricBill            3.926e-05  4.299e-05  4.708e-05  5.156e-05  5.644e-05
+## FoodStampNo             7.974e-03  8.719e-03  9.539e-03  1.043e-02  1.141e-02
+## FoodStampYes           -7.969e-03 -8.719e-03 -9.539e-03 -1.043e-02 -1.141e-02
+## HeatingFuelCoal        -7.200e-03 -7.891e-03 -8.651e-03 -9.482e-03 -1.039e-02
+## HeatingFuelElectricity -2.240e-03 -2.450e-03 -2.682e-03 -2.934e-03 -3.209e-03
+## HeatingFuelGas          5.139e-04  5.649e-04  6.208e-04  6.823e-04  7.500e-04
+## HeatingFuelNone        -5.630e-03 -6.166e-03 -6.752e-03 -7.392e-03 -8.091e-03
+## HeatingFuelOil          2.046e-03  2.239e-03  2.452e-03  2.684e-03  2.937e-03
+## HeatingFuelOther       -3.653e-03 -4.000e-03 -4.381e-03 -4.798e-03 -5.254e-03
+## HeatingFuelSolar       -4.829e-05 -5.779e-05 -6.527e-05 -7.383e-05 -8.363e-05
+## HeatingFuelWood        -7.198e-03 -7.890e-03 -8.649e-03 -9.480e-03 -1.039e-02
+## Insurance               6.349e-06  6.956e-06  7.621e-06  8.347e-06  9.141e-06
+## LanguageAsian Pacific   4.563e-03  5.003e-03  5.485e-03  6.014e-03  6.593e-03
+## LanguageEnglish        -2.496e-03 -2.733e-03 -2.993e-03 -3.277e-03 -3.588e-03
+## LanguageOther           4.245e-03  4.651e-03  5.094e-03  5.579e-03  6.109e-03
+## LanguageOther European  3.616e-03  3.960e-03  4.334e-03  4.744e-03  5.190e-03
+## LanguageSpanish        -1.101e-03 -1.207e-03 -1.322e-03 -1.449e-03 -1.587e-03
+##                               s25        s26        s27        s28        s29
+## (Intercept)            -1.493e+00 -1.504e+00 -1.515e+00 -1.528e+00 -1.541e+00
+## NumBedrooms             5.805e-03  6.348e-03  6.938e-03  7.580e-03  8.279e-03
+## NumChildren             6.057e-04  6.608e-04  7.203e-04  7.848e-04  8.544e-04
+## NumPeople               1.872e-03  2.045e-03  2.233e-03  2.437e-03  2.658e-03
+## NumRooms                3.000e-03  3.282e-03  3.589e-03  3.923e-03  4.287e-03
+## NumVehicles             5.636e-03  6.163e-03  6.738e-03  7.363e-03  8.044e-03
+## NumWorkers              7.407e-03  8.106e-03  8.870e-03  9.702e-03  1.061e-02
+## OwnRentMortgage         1.231e-02  1.344e-02  1.466e-02  1.599e-02  1.742e-02
+## OwnRentOutright         1.677e-03  1.879e-03  2.109e-03  2.370e-03  2.667e-03
+## OwnRentRented          -1.310e-02 -1.430e-02 -1.561e-02 -1.703e-02 -1.856e-02
+## YearBuilt15            -1.050e-02 -1.149e-02 -1.258e-02 -1.376e-02 -1.505e-02
+## YearBuilt1940-1949     -2.256e-03 -2.468e-03 -2.701e-03 -2.954e-03 -3.229e-03
+## YearBuilt1950-1959      1.876e-03  2.053e-03  2.246e-03  2.457e-03  2.686e-03
+## YearBuilt1960-1969      1.784e-03  1.949e-03  2.128e-03  2.323e-03  2.534e-03
+## YearBuilt1970-1979     -1.526e-03 -1.672e-03 -1.832e-03 -2.007e-03 -2.197e-03
+## YearBuilt1980-1989      2.229e-03  2.444e-03  2.680e-03  2.938e-03  3.221e-03
+## YearBuilt1990-1999      1.105e-03  1.212e-03  1.329e-03  1.458e-03  1.599e-03
+## YearBuilt2000-2004      3.201e-03  3.505e-03  3.837e-03  4.200e-03  4.597e-03
+## YearBuilt2005           5.885e-03  6.445e-03  7.057e-03  7.725e-03  8.454e-03
+## YearBuilt2006           3.800e-03  4.162e-03  4.557e-03  4.989e-03  5.460e-03
+## YearBuilt2007           5.615e-03  6.154e-03  6.745e-03  7.391e-03  8.098e-03
+## YearBuilt2008          -2.890e-03 -3.160e-03 -3.456e-03 -3.777e-03 -4.127e-03
+## YearBuilt2009           1.380e-03  1.522e-03  1.680e-03  1.854e-03  2.047e-03
+## YearBuilt2010           6.764e-03  7.414e-03  8.125e-03  8.903e-03  9.755e-03
+## YearBuiltBefore 1939   -3.469e-03 -3.799e-03 -4.158e-03 -4.551e-03 -4.979e-03
+## ElectricBill            6.178e-05  6.760e-05  7.395e-05  8.087e-05  8.842e-05
+## FoodStampNo             1.247e-02  1.362e-02  1.488e-02  1.625e-02  1.773e-02
+## FoodStampYes           -1.247e-02 -1.362e-02 -1.488e-02 -1.625e-02 -1.773e-02
+## HeatingFuelCoal        -1.139e-02 -1.248e-02 -1.367e-02 -1.497e-02 -1.640e-02
+## HeatingFuelElectricity -3.509e-03 -3.836e-03 -4.192e-03 -4.579e-03 -4.999e-03
+## HeatingFuelGas          8.245e-04  9.065e-04  9.968e-04  1.096e-03  1.206e-03
+## HeatingFuelNone        -8.855e-03 -9.688e-03 -1.060e-02 -1.159e-02 -1.266e-02
+## HeatingFuelOil          3.214e-03  3.515e-03  3.844e-03  4.202e-03  4.591e-03
+## HeatingFuelOther       -5.751e-03 -6.294e-03 -6.886e-03 -7.532e-03 -8.235e-03
+## HeatingFuelSolar       -9.486e-05 -1.077e-04 -1.225e-04 -1.395e-04 -1.590e-04
+## HeatingFuelWood        -1.139e-02 -1.247e-02 -1.367e-02 -1.497e-02 -1.639e-02
+## Insurance               1.001e-05  1.096e-05  1.199e-05  1.312e-05  1.435e-05
+## LanguageAsian Pacific   7.228e-03  7.922e-03  8.682e-03  9.513e-03  1.042e-02
+## LanguageEnglish        -3.927e-03 -4.297e-03 -4.700e-03 -5.140e-03 -5.619e-03
+## LanguageOther           6.687e-03  7.318e-03  8.007e-03  8.758e-03  9.575e-03
+## LanguageOther European  5.677e-03  6.207e-03  6.784e-03  7.413e-03  8.096e-03
+## LanguageSpanish        -1.738e-03 -1.904e-03 -2.084e-03 -2.282e-03 -2.497e-03
+##                               s30        s31        s32        s33        s34
+## (Intercept)            -1.556e+00 -1.572e+00 -1.589e+00 -1.608e+00 -1.629e+00
+## NumBedrooms             9.037e-03  9.860e-03  1.075e-02  1.172e-02  1.276e-02
+## NumChildren             9.294e-04  1.010e-03  1.097e-03  1.190e-03  1.289e-03
+## NumPeople               2.897e-03  3.157e-03  3.437e-03  3.738e-03  4.063e-03
+## NumRooms                4.683e-03  5.113e-03  5.580e-03  6.086e-03  6.635e-03
+## NumVehicles             8.784e-03  9.587e-03  1.046e-02  1.140e-02  1.243e-02
+## NumWorkers              1.160e-02  1.267e-02  1.384e-02  1.512e-02  1.650e-02
+## OwnRentMortgage         1.898e-02  2.065e-02  2.246e-02  2.441e-02  2.651e-02
+## OwnRentOutright         3.005e-03  3.390e-03  3.829e-03  4.330e-03  4.904e-03
+## OwnRentRented          -2.022e-02 -2.202e-02 -2.396e-02 -2.605e-02 -2.830e-02
+## YearBuilt15            -1.646e-02 -1.799e-02 -1.966e-02 -2.148e-02 -2.346e-02
+## YearBuilt1940-1949     -3.530e-03 -3.857e-03 -4.212e-03 -4.598e-03 -5.017e-03
+## YearBuilt1950-1959      2.936e-03  3.208e-03  3.504e-03  3.825e-03  4.174e-03
+## YearBuilt1960-1969      2.763e-03  3.011e-03  3.279e-03  3.568e-03  3.880e-03
+## YearBuilt1970-1979     -2.406e-03 -2.634e-03 -2.883e-03 -3.154e-03 -3.450e-03
+## YearBuilt1980-1989      3.531e-03  3.870e-03  4.241e-03  4.647e-03  5.091e-03
+## YearBuilt1990-1999      1.753e-03  1.922e-03  2.107e-03  2.310e-03  2.532e-03
+## YearBuilt2000-2004      5.029e-03  5.500e-03  6.014e-03  6.573e-03  7.181e-03
+## YearBuilt2005           9.250e-03  1.012e-02  1.106e-02  1.209e-02  1.321e-02
+## YearBuilt2006           5.975e-03  6.536e-03  7.148e-03  7.815e-03  8.540e-03
+## YearBuilt2007           8.871e-03  9.716e-03  1.064e-02  1.165e-02  1.275e-02
+## YearBuilt2008          -4.507e-03 -4.920e-03 -5.368e-03 -5.854e-03 -6.380e-03
+## YearBuilt2009           2.262e-03  2.499e-03  2.764e-03  3.057e-03  3.384e-03
+## YearBuilt2010           1.069e-02  1.170e-02  1.281e-02  1.403e-02  1.535e-02
+## YearBuiltBefore 1939   -5.447e-03 -5.956e-03 -6.510e-03 -7.114e-03 -7.771e-03
+## ElectricBill            9.662e-05  1.056e-04  1.153e-04  1.258e-04  1.372e-04
+## FoodStampNo             1.933e-02  2.108e-02  2.296e-02  2.500e-02  2.720e-02
+## FoodStampYes           -1.933e-02 -2.108e-02 -2.296e-02 -2.500e-02 -2.720e-02
+## HeatingFuelCoal        -1.795e-02 -1.965e-02 -2.151e-02 -2.353e-02 -2.574e-02
+## HeatingFuelElectricity -5.456e-03 -5.952e-03 -6.489e-03 -7.070e-03 -7.699e-03
+## HeatingFuelGas          1.326e-03  1.459e-03  1.606e-03  1.767e-03  1.946e-03
+## HeatingFuelNone        -1.384e-02 -1.512e-02 -1.651e-02 -1.801e-02 -1.965e-02
+## HeatingFuelOil          5.015e-03  5.475e-03  5.975e-03  6.517e-03  7.104e-03
+## HeatingFuelOther       -9.002e-03 -9.836e-03 -1.074e-02 -1.173e-02 -1.280e-02
+## HeatingFuelSolar       -1.814e-04 -2.072e-04 -2.368e-04 -2.709e-04 -3.099e-04
+## HeatingFuelWood        -1.794e-02 -1.964e-02 -2.149e-02 -2.351e-02 -2.572e-02
+## Insurance               1.569e-05  1.715e-05  1.874e-05  2.047e-05  2.234e-05
+## LanguageAsian Pacific   1.142e-02  1.250e-02  1.369e-02  1.499e-02  1.640e-02
+## LanguageEnglish        -6.140e-03 -6.706e-03 -7.321e-03 -7.988e-03 -8.712e-03
+## LanguageOther           1.047e-02  1.143e-02  1.249e-02  1.363e-02  1.487e-02
+## LanguageOther European  8.838e-03  9.643e-03  1.052e-02  1.146e-02  1.248e-02
+## LanguageSpanish        -2.733e-03 -2.990e-03 -3.270e-03 -3.576e-03 -3.910e-03
+##                               s35        s36        s37        s38        s39
+## (Intercept)            -1.651e+00 -1.674e+00 -1.700e+00 -1.728e+00 -1.758e+00
+## NumBedrooms             1.389e-02  1.511e-02  1.641e-02  1.782e-02  1.933e-02
+## NumChildren             1.395e-03  1.508e-03  1.627e-03  1.753e-03  1.886e-03
+## NumPeople               4.413e-03  4.787e-03  5.188e-03  5.616e-03  6.071e-03
+## NumRooms                7.228e-03  7.870e-03  8.562e-03  9.308e-03  1.011e-02
+## NumVehicles             1.353e-02  1.473e-02  1.601e-02  1.740e-02  1.889e-02
+## NumWorkers              1.800e-02  1.962e-02  2.138e-02  2.329e-02  2.534e-02
+## OwnRentMortgage         2.876e-02  3.117e-02  3.375e-02  3.650e-02  3.942e-02
+## OwnRentOutright         5.559e-03  6.308e-03  7.166e-03  8.147e-03  9.270e-03
+## OwnRentRented          -3.072e-02 -3.331e-02 -3.609e-02 -3.906e-02 -4.222e-02
+## YearBuilt15            -2.560e-02 -2.793e-02 -3.046e-02 -3.320e-02 -3.616e-02
+## YearBuilt1940-1949     -5.471e-03 -5.964e-03 -6.496e-03 -7.072e-03 -7.693e-03
+## YearBuilt1950-1959      4.553e-03  4.963e-03  5.407e-03  5.888e-03  6.406e-03
+## YearBuilt1960-1969      4.215e-03  4.575e-03  4.961e-03  5.374e-03  5.815e-03
+## YearBuilt1970-1979     -3.772e-03 -4.124e-03 -4.506e-03 -4.922e-03 -5.373e-03
+## YearBuilt1980-1989      5.576e-03  6.106e-03  6.685e-03  7.317e-03  8.006e-03
+## YearBuilt1990-1999      2.775e-03  3.041e-03  3.332e-03  3.650e-03  3.998e-03
+## YearBuilt2000-2004      7.843e-03  8.562e-03  9.342e-03  1.019e-02  1.110e-02
+## YearBuilt2005           1.443e-02  1.575e-02  1.719e-02  1.874e-02  2.042e-02
+## YearBuilt2006           9.330e-03  1.019e-02  1.112e-02  1.214e-02  1.323e-02
+## YearBuilt2007           1.395e-02  1.526e-02  1.669e-02  1.825e-02  1.995e-02
+## YearBuilt2008          -6.949e-03 -7.565e-03 -8.228e-03 -8.943e-03 -9.712e-03
+## YearBuilt2009           3.747e-03  4.151e-03  4.600e-03  5.101e-03  5.658e-03
+## YearBuilt2010           1.680e-02  1.838e-02  2.009e-02  2.196e-02  2.399e-02
+## YearBuiltBefore 1939   -8.485e-03 -9.260e-03 -1.010e-02 -1.101e-02 -1.200e-02
+## ElectricBill            1.496e-04  1.630e-04  1.775e-04  1.931e-04  2.100e-04
+## FoodStampNo             2.957e-02  3.213e-02  3.488e-02  3.783e-02  4.099e-02
+## FoodStampYes           -2.957e-02 -3.213e-02 -3.488e-02 -3.783e-02 -4.099e-02
+## HeatingFuelCoal        -2.814e-02 -3.076e-02 -3.361e-02 -3.670e-02 -4.007e-02
+## HeatingFuelElectricity -8.379e-03 -9.112e-03 -9.902e-03 -1.075e-02 -1.167e-02
+## HeatingFuelGas          2.142e-03  2.359e-03  2.597e-03  2.861e-03  3.151e-03
+## HeatingFuelNone        -2.143e-02 -2.336e-02 -2.544e-02 -2.770e-02 -3.014e-02
+## HeatingFuelOil          7.740e-03  8.427e-03  9.168e-03  9.968e-03  1.083e-02
+## HeatingFuelOther       -1.396e-02 -1.521e-02 -1.657e-02 -1.804e-02 -1.963e-02
+## HeatingFuelSolar       -3.548e-04 -4.061e-04 -4.649e-04 -5.322e-04 -6.089e-04
+## HeatingFuelWood        -2.812e-02 -3.073e-02 -3.357e-02 -3.666e-02 -4.001e-02
+## Insurance               2.438e-05  2.659e-05  2.898e-05  3.157e-05  3.436e-05
+## LanguageAsian Pacific   1.795e-02  1.963e-02  2.146e-02  2.346e-02  2.563e-02
+## LanguageEnglish        -9.495e-03 -1.034e-02 -1.126e-02 -1.224e-02 -1.330e-02
+## LanguageOther           1.621e-02  1.767e-02  1.924e-02  2.093e-02  2.275e-02
+## LanguageOther European  1.358e-02  1.477e-02  1.605e-02  1.742e-02  1.890e-02
+## LanguageSpanish        -4.273e-03 -4.670e-03 -5.101e-03 -5.572e-03 -6.084e-03
+##                               s40        s41        s42        s43        s44
+## (Intercept)            -1.790e+00 -1.824e+00 -1.861e+00 -1.900e+00 -1.9419324
+## NumBedrooms             2.094e-02  2.266e-02  2.449e-02  2.644e-02  0.0285019
+## NumChildren             2.025e-03  2.170e-03  2.319e-03  2.474e-03  0.0026319
+## NumPeople               6.554e-03  7.065e-03  7.603e-03  8.169e-03  0.0087597
+## NumRooms                1.097e-02  1.190e-02  1.288e-02  1.394e-02  0.0150634
+## NumVehicles             2.049e-02  2.221e-02  2.404e-02  2.600e-02  0.0280815
+## NumWorkers              2.756e-02  2.996e-02  3.253e-02  3.530e-02  0.0382780
+## OwnRentMortgage         4.253e-02  4.582e-02  4.930e-02  5.296e-02  0.0568098
+## OwnRentOutright         1.055e-02  1.202e-02  1.370e-02  1.561e-02  0.0177910
+## OwnRentRented          -4.559e-02 -4.917e-02 -5.295e-02 -5.695e-02 -0.0611554
+## YearBuilt15            -3.937e-02 -4.283e-02 -4.657e-02 -5.060e-02 -0.0549398
+## YearBuilt1940-1949     -8.363e-03 -9.084e-03 -9.859e-03 -1.069e-02 -0.0115803
+## YearBuilt1950-1959      6.966e-03  7.569e-03  8.218e-03  8.915e-03  0.0096620
+## YearBuilt1960-1969      6.284e-03  6.782e-03  7.308e-03  7.864e-03  0.0084480
+## YearBuilt1970-1979     -5.863e-03 -6.395e-03 -6.971e-03 -7.594e-03 -0.0082676
+## YearBuilt1980-1989      8.757e-03  9.575e-03  1.046e-02  1.143e-02  0.0124837
+## YearBuilt1990-1999      4.378e-03  4.794e-03  5.247e-03  5.742e-03  0.0062820
+## YearBuilt2000-2004      1.209e-02  1.317e-02  1.432e-02  1.557e-02  0.0169076
+## YearBuilt2005           2.225e-02  2.421e-02  2.633e-02  2.861e-02  0.0310669
+## YearBuilt2006           1.443e-02  1.571e-02  1.711e-02  1.861e-02  0.0202393
+## YearBuilt2007           2.179e-02  2.380e-02  2.598e-02  2.834e-02  0.0309010
+## YearBuilt2008          -1.054e-02 -1.142e-02 -1.237e-02 -1.338e-02 -0.0144591
+## YearBuilt2009           6.279e-03  6.970e-03  7.739e-03  8.596e-03  0.0095483
+## YearBuilt2010           2.620e-02  2.860e-02  3.120e-02  3.402e-02  0.0370637
+## YearBuiltBefore 1939   -1.307e-02 -1.422e-02 -1.546e-02 -1.680e-02 -0.0182419
+## ElectricBill            2.281e-04  2.476e-04  2.685e-04  2.909e-04  0.0003147
+## FoodStampNo             4.437e-02  4.799e-02  5.184e-02  5.594e-02  0.0602984
+## FoodStampYes           -4.437e-02 -4.799e-02 -5.184e-02 -5.594e-02 -0.0602980
+## HeatingFuelCoal        -4.371e-02 -4.767e-02 -5.195e-02 -5.659e-02 -0.0615895
+## HeatingFuelElectricity -1.265e-02 -1.369e-02 -1.482e-02 -1.602e-02 -0.0172924
+## HeatingFuelGas          3.471e-03  3.824e-03  4.213e-03  4.642e-03  0.0051132
+## HeatingFuelNone        -3.277e-02 -3.562e-02 -3.868e-02 -4.198e-02 -0.0455355
+## HeatingFuelOil          1.175e-02  1.274e-02  1.381e-02  1.494e-02  0.0161522
+## HeatingFuelOther       -2.134e-02 -2.318e-02 -2.516e-02 -2.728e-02 -0.0295463
+## HeatingFuelSolar       -6.963e-04 -7.957e-04 -9.086e-04 -1.036e-03 -0.0011807
+## HeatingFuelWood        -4.365e-02 -4.759e-02 -5.186e-02 -5.647e-02 -0.0614552
+## Insurance               3.738e-05  4.063e-05  4.413e-05  4.788e-05  0.0000519
+## LanguageAsian Pacific   2.800e-02  3.056e-02  3.334e-02  3.636e-02  0.0396221
+## LanguageEnglish        -1.444e-02 -1.565e-02 -1.696e-02 -1.834e-02 -0.0198214
+## LanguageOther           2.471e-02  2.682e-02  2.907e-02  3.147e-02  0.0340310
+## LanguageOther European  2.047e-02  2.215e-02  2.394e-02  2.584e-02  0.0278545
+## LanguageSpanish        -6.641e-03 -7.248e-03 -7.908e-03 -8.625e-03 -0.0094056
+##                               s45        s46        s47        s48        s49
+## (Intercept)            -1.986e+00 -2.0335955 -2.0835101 -2.1361765 -2.192e+00
+## NumBedrooms             3.068e-02  0.0329698  0.0353722  0.0378822  4.049e-02
+## NumChildren             2.792e-03  0.0029543  0.0031160  0.0032760  3.433e-03
+## NumPeople               9.374e-03  0.0100105  0.0106651  0.0113345  1.201e-02
+## NumRooms                1.626e-02  0.0175222  0.0188594  0.0202686  2.175e-02
+## NumVehicles             3.029e-02  0.0326400  0.0351190  0.0377325  4.048e-02
+## NumWorkers              4.147e-02  0.0448757  0.0485196  0.0524063  5.654e-02
+## OwnRentMortgage         6.084e-02  0.0650378  0.0694067  0.0739339  7.861e-02
+## OwnRentOutright         2.027e-02  0.0230930  0.0262918  0.0299125  3.400e-02
+## OwnRentRented          -6.558e-02 -0.0702034 -0.0750346 -0.0800623 -8.528e-02
+## YearBuilt15            -5.961e-02 -0.0646161 -0.0699911 -0.0757495 -8.191e-02
+## YearBuilt1940-1949     -1.253e-02 -0.0135481 -0.0146300 -0.0157799 -1.700e-02
+## YearBuilt1950-1959      1.046e-02  0.0113177  0.0122304  0.0132024  1.424e-02
+## YearBuilt1960-1969      9.060e-03  0.0096976  0.0103600  0.0110447  1.175e-02
+## YearBuilt1970-1979     -8.995e-03 -0.0097780 -0.0106212 -0.0115272 -1.250e-02
+## YearBuilt1980-1989      1.362e-02  0.0148594  0.0161962  0.0176406  1.920e-02
+## YearBuilt1990-1999      6.870e-03  0.0075110  0.0082082  0.0089659  9.789e-03
+## YearBuilt2000-2004      1.835e-02  0.0198919  0.0215454  0.0233125  2.520e-02
+## YearBuilt2005           3.370e-02  0.0365175  0.0395299  0.0427427  4.616e-02
+## YearBuilt2006           2.199e-02  0.0238739  0.0258985  0.0280712  3.040e-02
+## YearBuilt2007           3.368e-02  0.0366760  0.0399172  0.0434136  4.718e-02
+## YearBuilt2008          -1.560e-02 -0.0168184 -0.0181027 -0.0194573 -2.088e-02
+## YearBuilt2009           1.061e-02  0.0117839  0.0130894  0.0145362  1.614e-02
+## YearBuilt2010           4.035e-02  0.0439032  0.0477241  0.0518305  5.624e-02
+## YearBuiltBefore 1939   -1.979e-02 -0.0214484 -0.0232241 -0.0251210 -2.714e-02
+## ElectricBill            3.402e-04  0.0003672  0.0003959  0.0004262  4.581e-04
+## FoodStampNo             6.491e-02  0.0697940  0.0749447  0.0803687  8.607e-02
+## FoodStampYes           -6.491e-02 -0.0697934 -0.0749439 -0.0803676 -8.607e-02
+## HeatingFuelCoal        -6.699e-02 -0.0728030 -0.0790580 -0.0857756 -9.298e-02
+## HeatingFuelElectricity -1.865e-02 -0.0200930 -0.0216216 -0.0232388 -2.495e-02
+## HeatingFuelGas          5.632e-03  0.0062024  0.0068288  0.0075159  8.269e-03
+## HeatingFuelNone        -4.935e-02 -0.0534556 -0.0578573 -0.0625773 -6.763e-02
+## HeatingFuelOil          1.744e-02  0.0188091  0.0202589  0.0217913  2.341e-02
+## HeatingFuelOther       -3.197e-02 -0.0345596 -0.0373131 -0.0402370 -4.333e-02
+## HeatingFuelSolar       -1.344e-03 -0.0015266 -0.0017323 -0.0019627 -2.220e-03
+## HeatingFuelWood        -6.683e-02 -0.0726116 -0.0788298 -0.0855036 -9.265e-02
+## Insurance               5.621e-05  0.0000608  0.0000657  0.0000709  7.641e-05
+## LanguageAsian Pacific   4.315e-02  0.0469590  0.0510643  0.0554823  6.023e-02
+## LanguageEnglish        -2.139e-02 -0.0230420 -0.0247858 -0.0266166 -2.853e-02
+## LanguageOther           3.675e-02  0.0396333  0.0426769  0.0458810  4.924e-02
+## LanguageOther European  2.998e-02  0.0322065  0.0345433  0.0369819  3.952e-02
+## LanguageSpanish        -1.025e-02 -0.0111750 -0.0121755 -0.0132612 -1.444e-02
+##                               s50        s51        s52        s53        s54
+## (Intercept)            -2.250e+00 -2.311e+00 -2.374e+00 -2.4399323 -2.5082796
+## NumBedrooms             4.320e-02  4.599e-02  4.886e-02  0.0517959  0.0547789
+## NumChildren             3.584e-03  3.729e-03  3.866e-03  0.0039933  0.0041098
+## NumPeople               1.270e-02  1.338e-02  1.406e-02  0.0147224  0.0153622
+## NumRooms                2.330e-02  2.492e-02  2.661e-02  0.0283602  0.0301720
+## NumVehicles             4.336e-02  4.637e-02  4.951e-02  0.0527639  0.0561359
+## NumWorkers              6.094e-02  6.561e-02  7.056e-02  0.0757877  0.0813079
+## OwnRentMortgage         8.342e-02  8.834e-02  9.337e-02  0.0984849  0.1036623
+## OwnRentOutright         3.861e-02  4.378e-02  4.958e-02  0.0560607  0.0632740
+## OwnRentRented          -9.067e-02 -9.623e-02 -1.019e-01 -0.1077823 -0.1137467
+## YearBuilt15            -8.849e-02 -9.552e-02 -1.030e-01 -0.1109798 -0.1194550
+## YearBuilt1940-1949     -1.829e-02 -1.965e-02 -2.109e-02 -0.0226025 -0.0241881
+## YearBuilt1950-1959      1.533e-02  1.649e-02  1.771e-02  0.0189992  0.0203507
+## YearBuilt1960-1969      1.247e-02  1.320e-02  1.394e-02  0.0146833  0.0154225
+## YearBuilt1970-1979     -1.354e-02 -1.465e-02 -1.584e-02 -0.0171004 -0.0184414
+## YearBuilt1980-1989      2.088e-02  2.268e-02  2.462e-02  0.0266874  0.0289009
+## YearBuilt1990-1999      1.068e-02  1.165e-02  1.269e-02  0.0138192  0.0150341
+## YearBuilt2000-2004      2.720e-02  2.934e-02  3.160e-02  0.0339865  0.0365102
+## YearBuilt2005           4.979e-02  5.364e-02  5.771e-02  0.0619943  0.0665058
+## YearBuilt2006           3.289e-02  3.555e-02  3.839e-02  0.0414095  0.0446201
+## YearBuilt2007           5.123e-02  5.558e-02  6.024e-02  0.0652309  0.0705583
+## YearBuilt2008          -2.238e-02 -2.394e-02 -2.557e-02 -0.0272572 -0.0290067
+## YearBuilt2009           1.791e-02  1.986e-02  2.201e-02  0.0243668  0.0269533
+## YearBuilt2010           6.095e-02  6.599e-02  7.135e-02  0.0770609  0.0831115
+## YearBuiltBefore 1939   -2.930e-02 -3.158e-02 -3.400e-02 -0.0365560 -0.0392511
+## ElectricBill            4.917e-04  5.269e-04  5.637e-04  0.0006020  0.0006418
+## FoodStampNo             9.204e-02  9.830e-02  1.048e-01  0.1116211  0.1186884
+## FoodStampYes           -9.204e-02 -9.829e-02 -1.048e-01 -0.1116177 -0.1186841
+## HeatingFuelCoal        -1.007e-01 -1.089e-01 -1.177e-01 -0.1270615 -0.1369982
+## HeatingFuelElectricity -2.675e-02 -2.864e-02 -3.063e-02 -0.0327152 -0.0348980
+## HeatingFuelGas          9.092e-03  9.992e-03  1.097e-02  0.0120406  0.0131997
+## HeatingFuelNone        -7.305e-02 -7.884e-02 -8.503e-02 -0.0916450 -0.0987022
+## HeatingFuelOil          2.511e-02  2.689e-02  2.876e-02  0.0307027  0.0327304
+## HeatingFuelOther       -4.661e-02 -5.006e-02 -5.369e-02 -0.0574993 -0.0614830
+## HeatingFuelSolar       -2.508e-03 -2.829e-03 -3.187e-03 -0.0035860 -0.0040300
+## HeatingFuelWood        -1.003e-01 -1.085e-01 -1.172e-01 -0.1264135 -0.1362292
+## Insurance               8.224e-05  8.839e-05  9.486e-05  0.0001016  0.0001087
+## LanguageAsian Pacific   6.532e-02  7.076e-02  7.658e-02  0.0827814  0.0893726
+## LanguageEnglish        -3.053e-02 -3.260e-02 -3.474e-02 -0.0369434 -0.0392002
+## LanguageOther           5.276e-02  5.642e-02  6.022e-02  0.0641520  0.0682025
+## LanguageOther European  4.214e-02  4.484e-02  4.761e-02  0.0504318  0.0532962
+## LanguageSpanish        -1.571e-02 -1.710e-02 -1.859e-02 -0.0201994 -0.0219360
+##                               s55        s56        s57        s58        s59
+## (Intercept)            -2.5788904 -2.6516073 -2.7262549 -2.8026422 -2.8805648
+## NumBedrooms             0.0577974  0.0608358  0.0638773  0.0669048  0.0699007
+## NumChildren             0.0042152  0.0043093  0.0043930  0.0044675  0.0045354
+## NumPeople               0.0159711  0.0165401  0.0170599  0.0175210  0.0179136
+## NumRooms                0.0320405  0.0339614  0.0359302  0.0379421  0.0399921
+## NumVehicles             0.0596149  0.0631922  0.0668578  0.0706007  0.0744086
+## NumWorkers              0.0871248  0.0932437  0.0996690  0.1064044  0.1134527
+## OwnRentMortgage         0.1088836  0.1141276  0.1193725  0.1245962  0.1297766
+## OwnRentOutright         0.0712801  0.0801357  0.0898965  0.1006156  0.1123431
+## OwnRentRented          -0.1198128 -0.1259623 -0.1321759 -0.1384342 -0.1447174
+## YearBuilt15            -0.1284549 -0.1380008 -0.1481145 -0.1588177 -0.1701329
+## YearBuilt1940-1949     -0.0258483 -0.0275829 -0.0293914 -0.0312732 -0.0332272
+## YearBuilt1950-1959      0.0217655  0.0232422  0.0247786  0.0263718  0.0280180
+## YearBuilt1960-1969      0.0161526  0.0168673  0.0175600  0.0182239  0.0188523
+## YearBuilt1970-1979     -0.0198623 -0.0213643 -0.0229482 -0.0246140 -0.0263611
+## YearBuilt1980-1989      0.0312604  0.0337696  0.0364313  0.0392476  0.0422198
+## YearBuilt1990-1999      0.0163405  0.0177422  0.0192427  0.0208449  0.0225511
+## YearBuilt2000-2004      0.0391683  0.0419618  0.0448909  0.0479552  0.0511538
+## YearBuilt2005           0.0712411  0.0761996  0.0813796  0.0867785  0.0923925
+## YearBuilt2006           0.0480262  0.0516327  0.0554441  0.0594639  0.0636946
+## YearBuilt2007           0.0762360  0.0822744  0.0886821  0.0954663  0.1026317
+## YearBuilt2008          -0.0308103 -0.0326625 -0.0345569 -0.0364862 -0.0384423
+## YearBuilt2009           0.0297812  0.0328648  0.0362182  0.0398546  0.0437861
+## YearBuilt2010           0.0895102  0.0962583  0.1033543  0.1107938  0.1185694
+## YearBuiltBefore 1939   -0.0420847 -0.0450558 -0.0481625 -0.0514020 -0.0547699
+## ElectricBill            0.0006829  0.0007252  0.0007687  0.0008133  0.0008587
+## FoodStampNo             0.1260193  0.1336078  0.1414469  0.1495285  0.1578431
+## FoodStampYes           -0.1260141 -0.1336015 -0.1414394 -0.1495194 -0.1578324
+## HeatingFuelCoal        -0.1475355 -0.1586881 -0.1704683 -0.1828866 -0.1959514
+## HeatingFuelElectricity -0.0371786 -0.0395574 -0.0420346 -0.0446097 -0.0472822
+## HeatingFuelGas          0.0144554  0.0158123  0.0172747  0.0188463  0.0205303
+## HeatingFuelNone        -0.1062268 -0.1142423 -0.1227720 -0.1318384 -0.1414636
+## HeatingFuelOil          0.0348362  0.0370180  0.0392731  0.0415988  0.0439920
+## HeatingFuelOther       -0.0656392 -0.0699631 -0.0744489 -0.0790891 -0.0838750
+## HeatingFuelSolar       -0.0045246 -0.0050756 -0.0056897 -0.0063741 -0.0071373
+## HeatingFuelWood        -0.1466241 -0.1576091 -0.1691929 -0.1813817 -0.1941791
+## Insurance               0.0001162  0.0001239  0.0001318  0.0001401  0.0001486
+## LanguageAsian Pacific   0.0963634  0.1037590  0.1115621  0.1197723  0.1283857
+## LanguageEnglish        -0.0415016 -0.0438374 -0.0461970 -0.0485692 -0.0509429
+## LanguageOther           0.0723607  0.0766140  0.0809492  0.0853529  0.0898115
+## LanguageOther European  0.0561860  0.0590850  0.0619760  0.0648416  0.0676642
+## LanguageSpanish        -0.0238038 -0.0258084 -0.0279546 -0.0302462 -0.0326859
+##                               s60        s61        s62       s63        s64
+## (Intercept)            -2.9598080 -3.0401490 -3.1213597 -3.203209 -3.2854658
+## NumBedrooms             0.0728474  0.0757278  0.0785251  0.081223  0.0838078
+## NumChildren             0.0046001  0.0046660  0.0047386  0.004825  0.0049325
+## NumPeople               0.0182279  0.0184543  0.0185831  0.018605  0.0185106
+## NumRooms                0.0420753  0.0441868  0.0463215  0.048475  0.0506422
+## NumVehicles             0.0782688  0.0821675  0.0860902  0.090022  0.0939486
+## NumWorkers              0.1208158  0.1284946  0.1364887  0.144797  0.1534163
+## OwnRentMortgage         0.1348921  0.1399212  0.1448433  0.149639  0.1542885
+## OwnRentOutright         0.1251243  0.1389990  0.1539996  0.170150  0.1874656
+## OwnRentRented          -0.1510057 -0.1572793 -0.1635189 -0.169705 -0.1758193
+## YearBuilt15            -0.1820824 -0.1946888 -0.2079749 -0.221963 -0.2366762
+## YearBuilt1940-1949     -0.0352523 -0.0373468 -0.0395090 -0.041737 -0.0440273
+## YearBuilt1950-1959      0.0297129  0.0314513  0.0332271  0.035034  0.0368645
+## YearBuilt1960-1969      0.0194384  0.0199758  0.0204585  0.020881  0.0212380
+## YearBuilt1970-1979     -0.0281883 -0.0300936 -0.0320742 -0.034126 -0.0362458
+## YearBuilt1980-1989      0.0453480  0.0486313  0.0520675  0.055653  0.0593846
+## YearBuilt1990-1999      0.0243630  0.0262815  0.0283065  0.030437  0.0326703
+## YearBuilt2000-2004      0.0544846  0.0579452  0.0615320  0.065240  0.0690653
+## YearBuilt2005           0.0982165  0.1042442  0.1104681  0.116879  0.1234665
+## YearBuilt2006           0.0681373  0.0727918  0.0776565  0.082728  0.0879997
+## YearBuilt2007           0.1101811  0.1181146  0.1264294  0.135120  0.1441766
+## YearBuilt2008          -0.0404165 -0.0423994 -0.0443811 -0.046351 -0.0482998
+## YearBuilt2009           0.0480233  0.0525753  0.0574491  0.062649  0.0681770
+## YearBuilt2010           0.1266706  0.1350835  0.1437911  0.152773  0.1620056
+## YearBuiltBefore 1939   -0.0582609 -0.0618685 -0.0655851 -0.069402 -0.0733089
+## ElectricBill            0.0009048  0.0009515  0.0009986  0.001046  0.0010933
+## FoodStampNo             0.1663804  0.1751288  0.1840756  0.193207  0.2025070
+## FoodStampYes           -0.1663678 -0.1751142 -0.1840587 -0.193187 -0.2024848
+## HeatingFuelCoal        -0.2096686 -0.2240414 -0.2390707 -0.254754 -0.2710863
+## HeatingFuelElectricity -0.0500506 -0.0529133 -0.0558674 -0.058910 -0.0620360
+## HeatingFuelGas          0.0223292  0.0242447  0.0262777  0.028428  0.0306948
+## HeatingFuelNone        -0.1516683 -0.1624717 -0.1738913 -0.185942 -0.1986365
+## HeatingFuelOil          0.0464497  0.0489687  0.0515458  0.054178  0.0568615
+## HeatingFuelOther       -0.0887962 -0.0938411 -0.0989965 -0.104248 -0.1095797
+## HeatingFuelSolar       -0.0079882 -0.0089365 -0.0099924 -0.011166 -0.0124696
+## HeatingFuelWood        -0.2075858 -0.2215999 -0.2362161 -0.251426 -0.2672187
+## Insurance               0.0001574  0.0001664  0.0001756  0.000185  0.0001945
+## LanguageAsian Pacific   0.1373952  0.1467897  0.1565543  0.166670  0.1771150
+## LanguageEnglish        -0.0533065 -0.0556492 -0.0579602 -0.060229 -0.0624475
+## LanguageOther           0.0943116  0.0988400  0.1033841  0.107932  0.1124712
+## LanguageOther European  0.0704266  0.0731121  0.0757052  0.078191  0.0805581
+## LanguageSpanish        -0.0352749 -0.0380132 -0.0408989 -0.043929 -0.0470971
+##                               s65       s66       s67        s68       s69
+## (Intercept)            -3.3678995 -3.450283 -3.532395 -3.6140199 -3.694949
+## NumBedrooms             0.0862646  0.088582  0.090748  0.0927552  0.094595
+## NumChildren             0.0050705  0.005249  0.005478  0.0057707  0.006138
+## NumPeople               0.0182915  0.017939  0.017446  0.0168050  0.016009
+## NumRooms                0.0528192  0.055002  0.057186  0.0593683  0.061545
+## NumVehicles             0.0978540  0.101723  0.105541  0.1092942  0.112968
+## NumWorkers              0.1623429  0.171571  0.181094  0.1909033  0.200988
+## OwnRentMortgage         0.1587752  0.163083  0.167196  0.1711022  0.174789
+## OwnRentOutright         0.2059489  0.225591  0.246372  0.2682538  0.291188
+## OwnRentRented          -0.1818433 -0.187759 -0.193550 -0.1992002 -0.204693
+## YearBuilt15            -0.2521352 -0.268361 -0.285373 -0.3031877 -0.321821
+## YearBuilt1940-1949     -0.0463778 -0.048785 -0.051245 -0.0537523 -0.056303
+## YearBuilt1950-1959      0.0387111  0.040566  0.042420  0.0442662  0.046095
+## YearBuilt1960-1969      0.0215257  0.021741  0.021881  0.0219448  0.021932
+## YearBuilt1970-1979     -0.0384270 -0.040664 -0.042949 -0.0452743 -0.047632
+## YearBuilt1980-1989      0.0632550  0.067258  0.071384  0.0756249  0.079969
+## YearBuilt1990-1999      0.0350038  0.037433  0.039951  0.0425519  0.045227
+## YearBuilt2000-2004      0.0730001  0.077037  0.081169  0.0853841  0.089673
+## YearBuilt2005           0.1302183  0.137121  0.144158  0.1513124  0.158566
+## YearBuilt2006           0.0934653  0.099115  0.104936  0.1109148  0.117035
+## YearBuilt2007           0.1535876  0.163337  0.173404  0.1837659  0.194395
+## YearBuilt2008          -0.0502159 -0.052089 -0.053910 -0.0556694 -0.057358
+## YearBuilt2009           0.0740314  0.080207  0.086696  0.0934848  0.100557
+## YearBuilt2010           0.1714624  0.181114  0.190928  0.2008708  0.210905
+## YearBuiltBefore 1939   -0.0772956 -0.081350 -0.085460 -0.0896131 -0.093795
+## ElectricBill            0.0011407  0.001188  0.001234  0.0012804  0.001326
+## FoodStampNo             0.2119596  0.221547  0.231249  0.2410452  0.250914
+## FoodStampYes           -0.2119345 -0.221519 -0.231218 -0.2410111 -0.250877
+## HeatingFuelCoal        -0.2880589 -0.305660 -0.323874 -0.3426821 -0.362061
+## HeatingFuelElectricity -0.0652406 -0.068517 -0.071858 -0.0752545 -0.078696
+## HeatingFuelGas          0.0330757  0.035568  0.038167  0.0408671  0.043663
+## HeatingFuelNone        -0.2119845 -0.225993 -0.240664 -0.2559981 -0.271991
+## HeatingFuelOil          0.0595937  0.062371  0.065191  0.0680498  0.070944
+## HeatingFuelOther       -0.1149745 -0.120414 -0.125880 -0.1313508 -0.136807
+## HeatingFuelSolar       -0.0139122 -0.015504 -0.017255 -0.0191733 -0.021264
+## HeatingFuelWood        -0.2835789 -0.300489 -0.317926 -0.3358669 -0.354282
+## Insurance               0.0002042  0.000214  0.000224  0.0002339  0.000244
+## LanguageAsian Pacific   0.1878618  0.198881  0.210138  0.2215980  0.233221
+## LanguageEnglish        -0.0646061 -0.066698 -0.068717 -0.0706583 -0.072518
+## LanguageOther           0.1169915  0.121482  0.125933  0.1303345  0.134678
+## LanguageOther European  0.0827941  0.084891  0.086840  0.0886388  0.090283
+## LanguageSpanish        -0.0503969 -0.053819 -0.057353 -0.0609854 -0.064703
+##                               s70        s71        s72        s73        s74
+## (Intercept)            -3.7749828 -3.8539319 -3.9316168 -4.0078693 -4.0825329
+## NumBedrooms             0.0962633  0.0977556  0.0990706  0.1002087  0.1011719
+## NumChildren             0.0065932  0.0071489  0.0078180  0.0086130  0.0095459
+## NumPeople               0.0150515  0.0139277  0.0126326  0.0111622  0.0095132
+## NumRooms                0.0637127  0.0658683  0.0680088  0.0701312  0.0722323
+## NumVehicles             0.1165499  0.1200283  0.1233927  0.1266342  0.1297454
+## NumWorkers              0.2113351  0.2219315  0.2327610  0.2438056  0.2550455
+## OwnRentMortgage         0.1782477  0.1814691  0.1844471  0.1871769  0.1896558
+## OwnRentOutright         0.3151112  0.3399444  0.3655968  0.3919654  0.4189368
+## OwnRentRented          -0.2100141 -0.2151495 -0.2200862 -0.2248124 -0.2293173
+## YearBuilt15            -0.3412851 -0.3615879 -0.3827336 -0.4047216 -0.4275455
+## YearBuilt1940-1949     -0.0588907 -0.0615093 -0.0641517 -0.0668102 -0.0694765
+## YearBuilt1950-1959      0.0478992  0.0496705  0.0514018  0.0530864  0.0547184
+## YearBuilt1960-1969      0.0218428  0.0216792  0.0214438  0.0211398  0.0207714
+## YearBuilt1970-1979     -0.0500125 -0.0524063 -0.0548034 -0.0571939 -0.0595675
+## YearBuilt1980-1989      0.0844044  0.0889181  0.0934962  0.0981238  0.1027857
+## YearBuilt1990-1999      0.0479677  0.0507629  0.0536016  0.0564718  0.0593609
+## YearBuilt2000-2004      0.0940241  0.0984240  0.1028595  0.1073160  0.1117786
+## YearBuilt2005           0.1658974  0.1732852  0.1807059  0.1881353  0.1955484
+## YearBuilt2006           0.1232796  0.1296274  0.1360575  0.1425470  0.1490726
+## YearBuilt2007           0.2052617  0.2163305  0.2275646  0.2389241  0.2503670
+## YearBuilt2008          -0.0589676 -0.0604921 -0.0619258 -0.0632641 -0.0645040
+## YearBuilt2009           0.1078916  0.1154638  0.1232453  0.1312041  0.1393056
+## YearBuilt2010           0.2209941  0.2310982  0.2411783  0.2511948  0.2611091
+## YearBuiltBefore 1939   -0.0979920 -0.1021903 -0.1063759 -0.1105349 -0.1146537
+## ElectricBill            0.0013703  0.0014138  0.0014562  0.0014975  0.0015374
+## FoodStampNo             0.2608307  0.2707712  0.2807093  0.2906177  0.3004684
+## FoodStampYes           -0.2607907 -0.2707287 -0.2806646 -0.2905714 -0.3004211
+## HeatingFuelCoal        -0.3819845 -0.4024213 -0.4233370 -0.4446931 -0.4664473
+## HeatingFuelElectricity -0.0821722 -0.0856700 -0.0891764 -0.0926775 -0.0961585
+## HeatingFuelGas          0.0465479  0.0495131  0.0525502  0.0556500  0.0588028
+## HeatingFuelNone        -0.2886339 -0.3059145 -0.3238157 -0.3423157 -0.3613882
+## HeatingFuelOil          0.0738702  0.0768247  0.0798036  0.0828026  0.0858171
+## HeatingFuelOther       -0.1422262 -0.1475879 -0.1528705 -0.1580531 -0.1631154
+## HeatingFuelSolar       -0.0235330 -0.0259814 -0.0286092 -0.0314135 -0.0343883
+## HeatingFuelWood        -0.3731406 -0.3924070 -0.4120435 -0.4320089 -0.4522593
+## Insurance               0.0002541  0.0002641  0.0002742  0.0002842  0.0002941
+## LanguageAsian Pacific   0.2449673  0.2567937  0.2686576  0.2805162  0.2923269
+## LanguageEnglish        -0.0742932 -0.0759831 -0.0775875 -0.0791074 -0.0805446
+## LanguageOther           0.1389540  0.1431547  0.1472721  0.1512986  0.1552271
+## LanguageOther European  0.0917727  0.0931091  0.0942955  0.0953370  0.0962401
+## LanguageSpanish        -0.0684893 -0.0723281 -0.0762015 -0.0800910 -0.0839779
+##                              s75        s76        s77        s78        s79
+## (Intercept)            -4.155463 -4.2265266 -4.2956154 -4.3626166 -4.4274383
+## NumBedrooms             0.101964  0.1025873  0.1030571  0.1033780  0.1035601
+## NumChildren             0.010628  0.0118735  0.0132847  0.0148719  0.0166407
+## NumPeople               0.007683  0.0056693  0.0034741  0.0010969 -0.0014604
+## NumRooms                0.074309  0.0763600  0.0783803  0.0803676  0.0823190
+## NumVehicles             0.132721  0.1355532  0.1382459  0.1407960  0.1432045
+## NumWorkers              0.266459  0.2780238  0.2897137  0.3015026  0.3133628
+## OwnRentMortgage         0.191883  0.1938697  0.1956011  0.1970882  0.1983362
+## OwnRentOutright         0.446389  0.4742022  0.5022334  0.5303544  0.5584339
+## OwnRentRented          -0.233591 -0.2376332 -0.2414237 -0.2449635 -0.2482493
+## YearBuilt15            -0.451193 -0.4756419 -0.5008707 -0.5268432 -0.5535176
+## YearBuilt1940-1949     -0.072142 -0.0747970 -0.0774327 -0.0800394 -0.0826074
+## YearBuilt1950-1959      0.056293  0.0578033  0.0592501  0.0606287  0.0619374
+## YearBuilt1960-1969      0.020343  0.0198595  0.0193289  0.0187556  0.0181459
+## YearBuilt1970-1979     -0.061914 -0.0642280 -0.0664935 -0.0687052 -0.0708557
+## YearBuilt1980-1989      0.107466  0.1121463  0.1168147  0.1214531  0.1260457
+## YearBuilt1990-1999      0.062256  0.0651419  0.0680094  0.0708440  0.0736335
+## YearBuilt2000-2004      0.116232  0.1206588  0.1250460  0.1293768  0.1336359
+## YearBuilt2005           0.202920  0.2102224  0.2174331  0.2245259  0.2314771
+## YearBuilt2006           0.155610  0.1621336  0.1686219  0.1750500  0.1813952
+## YearBuilt2007           0.261849  0.2733258  0.2847533  0.2960865  0.3072823
+## YearBuilt2008          -0.065644 -0.0666845 -0.0676245 -0.0684671 -0.0692158
+## YearBuilt2009           0.147513  0.1557865  0.1640893  0.1723810  0.1806230
+## YearBuilt2010           0.270883  0.2804805  0.2898686  0.2990151  0.3078915
+## YearBuiltBefore 1939   -0.118719 -0.1227193 -0.1266414 -0.1304746 -0.1342089
+## ElectricBill            0.001576  0.0016133  0.0016490  0.0016832  0.0017160
+## FoodStampNo             0.310233  0.3198935  0.3293994  0.3387312  0.3478602
+## FoodStampYes           -0.310185 -0.3198345 -0.3293388 -0.3386697 -0.3477985
+## HeatingFuelCoal        -0.488554 -0.5109762 -0.5336390 -0.5564975 -0.5794944
+## HeatingFuelElectricity -0.099605 -0.1030128 -0.1063461 -0.1096004 -0.1127621
+## HeatingFuelGas          0.061998  0.0652188  0.0684665  0.0717251  0.0749839
+## HeatingFuelNone        -0.381002 -0.4011279 -0.4217133 -0.4427183 -0.4640935
+## HeatingFuelOil          0.088842  0.0918703  0.0948997  0.0979227  0.1009330
+## HeatingFuelOther       -0.168038 -0.1728084 -0.1774004 -0.1818037 -0.1860054
+## HeatingFuelSolar       -0.037525 -0.0408164 -0.0442411 -0.0477865 -0.0514347
+## HeatingFuelWood        -0.472748 -0.4934338 -0.5142537 -0.5351606 -0.5561009
+## Insurance               0.000304  0.0003137  0.0003233  0.0003328  0.0003421
+## LanguageAsian Pacific   0.304049  0.3156396  0.3270662  0.3382925  0.3492869
+## LanguageEnglish        -0.081902 -0.0831876 -0.0843985 -0.0855427 -0.0866253
+## LanguageOther           0.159051  0.1627623  0.1663581  0.1698326  0.1731816
+## LanguageOther European  0.097013  0.0976623  0.0982001  0.0986357  0.0989797
+## LanguageSpanish        -0.087843 -0.0916696 -0.0954369 -0.0991286 -0.1027287
+##                               s80       s81        s82        s83        s84
+## (Intercept)            -4.4900018 -4.550242 -4.6081085 -4.6635626 -4.7165801
+## NumBedrooms             0.1036146  0.103553  0.1033886  0.1031337  0.1028016
+## NumChildren             0.0185948  0.020736  0.0230637  0.0255751  0.0282651
+## NumPeople              -0.0041944 -0.007101 -0.0101733 -0.0134048 -0.0167862
+## NumRooms                0.0842315  0.086102  0.0879277  0.0897056  0.0914329
+## NumVehicles             0.1454742  0.147609  0.1496147  0.1514971  0.1532636
+## NumWorkers              0.3252654  0.337181  0.3490781  0.3609273  0.3726974
+## OwnRentMortgage         0.1993520  0.200144  0.2007207  0.2010934  0.2012735
+## OwnRentOutright         0.5863443  0.613964  0.6411777  0.6678818  0.6939813
+## OwnRentRented          -0.2512796 -0.254055 -0.2565764 -0.2588493 -0.2608791
+## YearBuilt15            -0.5808443 -0.608766 -0.6372172 -0.6661262 -0.6954140
+## YearBuilt1940-1949     -0.0851273 -0.087590 -0.0899864 -0.0923087 -0.0945493
+## YearBuilt1950-1959      0.0631753  0.064342  0.0654381  0.0664648  0.0674236
+## YearBuilt1960-1969      0.0175057  0.016841  0.0161578  0.0154615  0.0147573
+## YearBuilt1970-1979     -0.0729381 -0.074947 -0.0768770 -0.0787251 -0.0804884
+## YearBuilt1980-1989      0.1305773  0.135033  0.1394003  0.1436653  0.1478169
+## YearBuilt1990-1999      0.0763663  0.079032  0.0816200  0.0841224  0.0865316
+## YearBuilt2000-2004      0.1378088  0.141882  0.1458418  0.1496777  0.1533790
+## YearBuilt2005           0.2382641  0.244866  0.2512637  0.2574404  0.2633816
+## YearBuilt2006           0.1876356  0.193751  0.1997234  0.2055353  0.2111721
+## YearBuilt2007           0.3182990  0.329098  0.3396426  0.3499007  0.3598431
+## YearBuilt2008          -0.0698750 -0.070450 -0.0709469 -0.0713723 -0.0717332
+## YearBuilt2009           0.1887782  0.196811  0.2046896  0.2123834  0.2198665
+## YearBuilt2010           0.3164727  0.324737  0.3326653  0.3402439  0.3474618
+## YearBuiltBefore 1939   -0.1378349 -0.141345 -0.1447310 -0.1479881 -0.1511111
+## ElectricBill            0.0017472  0.001777  0.0018053  0.0018321  0.0018574
+## FoodStampNo             0.3567587  0.365400  0.3737602  0.3818159  0.3895473
+## FoodStampYes           -0.3566975 -0.365340 -0.3737023 -0.3817605 -0.3894947
+## HeatingFuelCoal        -0.6025704 -0.625665 -0.6487162 -0.6716627 -0.6944428
+## HeatingFuelElectricity -0.1158184 -0.118758 -0.1215716 -0.1242503 -0.1267880
+## HeatingFuelGas          0.0782327  0.081461  0.0846602  0.0878198  0.0909314
+## HeatingFuelNone        -0.4857852 -0.507736 -0.5298856 -0.5521705 -0.5745255
+## HeatingFuelOil          0.1039242  0.106890  0.1098222  0.1127155  0.1155624
+## HeatingFuelOther       -0.1899952 -0.193765 -0.1973087 -0.2006235 -0.2037083
+## HeatingFuelSolar       -0.0551662 -0.058960 -0.0627958 -0.0666511 -0.0705051
+## HeatingFuelWood        -0.5770202 -0.597864 -0.6185768 -0.6391051 -0.6593956
+## Insurance               0.0003512  0.000360  0.0003687  0.0003771  0.0003852
+## LanguageAsian Pacific   0.3600214  0.370472  0.3806161  0.3904378  0.3999226
+## LanguageEnglish        -0.0876516 -0.088627 -0.0895570 -0.0904466 -0.0913009
+## LanguageOther           0.1764017  0.179491  0.1824462  0.1852680  0.1879558
+## LanguageOther European  0.0992426  0.099435  0.0995669  0.0996482  0.0996881
+## LanguageSpanish        -0.1062221 -0.109595 -0.1128371 -0.1159371 -0.1188874
+##                               s85        s86       s87       s88        s89
+## (Intercept)            -4.7671496 -4.8152720 -4.860961 -4.904240 -4.9451464
+## NumBedrooms             0.1024052  0.1019573  0.101470  0.100954  0.1004217
+## NumChildren             0.0311262  0.0341490  0.037322  0.040631  0.0440618
+## NumPeople              -0.0203071 -0.0239558 -0.027719 -0.031582 -0.0355302
+## NumRooms                0.0931070  0.0947255  0.096286  0.097787  0.0992269
+## NumVehicles             0.1549217  0.1564795  0.157945  0.159326  0.1606300
+## NumWorkers              0.3843581  0.3958794  0.407233  0.418390  0.4293242
+## OwnRentMortgage         0.2012733  0.2011059  0.200785  0.200325  0.1997404
+## OwnRentOutright         0.7193927  0.7440445  0.767876  0.790840  0.8128973
+## OwnRentRented          -0.2626735 -0.2642417 -0.265595 -0.266744 -0.2677034
+## YearBuilt15            -0.7249960 -0.7547825 -0.784680 -0.814592 -0.8444198
+## YearBuilt1940-1949     -0.0967018 -0.0987604 -0.100721 -0.102579 -0.1043328
+## YearBuilt1950-1959      0.0683167  0.0691465  0.069916  0.070628  0.0712853
+## YearBuilt1960-1969      0.0140501  0.0133443  0.012644  0.011953  0.0112733
+## YearBuilt1970-1979     -0.0821654 -0.0837552 -0.085258 -0.086675 -0.0880066
+## YearBuilt1980-1989      0.1518448  0.1557399  0.159495  0.163103  0.1665603
+## YearBuilt1990-1999      0.0888413  0.0910466  0.093144  0.095131  0.0970056
+## YearBuilt2000-2004      0.1569370  0.1603445  0.163596  0.166687  0.1696152
+## YearBuilt2005           0.2690754  0.2745121  0.279685  0.284590  0.2892250
+## YearBuilt2006           0.2166213  0.2218719  0.226916  0.231746  0.2363580
+## YearBuilt2007           0.3694451  0.3786857  0.387549  0.396021  0.4040945
+## YearBuilt2008          -0.0720367 -0.0722899 -0.072500 -0.072673 -0.0728164
+## YearBuilt2009           0.2271159  0.2341126  0.240841  0.247289  0.2534492
+## YearBuilt2010           0.3543115  0.3607892  0.366894  0.372629  0.3779992
+## YearBuiltBefore 1939   -0.1540964 -0.1569415 -0.159645 -0.162206 -0.1646260
+## ElectricBill            0.0018814  0.0019041  0.001925  0.001946  0.0019645
+## FoodStampNo             0.3969369  0.4039706  0.410637  0.416929  0.4228419
+## FoodStampYes           -0.3968871 -0.4039231 -0.410591 -0.416883 -0.4227932
+## HeatingFuelCoal        -0.7169960 -0.7392632 -0.761187 -0.782713 -0.8037900
+## HeatingFuelElectricity -0.1291799 -0.1314231 -0.133517 -0.135461 -0.1372580
+## HeatingFuelGas          0.0939868  0.0969783  0.099899  0.102743  0.1055040
+## HeatingFuelNone        -0.5968837 -0.6191776 -0.641340 -0.663303 -0.6850027
+## HeatingFuelOil          0.1183565  0.1210914  0.123761  0.126360  0.1288822
+## HeatingFuelOther       -0.2065646 -0.2091960 -0.211608 -0.213808 -0.2158052
+## HeatingFuelSolar       -0.0743372 -0.0781277 -0.081858 -0.085512 -0.0890747
+## HeatingFuelWood        -0.6793967 -0.6990589 -0.718335 -0.737181 -0.7555555
+## Insurance               0.0003931  0.0004007  0.000408  0.000415  0.0004218
+## LanguageAsian Pacific   0.4090598  0.4178418  0.426264  0.434324  0.4420219
+## LanguageEnglish        -0.0921242 -0.0929208 -0.093694 -0.094448 -0.0951836
+## LanguageOther           0.1905103  0.1929329  0.195226  0.197391  0.1994331
+## LanguageOther European  0.0996950  0.0996764  0.099639  0.099590  0.0995322
+## LanguageSpanish        -0.1216820 -0.1243165 -0.126789 -0.129098 -0.1312457
+##                               s90        s91        s92        s93        s94
+## (Intercept)            -4.9837241 -5.0200281 -5.0541352 -5.0860860 -5.1159726
+## NumBedrooms             0.0998812  0.0993414  0.0988201  0.0983048  0.0978092
+## NumChildren             0.0475969  0.0512187  0.0549563  0.0587007  0.0624743
+## NumPeople              -0.0395463 -0.0436133 -0.0477442 -0.0518640 -0.0559812
+## NumRooms                0.1006042  0.1019181  0.1031655  0.1043514  0.1054738
+## NumVehicles             0.1618644  0.1630358  0.1641517  0.1652145  0.1662299
+## NumWorkers              0.4400118  0.4504296  0.4605733  0.4703945  0.4798910
+## OwnRentMortgage         0.1990453  0.1982544  0.1974613  0.1965315  0.1955469
+## OwnRentOutright         0.8340218  0.8541960  0.8735027  0.8917720  0.9090883
+## OwnRentRented          -0.2684865 -0.2691079 -0.2695501 -0.2698850 -0.2701023
+## YearBuilt15            -0.8740658 -0.9034322 -0.9324288 -0.9609549 -0.9889274
+## YearBuilt1940-1949     -0.1059810 -0.1075232 -0.1089516 -0.1102839 -0.1115153
+## YearBuilt1950-1959      0.0718916  0.0724499  0.0729672  0.0734395  0.0738730
+## YearBuilt1960-1969      0.0106091  0.0099621  0.0093354  0.0087288  0.0081443
+## YearBuilt1970-1979     -0.0892562 -0.0904259 -0.0915173 -0.0925360 -0.0934843
+## YearBuilt1980-1989      0.1698627  0.1730084  0.1759989  0.1788302  0.1815056
+## YearBuilt1990-1999      0.0987687  0.1004208  0.1019614  0.1033976  0.1047305
+## YearBuilt2000-2004      0.1723798  0.1749812  0.1774155  0.1796962  0.1818222
+## YearBuilt2005           0.2935906  0.2976893  0.3015173  0.3050968  0.3084282
+## YearBuilt2006           0.2407497  0.2449198  0.2488671  0.2525981  0.2561143
+## YearBuilt2007           0.4117646  0.4190300  0.4258865  0.4323512  0.4384260
+## YearBuilt2008          -0.0729351 -0.0730345 -0.0731248 -0.0731994 -0.0732668
+## YearBuilt2009           0.2593152  0.2648853  0.2701589  0.2751406  0.2798342
+## YearBuilt2010           0.3830118  0.3876768  0.3919951  0.3960001  0.3996968
+## YearBuiltBefore 1939   -0.1669059 -0.1690482 -0.1710531 -0.1729295 -0.1746795
+## ElectricBill            0.0019823  0.0019991  0.0020148  0.0020295  0.0020434
+## FoodStampNo             0.4283747  0.4335299  0.4382867  0.4426972  0.4467536
+## FoodStampYes           -0.4283211 -0.4334683 -0.4382407 -0.4426471 -0.4466972
+## HeatingFuelCoal        -0.8243696 -0.8444078 -0.8638729 -0.8827125 -0.9009052
+## HeatingFuelElectricity -0.1389114 -0.1404257 -0.1418109 -0.1430631 -0.1441948
+## HeatingFuelGas          0.1081777  0.1107599  0.1132438  0.1156351  0.1179274
+## HeatingFuelNone        -0.7063752 -0.7273604 -0.7479008 -0.7679443 -0.7874432
+## HeatingFuelOil          0.1313242  0.1336817  0.1359501  0.1381303  0.1402186
+## HeatingFuelOther       -0.2176090 -0.2192307 -0.2206859 -0.2219776 -0.2231228
+## HeatingFuelSolar       -0.0925324 -0.0958744 -0.0990915 -0.1021749 -0.1051205
+## HeatingFuelWood        -0.7734218 -0.7907463 -0.8075099 -0.8236676 -0.8392088
+## Insurance               0.0004282  0.0004343  0.0004402  0.0004457  0.0004509
+## LanguageAsian Pacific   0.4493604  0.4563432  0.4629507  0.4692367  0.4751905
+## LanguageEnglish        -0.0959039 -0.0966102 -0.0973327 -0.0980179 -0.0986881
+## LanguageOther           0.2013546  0.2031600  0.2048217  0.2064029  0.2078836
+## LanguageOther European  0.0994715  0.0994110  0.0993320  0.0992756  0.0992276
+## LanguageSpanish        -0.1332339 -0.1350668 -0.1367648 -0.1383059 -0.1397076
+##                               s95        s96       s97        s98       s99
+## (Intercept)            -5.1438741 -5.1698747 -5.194062 -5.2165251 -5.237354
+## NumBedrooms             0.0973373  0.0968922  0.096476  0.0960900  0.095735
+## NumChildren             0.0662576  0.0700318  0.073778  0.0774802  0.081121
+## NumPeople              -0.0600782 -0.0641377 -0.068143 -0.0720795 -0.075932
+## NumRooms                0.1065334  0.1075311  0.108468  0.1093470  0.110169
+## NumVehicles             0.1672015  0.1681326  0.169026  0.1698825  0.170705
+## NumWorkers              0.4890492  0.4978581  0.506309  0.5143964  0.522116
+## OwnRentMortgage         0.1945204  0.1934638  0.192388  0.1913038  0.190220
+## OwnRentOutright         0.9254647  0.9409188  0.955473  0.9691533  0.981989
+## OwnRentRented          -0.2702162 -0.2702405 -0.270188 -0.2700722 -0.269903
+## YearBuilt15            -1.0162654 -1.0428944 -1.068748 -1.0937663 -1.117900
+## YearBuilt1940-1949     -0.1126490 -0.1136887 -0.114639 -0.1155044 -0.116290
+## YearBuilt1950-1959      0.0742705  0.0746349  0.074969  0.0752742  0.075554
+## YearBuilt1960-1969      0.0075828  0.0070451  0.006532  0.0060427  0.005578
+## YearBuilt1970-1979     -0.0943659 -0.0951844 -0.095943 -0.0966461 -0.097296
+## YearBuilt1980-1989      0.1840276  0.1863994  0.188625  0.1907090  0.192657
+## YearBuilt1990-1999      0.1059641  0.1071025  0.108151  0.1091134  0.109996
+## YearBuilt2000-2004      0.1837986  0.1856309  0.187325  0.1888889  0.190328
+## YearBuilt2005           0.3115205  0.3143838  0.317029  0.3194671  0.321710
+## YearBuilt2006           0.2594205  0.2625224  0.265427  0.2681404  0.270671
+## YearBuilt2007           0.4441207  0.4494471  0.454418  0.4590486  0.463353
+## YearBuilt2008          -0.0733295 -0.0733899 -0.073449 -0.0735095 -0.073571
+## YearBuilt2009           0.2842465  0.2883855  0.292260  0.2958811  0.299259
+## YearBuilt2010           0.4031005  0.4062271  0.409093  0.4117145  0.414108
+## YearBuiltBefore 1939   -0.1763079 -0.1778198 -0.179221 -0.1805163 -0.181712
+## ElectricBill            0.0020563  0.0020684  0.002080  0.0020904  0.002100
+## FoodStampNo             0.4504693  0.4538593  0.456940  0.4597297  0.462246
+## FoodStampYes           -0.4504038 -0.4537820 -0.456848 -0.4596209 -0.462118
+## HeatingFuelCoal        -0.9184260 -0.9352546 -0.951376 -0.9667801 -0.981461
+## HeatingFuelElectricity -0.1452140 -0.1461286 -0.146946 -0.1476750 -0.148323
+## HeatingFuelGas          0.1201193  0.1222101  0.124200  0.1260886  0.127878
+## HeatingFuelNone        -0.8063553 -0.8246433 -0.842276 -0.8592270 -0.875477
+## HeatingFuelOil          0.1422131  0.1441134  0.145919  0.1476313  0.149251
+## HeatingFuelOther       -0.2241338 -0.2250227 -0.225801 -0.2264802 -0.227070
+## HeatingFuelSolar       -0.1079249 -0.1105864 -0.113105 -0.1154807 -0.117716
+## HeatingFuelWood        -0.8541180 -0.8683839 -0.882000 -0.8949628 -0.907274
+## Insurance               0.0004559  0.0004606  0.000465  0.0004691  0.000473
+## LanguageAsian Pacific   0.4808187  0.4861308  0.491137  0.4958478  0.500274
+## LanguageEnglish        -0.0993450 -0.0999883 -0.100617 -0.1012310 -0.101828
+## LanguageOther           0.2092670  0.2105577  0.211761  0.2128802  0.213921
+## LanguageOther European  0.0991875  0.0991554  0.099132  0.0991158  0.099108
+## LanguageSpanish        -0.1409788 -0.1421275 -0.143162 -0.1440901 -0.144920
+</code></pre>
+
+<pre><code class="r">plot(acsCV1$glmnet.fit)
+abline(v = c(acsCV1$lambda.min, acsCV1$lambda.1se))
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAh1BMVEX9/v0AAAAAADkAAGUAAP8AOY8AZrUAzQAA//85AAA5ADk5AGU5OWU5OY85ZrU5j9plAABlADllAGVlOQBlOY9ltf2POQCPOTmPOWWPZgCPj2WPtY+P29qP2/21ZgC1tWW1/rW1/tq1/v3ajzna/rXa/v39tWX924/9/rX9/tr9/v3/AAD/AP93/JZYAAAALXRSTlP///////////////////////////////////////////////////////8A//82ddCdAAAACXBIWXMAAAsSAAALEgHS3X78AAAZbElEQVR4nO2diXrcthVGO/bYHjdxpTi13Dax21q1RqL0/s9XcQGJfd/I+58vsaQhCYI4uAAILvOXAZDkL60zANoA8USBeKJAPFEgnigQTxSIJwrEEwXiiQLxRIF4okA8USCeKBBPFIgnCsQTBeKJAvFEgXiiQDxRIJ4oEE8UiCcKxBMF4okC8USBeKJAPFEgnigQTxSIJwrEEyWT+Ke7L+OP6y8/9rl98wxUP4BM4u9P424fTm8j8916++YZqH4AecRff/39dbff3/wRWWFbb988A/UPIIv4p69/JrVUrbdvnoEGB5BF/P1NWhfVevvmGWhwADnEXz/9TMp36+2bZ6DFAeQQf38auQnZbVfbN89AiwPA6VwfGdjr6Vzr44b4RuLB3oB4okA8USCeKBBPFIgnCsQTBeKJAvFEgXiiQDxRIJ4oEE+UjOJPO9++eQaqHgDE95MBiG+zffMMQHyb7ZtnYDfiT6BnCoqX60FCWiA3EE+UZPHXj1PDoXkmC+J7JlX8cvfm8PDupyNpiO+KVPGPn38IP81JQ3xXIOKJktzHP96ij98jGNUTBeKJkks8N7gzzA1BfFcg4okC8USBeCI8P4t/QzwJZO0ZZu5ul5GceiIP8d2gaM8Q8U93N4YlEN8JargPOZr6x9++6RdAfBdotaOPPzoG7RB/bIzaIf7IWLRD/HGxaof4o+LQDvHHxKkd4o+Ih3aIPxzPXtoh/mB4Wh8g/lD4a4f4AxGiHeIPQ5h2iD8Iodoh/hCEa4f4AxCjHeJ3T5x2iN87kdohft/EhvsA8bsmXjvE75iEcB8gfrekaYf4nZKqHeJ3Sbp2iN8hObRD/O7Iox3id0Yu7RC/K/Jph/gdkVM7xO+GvNohfifk1g7xuyC/dojfASW0Q3z3lNEO8Z1TSjvEd0057RDfMSW1Q3y3lNUO8Z1SWjvEd0l57RDfITW0Q3x31NEO8Z1RSzvE90U17RDfE/XCfYD4fqiqHeK7oa52iO+EyuE+QHwX1NcO8R3QQjvEN6eNdohvTCvtEN+WZtohviXtwn2A+HY01Q7xzWirHeIb0TjcB4hvQnvtEN+AHrRDfHX60A7xlelFO8TXpRvtEF+TfsJ9gPh6dKUd4qvRl3aIr0Rn4T5AfBX60w7xFehRe7r4x88/hsfb0+ndT1fSRMX3qT2L+NH9cP2bK2mS4nvVnkX89dPPOfLtSRMU36/2DOJv3/z5jzHiPyltPXXxPWvPMbh7uju9Hx7eKgFPXHxn2l9eXsQPMKovQ0/aXxTrA8SXoZ9w10ofySWeG9ydGNKeyIjvSTv7TdVh3xIRH0wv2rdYV4NwgPjc9KF9la5peReSxV8/ToljVD/SifaTobflSRX/dPdl+vmgztmSE9+Bdpdubk37Yq+5ev6nOemji2/9ZIy38mV9+2JEvCcNtc/KDWdtjGc5g8l9/HhpDn18K+2zctO5+uR7Rt3SnjBG9T40CvdFurrgWUS/sT1tiPegxRtsllBXsuLjfE7BvgOId1I33NfTtM26LNsvQxCfRjXt/Ik5a+B5zf7Kl/TsiyHeTp03jAsnapN0UXOY8iVR+2KIt1Eh3MWT85cXtTGPkD4lbF8M8WYKa5dmZHTdd0DrfrlcpOTt60O8iYLaReXaAZtvj35hqDuxbwjxeopp35SzIbp4zuY1br+YfW87sicB8TqKaGdxvp2TSbMzduOXi49ubnf2xRCvEDmYsiAqnz/TSDdt7i9b2Kl9McRL5LbOmnberChdG+ih8a3ZsX0xxAvk1K6Lc1G6rjtPki3s3r4Y4jlyaZ+Vq/OrsnRho2zGWSbsiyF+JY/2Tbn4+SZdXprbOMuIfTHEL+TQzqTLn+um3rduPH2/+szYF0P8RLp2H+nzJ4WFrxmyL4b4IV37LF39XJReSfiaKftiiE+8Ame6A5KXXlU4A+IdxIb787PxttcX7spqA+UzEG8lRvvo03ir8yh9U95I+gjEWwjXvsS5TXrlvnzbt/gBxBsJ0s6Mmw5ylN5A+AtDWQLxBry1W1v2CSY9S758eDH7XoF4Hb5X4HykV4rzlxcf3RsQr+Jn3Sl96csL3qoTIPt8PosfQLyEV7B7SQ+83zkI38g+M5QlEC/gMrVcUbNIZ2FeyLl/Y673vQLxHDZZ7AqKceh+2ZRnlf7yEtaiG2NcBOJXzLqYSmOgb8bzKQ8ZqQ1MuX/yEM/QKttkGqTnb9kDhXso17+EzJ4oGfH6G9eXD7XSZ+XzBGyOHAQLdyh3vAgH4kdEdYJKo3Q265667wjhZuUnh25uTftiEuJ5eU7pl1zSo4QPmpHbyd82v5V9MQHx+odOtcXInCdJjxOuMx78wiNhW/vio4tnAp9l6dJ6FyHQo6RHCpeMn+LiW4W0+NGgdBKmlCebao8O9EThkvHg3ZugK14979ZKH3/GSc8jPLtxlqx98WHFKy22VLaXdOmBOTIIL1Vq9MRrJtik8l0vo8ZITz43yyr8A4e4hJb4yaKlfec79DDpQdfCOUblwoAttpQ+aDGvT0j88zKW2z7hy1lQ7j/vHu6bCZ7j/BSI3q9VsSEb9sVHEb9oNJynL237ptydoCzcX53n1bMVrV/fnZmTPb741SR3tWXNy4UfxHkpX4T7lzCDKTctzxXKAhcOKTv2DXctXoje6Rc5zJfCWEJdk4RolzPun4stzsXPswpmXCQs2bIntFfxcoO93ELB/hTG7ZpQVwI5ZuAmNO2FRI/4iVZyZ1+8S/GyRvFeKf4Efe3STQ137LSbZhSWcEAcckg7ZJNp6jVDs8n68vsmfXk9gaGLjj05G7bADt/SgGhZSF1TCwg29frh+Gp9KYfZs2kYF+5bCeyQ25+0yO6WdMO0ujmKeJ1IFstTIa2hbZDuJ1zxzJqMwHM0DoPo/GMBkQOI14X6Etev/zDn66qaFNzOFQuScA/jrla5iOhnDnHJrsUbZlvmtnxyPl1D39ZVVjW07MaRGTf8cwg3tstFI/tZwrzmbsXrD2u2shTtLFVfBPrO3ChBGgRuyo0BvG5aMLJlzQS+qEA9RCZmNc7eOiGuZhi+eQpn1049xlfKGonCVclBVw2VQ/YTf//u5/3p9CUop8XEy4e8uRnLeX3ds7SaJNzezion9M6u3NhlRzfl8ZKlh2/0vZmX+Mffvr3+d/1F/W45GwXEb0Ugzbic1odZxNUG2bhdA0tt1ectfP0gOrATwnnEalmDn/jPP15jvrF40fn222JpnmwXymwuBa+4k4Trb2rlMTXk/sKTRHuE9AT3LF3UY9L3pzffHto19WvBSM65MZxQei+8cnsedTN3GuPOllxugVRk0e4thKzpNJ+dWI7cXuTtB3dCoA/bb9sgjncuBLkuOSZOJ3w7RVtLXVp9m4F3l3l3WO3IrE39oP3CaCvp4tVAZ+nM0rn20nx3mRipUhyxPxNLUTPo9j5IlqLcdvvtNxoP8cvXBp9O6hdGhyQdKJ6XzqXBYp2t8ooxvIVeWGpA7cXqHpKHe5b35RIdUlgRBER8YtIh4p81183WlpetoVOuiW5r4EpjNG/PZtHGXZlE+5dKLNosd9jHP/MXUpdNF+nTX/o4NLoWE5eMGwLb7dnol62gDLvziFaH896ICfmJf5jKU/Md8TaixAvWWdSvY7jJzmaBD2+ja3E5+3QxrRiWPDv9MoyejaJz2DMXorMH8mvqbwPP5HRJu8SvJzls9S3I14icjkXxPKEZpQvG9abZqr5+B3kDRUhehaH4Dyx76ePF5l2Svka8ZESVfVEbAS/TrmORPVf2aSVsjMnwa+q/30RkyFe8kOP19JnvdnW6N+UO14GhPAg7bK9VT5xsHs+m3tzHXz+alvmIn1v3bZVN+VjMet/TX5xstYv2V9xf/DpIks2TOqp/upu7/wf1JN8pnpfOzYtt5pZOf/OtFe2wLJo0hLLrMBui76qSSRXPun/NMMAufrO+TYSu/jjhqmqbZk3Q7s20XK8L7cZP/NPd6d3/fvumWSEu4tnxnEThA9eg88cu1oppS5Nf4xDMqzRqovZQRUXLeIl/uru5fvqpcTvY+n+T+OflCYZNpkn2WWvTLnjktAfCXWXF93TuVXyOizRTr70Zla5Vng2YBAdlxwdljt4I28IUt+4Iblx3AiL+PvUizWsYc6M2TrVJrCLYXcy1cNaIGqRUE+8+3nFxjmsOTHvi75sA9YkRH4UqfoqVixalSTQ1+z4kZLocLZsGDXWvzn1Yr4itbebyiaYmzMTseRd1o3FF8LkR4/N/Ms7cfViunrIj5ztO/lKpoV1IqQ88/VWHyhWhyczdh8v2QBt/mFINEK+WW+tBpvrQUwNRuAK0mrn7MF1R2UaA4mEqrYBcC9RqoGyYq22YaFgTCrUDvjdifBnu3+SbuZtY3fMLlMMTJF4M1UDfIGgSKNZVpKbnSzb/vk/SvP6rf6AifOaOY9K1zNwJnxsOT7KnWnbVhYshJXspeFC5SUhvBDwncMaw1k/ZeidtmGga/UwlpTn3txzadGZqrwRiIrpaYKwHGSpEvbYgTr9fUz+FdeAtdwF34FzmwF8u0qjL7Uf2olQCoS5Ydqn0GErNyVARKjUFoW1AP3fZ8u51+r0OS5iq8ghhqQFQRg4yppYhoEZUqAg+9vsRP3DuB+lBCgHvSq2bqbR7M3YF3jVDxZXLUhXAkYPkCRwzUbdXz4W7bmLcyL9kbRPWq1BTIGtHDfyGxqqiy6kVuSWIqGN2xGx5iY+5xzb+gQrBvU3+gpd+hvXChfq0u1wBVoxNvLsmSEmbOo28LUGc+P/UfoRqaVS3Td0Xn4P0rzgqgNmeq6kIaDwk5O0KjQh8+vjvy2XWGk39ylhEgkqvOw/i9Lu/P8bZ+TsDPPpeAjEVoRb4baKnz4ifmUoxXL7UrYbs0XENW8ibwbd/TXCkGN6mBNWgnsXPYT9I4/jQdCL8bzgrAMPdKcRlwFAh1NWU/iBdfJumnrEe5mYv6nazJP8JTYGxU4jMiWEvAj5Dgl6enbPCyolzF3uzYUwHoMO7KTAKz1oRTLs0jwu7msCxIT03uyQZfatpJv8BTQGjQUXQkfpAhX/SyXeS822+aD8+zVwNwIZ/U7Bgb7WLVYfkByq8k87wCMF5PXR+Xiuy0xfI7j+iKZAoXBcqP1CRynl8iQn7bba/SEuXP/i89Cie1IowE9Y+pH5DRaYHKoK2NnNeD4jNaY+/Z5MvUKACMPJUhJXQSpDrgQoNpcSPcIexRP78xyS/gKaCFYCRuSK42M2oXuYiupdO9UpZKtEHGChcD3YrfpDdTz+YFO7G/dx7HbYdVakAC7mrwU6begbnfpuiWN2flr8KGio5HLSgnDMEVwjfwd0wfVtBUOZqiB9k94v87TyPLavlpXpTIOBfEQKmbHs4ndMj9/cL7DSPX7Wal8pNgAFzJdh/xM/wZyvCvLTqnn1cyUqbvsDJzvt4jovDvXb3DWx0UhH2PKpXuEhtPn9BSh/429JmEhpVgEOJH21LgS/nwZ6LllGonB+UzYuX+O/vY15k3EL8MpuvnN8L+Rjnd+yJNDpJ88hLtmR9xM+jusfbwBfathE/yO51t6HM8gNKsYMKIGYkuWr63HO3XIi/fup4VC+xXcUbpJEel59TeIH10AToMdYIQ5YDHqjo9zxeC69e941iw5ylSIsd9QVxeIi3vPsgJOkW73I0n+ItbK9jSdzT7mqATx9//ev0XoSPnXy3bBDyKF872Bt/5LLW07jQht+Ubczj8X2IV87wdPLXs7wSqjqtCAc7j9cijPSWT5SVpOs55XLTSUWgIH6QRnrzB+pKfA7rOQkbjGeDiHi1xbeM9Va6aJldFcMbMVky4j1bfOU2/a465owQEj94hr1uRv94+mmJH/Fyr7+ccyT59MSPXOQzPO1a5levHcA/TfHO67cM+6u39qyfqnhlrGd8mNx1/0bmbNWCrvjBO+ztWd+pfNLiNbdtRIT9sEv5xMUPeZr8kZ2N+iB+UCZ045r8hb3oh/gJpbePDHtG//IhfkGe0E1233nbD/Ebmiv3+hWD3r/QqX6I5zmXcT902PZDvMSraXku37Bm8AF1FfsQrzCpzzbKV9BfHq8OxGsYTWeY07PTWD/Ea5lM2x/FWkg8rGbyId7AWXafbZyn0CT2Id4Mc899YFgzx7FV7vsh3sp57u7Fv3Xke7VipQoA8S4k9TXcTxSuABDvRlZva/LzH2Qh/xDvg//5XRH3I7n9Q7wf8jjPor7okWbzD/G+nOWwb6R+Il0/xAegntobV61ytCn6IT4IeVqntfqROP2p4sf3o4yPz2velnFE8YPi3qq+4iGbH4/Uk0H89G6c699cSR9F/MBke6iv637Fx34G8dPbsDRvRjqu+BD1jdw734+XLP72zZ//+KF9F9qRxQep7+HQFffpg7unu9P74UHzhpxji5ev4XSvXgKj+hSEcZ792917O3yITyMg7PsqgFziiQ3ueKSwt6zZapynAxGfATbQu2x/mOimFAqIPzHkjyPS2guL7dm9S30XBZEs/vpxkkxwVC/CbE/u7eq7KIpU8ZY3HNMSz43qd6E+x1w9/9OcdPtjLc+O1CPi87Ib9cl9/PRma/TxGztRj9O5/Jy5MX636iG+CNwYv1P1ecTf676girJ4YYx/6VE9xJdDOL+z0WJOB+KL4qu+fumgjy9MgPqqBQTxxfFWX7WIIL4Cwjy+lXqFBPFVYOrlL0dRqVVMEF8JTr1zjF8+NxBfkUW98j41lRpFBfEV6Uk9xFeFqfeZ1CmbE4ivzKxeecmGhrIFBvHVWdQP7tO7knM6EN+AaRJffAbLRLFSg/g28OpdYV8kAxDfijHs/Wb0ipQcxDfkvD1uV109xDdFUG9zn730IL4xnHq7+8zlB/HN4dVbm/ysJQjxHSCpN7vPWIYQ3wXiSxVqqIf4TqitHuK7oa56iO8I8dmLsuohvitk9Ub3yaUJ8Z0hPXFlUZ+2H4jvDfmtaUb1aQUK8f1xPnu2+ClFCvE9cvZt8eMLFeK7ZLxk6zfGjy1WiO+U0bpfix9XrhDfK2dVvSHso0oW4vslQH144hDfM+ut2BzaFj+8cCG+a8469dqwDy1eiO+c9akrgXT1EN877CnbzOohvnvORdRD/A5gxnOqh/g9cDarV937FTTE74NVuPKiTI17n6KG+J2w+VbfkapR70wP4vfCOUi9s7Qhfj9wutPVQ/yOOAeqt6UF8bsiTL2tyCF+Z+RSD/G7g7etUy+6N5U6xO+Ps129FPaGcof4PXI2/jEjhr225CF+l4jmdV99IqpXl0P8Pjm7gl5Ur5Y9xO8Vd9Dz6pXSh/jdIrp2qxeXQPx+kVQ71QtA/I6RVYeoh/hdI5v2Vw/x+0YR7ase4neO6tlPPcTvHY1mx/cYT0D87tFpdquH+AOgs+xSD/FHQCvZrh7iD4HesU19svjrx9PI2x+upCG+JAbFZvWp4p/uvkw/H979dCQN8UUxKTaZTxX/+PmH8NOcNMQXJizoEfHHwRTcWvXJffzjLfr4XjD26JrPMao/FP5BD/HHwhz00oJc4jG46wWPefoRRPzh8DNfQPyJIX8ckRaIwMs8Iv6A+JiH+CNS4Xr8chqvO5GH+Ha4zSdH/NPdjV/SEF+TCjdiPP72zStpiK8KbsQgi908xB+XCnfg3Ov6eYhvjc08xB8ZS0cP8cem2K1XFiC+B0rdemUB4rvAYB7iD4++o4d4AhS5584MxHcD7rmjimoe4mmAmy2pIpuHeCoUustWA8T3DMQTBeKJAvFEgXiiQDxRIJ4oEE8UiCcKxBMF4okC8USBeKKUFA96ppx4uR7sfPvmGah6ABDfTwYgvs32zTMA8W22b54BiG+zffMMQHyb7ZtnAOLbbN88A3sVD/YExBMF4okC8USBeKJAPFEgnigQTxSIJwrEEyWX+Mfbk/qNhAGM32D7JSkH7JsRozc/vTG8pduL1wPQfDWf/+a//EgrxCmBgFLMJH4s9fv38duPr0a//jWl4If7tIrz/YvuyzS9GQ/gPn77h7HWpBTilEBIKWYSP3452VTnInkYj/d7irnrr7+nbK75drWw3X/6mZDG9zd/vBZeQiHOCYSUYibx03GbvtDAk6Ttn77+mdTUXz/9M6mpT4z4SXhSIbIa45tAJvFjK5ko3vwVKD7c36T18dePX6aCjyZxkDN6SyrERbx3KXYT8Y+3Kd5f958oPvEAxq71IWF0lyni/Uuxkz5+irgE7qc7yROqzuPf08SnNnnXtD5+HdV7l2K2Uf1N0qg+0fuchdRRfUpTnyPikwpxajICSrGT8/g5YhNPxJM2fz2AlPPw1/OppMFhlvP4kFLEzB1RIJ4oEE8UiCcKxBMF4okC8USBeKJAPFEgnigQTxSIJwrEEwXiiQLxRIF4okA8USCeKBBPFIgnCkHx2x3My2/zzalJd4fvD8riH5b7aq8fx58Qf3SY4flBw+mDf79fHmmY7rG+/vr72/9+/dfpdPOQ9JBG1xAWvzX1v/wYH6d4/eP7zfhIzNj0P929f20J3h+3HYD46cfj33+O/36enjGfnmr5+m36P/UR4G6B+OUhlJvXfxfjEH9MtOKfvv6BiD84WvHz0H7p4yH+kIxvCDqdxqdSefHD/dt1VA/x4LBAPFEgnigQTxSIJwrEEwXiiQLxRIF4okA8USCeKBBPFIgnCsQTBeKJAvFEgXiiQDxR/g8ZKILYucWAZgAAAABJRU5ErkJggg==" alt=""/> </p>
+
+<pre><code class="r">
+acs2 &lt;- glmnet(x = acsX, y = acsY, family = &quot;binomial&quot;, alpha = 1)
+plot(acs2)
+acsCV2 &lt;- cv.glmnet(x = acsX, y = acsY, family = &quot;binomial&quot;, alpha = 1, nfold = 5)
+plot(acsCV2$glmnet.fit)
+abline(v = c(acsCV2$lambda.min, acsCV2$lambda.1se))
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt=""/> </p>
+
+<pre><code class="r">plot(acsCV2)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAh1BMVEX9/v0AAAAAADkAAGUAOWUAOY8AZo8AZrU5AAA5ADk5AGU5OWU5OY85ZrU5j9plAABlADllAGVlOQBlOTllOY9lZmVltf2POQCPOTmPOWWPZgCPj2WPtY+P29qP2/2pqam1ZgC1Zjm1/rW1/v3ajzna/rXa/v39tWX924/9/rX9/tr9/v3/AACygxIBAAAALXRSTlP/////////////////////////////////////////////////////////AP8byRkCAAAACXBIWXMAAAsSAAALEgHS3X78AAATYklEQVR4nO2di3rbxhFGA6WuHMeR7DSh5LSmmJoVL/D7P1+xGNIigV1wsdcZzH++lvxiCMsBz87sAsTlpxao5KfaAYA6QLxSIF4pEK8UiFcKxCsF4pUC8UqBeKVAvFIgXikQrxSIVwrEKwXilQLxSoF4pUC8UiBeKRCvFIhXCsQrBeKVAvFKgXilQLxSIF4pEK8UiFcKxCsF4pUC8UpJIn7XND9/a9vjU3O3di7dNvQestS0vXK2vLOu2u7fN83KGdVp6eGxefdq26b9B/fnnpba1u2atcXiisK13e5PPgc2wLkdLlKIN6Fs79t2s2p340+/WDq97sRS8wWN/+C09O2Prjh8Wrf7X9aOqE5LzbdrWdd0JtJh+9zTUtu6ptmtzYA9Ctd2uz/5R2DXOLfDSapS3337h8/Wnntaeny2dXi/pd3Lr79P9n9LGuzM97BZOaK6WGpLoc3df/p/tX8uLbWtu//42to+0fXduLfbscXnwCzt20uBi1TiTeZ9/MtezvqlXS1q7H349tLu+/nqKHynbu7o7V0CTkTVL33ts3RM/zU6P9csta3rynhXFM7tdm+x1a97O1ykEb9/323V/v2qD8CxtKu61v7tsbTdPthHPFp6fhtxfHpwR9UvNeV3Qrzrc/ul1nUdY60rCud2Oz/ZLt69HS5SZfxk9vz4Z/uIdnNp17Lrazita/3cw+PDRC5MLz3n9IR427pG5M4yCE9mpGW7J7aYVca3/Xj5h/vDT9vmmMrcWmqmvk3zMHNdk2WdX0dUp6XOsbGfMjo/d+8Y412ZN/Xd2GKf2GJruHXG+PPWbqzl7LTUvB2/jKdgPktb+87NxbqWL5XMto6o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" alt=""/> </p>
+
+<pre><code class="r">
+acs3 &lt;- glmnet(x = acsX, y = acsY, family = &quot;binomial&quot;, alpha = 0.5)
+plot(acs3)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAh1BMVEX9/v0AAAAAADkAAGUAAP8AOY8AZrUAzQAA//85AAA5ADk5AGU5OWU5OY85ZrU5j9plAABlADllAGVlOQBlOY9ltf2POQCPOTmPOWWPZgCPj2WPtY+P29qP2/21ZgC1tWW1/rW1/tq1/v3ajzna/rXa/v39tWX924/9/rX9/tr9/v3/AAD/AP93/JZYAAAALXRSTlP///////////////////////////////////////////////////////8A//82ddCdAAAACXBIWXMAAAsSAAALEgHS3X78AAAcUUlEQVR4nO2di3bbOJJAR4mS2N2TiZNpOz3bHe+uvbZkyf//fSvwIYIgHoVC4V33dMe2JIAULgoAQZD8x4npkn/k3gEmDyy+U1h8p7D4TmHxncLiO4XFdwqL7xQW3yksvlNYfKew+E5h8Z3C4juFxXcKi+8UFt8pLL5TWHynsPhOYfGdwuI7hcV3CovvFBbfKSy+U1h8p7D4TmHxncLiO4XFdwqL7xQq8ce73acXXNLD70+Xf253u3vfhHOaIQdU2suPj95pX3dDoufdzjtxQNI57dvD7sMvz6QaiMS/Pdyfnj+jkr6Kr3P8/ut0+M3v+1zTvPoX4pRW/Hj2rbCimonv+uhbUYOSymlfsTEmQST++OMJE3cXHj/8dUn3KiqNZ3HMacYc/JjSHr6+DLvuzeW7vv3ExV1AUpEWtbsaiMQPJfgdXRLDT0z6MQ2uyl3SoiJecAm9S+fm3zuFJRVpD1//U1JTLxqfQPFvD9+8k05pUOKHtLihyeH2w9jL+IduQNIp7e39EGahFBPxxzt/73MajPghrTDw6j+6W1onRGcdkFSkDSlpmex9/HVUjxgqzWlQo3qRFt9QTdow9gKSXhId/yhKvGg3kaP6QVuQd4T4KS0q4qfaIn68/emXNiDptZI+FtXUhx7HiwNb3/HOksZf/Jz2cmzsP1J6HhM9I9IGJJ0TXUoa0zmp8Mxdp7D4TmHxncLiO4XFdwqL7xQW3yksvlNYfKew+E5h8Z3C4juFxXcKofhdnrSZNlvjLsu4xYuFyKDVwJ2VYoW7LOMULxZOC9xLejsrxQp3WcYpfl7O617W21kpVrjLMiERv2NKJlD8uAhc28dTVT4mBsHi0VkzWWHxnUIlXhrcAXsRJisc8Z3C4juFxXcKi++UUPHTYbzuQJ7Fl0xwxJuvW2fxJRPe1BsvymXxJcN9fKew+E5Q59NYfOOYplFZfMPY5s1ZfHuATpaw+KaAnxxj8c3gd0KUxTcA5iw4i68a/MIHFl8poWtdWHyFUCxvYvGVQbWmjcVXA+1CRhZfATHWrrL4wom1XJnFF0zMNeosvlBiX5jA4gskxdUoLL4wUl2CxOLLIel1Zyy+CNJfa8jic5Pp+lIWn5Gc1xSz+Ezkvo6cxWcgt/RhH+xvs3hqSpAuYPEJKUW6gMUnoiTpAhafgNKkC1h8ZEqULmDxESlVuoDFR6Jk6QIWT08VN/lj8bTU4HyAxdNRjXQBi6ehKukCFh9OddIFLD6QGqULWHwAVYb6BIvHUrF0AYtHUbn1E4tHUHMDv8Di/WhCuoDFe9CM9ROL96Ah6ycWD6Z27fv9+m8WD6JO7XsJ9T0WD6Ae7fu9TbYMi3dRwYgOpnoNi7dTuHVf3Qss3kaR2qGNuR0Wb6Yw7X6y3zes32fxJorRDhVu07yFxRvIt/d7Bf2nXBHtgsVryRLujsgO0byFxWtIr11nPCyiXbD4LQl3XNecxxGtwuJVEoT70n9ve+rYwmdY/Jpo2uXhWmrJOlj8CvJ91sY29UYwsHgJ0nBXfBPmTAKLX6DY4YviJcQJ8otGqPjjj6fT8W63+/Tim3VpYMNdasJD589TQiBeuD8d/uWbdWF47q1quyLlIwTiD19fxsj3y7os4Dur6o64UzEJFn/34e8/RcR/3bT1FYkHNPNVtucWwgd3bw+7z6fXj5uAr0i8cU/Xh2CNKB/hUb023JVjsKaUj7B4dTfVo+7mlI9QiZcGd6Dn1pfCspe6mZZGpQv6jvhBu2lqrV3pgq7F74yTqe2EuukMQbD4w+3QrFc1qh8LwtAXVTiO053cdZ0jCBX/9nA//HzdztmWJl4pDN3uFe3cX64Nirl6+Sc860QYimcb7sVIp9RrptGIdxWXum9ppdua5mpW4IhTc8X08cDCU8I9mvW8au00Mar3LFF5x8Ib+Oyxi6Nu8agCvu4XWno1di3UKx5Z6HMzD5JeYSRDqVF8SOkPO6UN9VYNG6hLfLCOnRrqXUjWUY94CjlLqHelW/dVaxEfrGiZie1DuKvHqkJ8qKjR+WVY17xzeM9VgfgwVXOgt+wcM1ApW3yorVH6kEsZZw6owQ9UyhUfHKHC+rVcmvMeOjYtVHx4szxetkaxL6VAO8VQovjgryXWvq+yqNp7nCPP4sSHfsN3cckDyZ7kJu5UQ1niSaz73q+3PFLMLZUkPor12rynOuosRnzg9zVZL+c+hQ5SzyEXIj6S9RrCPdNJgzLEh3xtUWjGc+tle885m1iCePyXHwvOvKSiUO8lnBosQDzy+88lZ1lJU5h3sskXDDc367+zi0cVw1J6tgVU5XjP5PtGQn0vs3ik9vk367q5IrznUH6V/WVC96G84iNqz+49ufJ1cJuEz+QUjykWqPac3jMpv/5pjHKZjOJjas/mPa9ymPOBfOL9y0cqUtea+CzeE0k3DdnAzgeyiUd4v/7mvhYisfgkjbtpfD7FuYd0QS7x3qUEb+Vdm6YkxYG5WbjAX/lIJvG+ReWlPYn3FEFuEz6AlC6oQzy8c3dtmIQUnblDuccwTn+bvjzi/YrNY1Dn2C4BBcQ5qHmXn4ihe7988XI5Z/YeU7p5cnWNWfp+75ItU7z41U0mw7YaRizpIN0C3djdR/WaLOLhJfheivco1oHGLcrh2zqf13+XLX59f9GwjQYQIdihzqWm3a8pnzlPqK+XLP69CO/U1qEt+2mWjn8igk74TA7xsIJUyjuLd9rRnIfyUTpS+NkU5TKlilcLPIN3Quleyvf7UTpmQ4vv9w3rT5YpflPkyb1TWQcrnxt0zBTsVvL7u+vgMIN4gHf1hdTeKayDlK8HazDpW8ljww6cCJgoUPy21GGtHt2NGMK0u4tfNzbfStfF8bbJXpRr98JwCjeHeKf3zStJvYdYdxg3H4pdpLsE61TeyHFu1bylNPG6J0WEbM0PbLC7Cts4PN/2yWbWG3MO2x0kF+/wrnktWQePsG43fg3xy0f0zbbPUE4K8zDnA0WJ15Z8ooD3CXZ7ZC49uK3hPoHPpi8RT6N8pCDxhqfDBGwLjsE6oOGVUVxba5Lb+npLdMpHUou3eNe+msL7qAhod/OyfUSmxd7AbzdOLV1QjPgQ7zDxhtCdx1XAHIZ9lfGcVbVI19a2GNIFpYgP827vdC2NM3xAp4Y1Zh7dLF2/g1DpOxBKGnuW1OIDveuN4ht6l3ZDG445daKXbq6UW+kupecV8zYXlNzsu5tIvMk7KGjRPfzWpjoYnw7F9oEsZ9rkA7ybVc6ySCFuq9eUs5n1Z70KjVg8xPvV8t5/1tlDxvv8JHipXDbBva5smuIDoMba1EqZGuJtpNvUeu/NlRLEr8fU86vmIlYU7lbyYGzaeM2QXN4XnPPd7uJmErt0TPrbMQmNQvpWLuTsuj9FiNc14lIxq8Hq3IwLSbFlYlzaOjxrKYaHiNT2UrrYXdTGEb3ZUfvbtOI13i9Foi652OC5FRfO4+7Fk3nrrqHzReXg29FAnzX4fBfbKN60a1NKe8ZRxY8FPL6oagYHmZd4wCzLKtS1G9SU4oLwejNYt/TAi2TjSA4l04ds4qcC3r9ro5re+2jccfxmsS6X9ars18E8CNcp0sV0ghbdSCbx1wOZoIkbiHe5TbdqF+Ov0dEwYrRhaLfHhl3K0taAZ3Q+kEf8zfVhUNqUrrtdgJiEyy/YPj4H+0q6tFHrQdTcnSudtvEbZJYuSCl+try/UV9ZI7zbHFk2MWWr6chdPfuwxdH68rLziHkasg9HYeCGO7/1Uw7xe613yeteiTWPLeidnyzap2AfpU8tjXN+ZFnnNqr2mUkpINgHgsUfbgdbkMeIv09jppvl79M2ivEdvHnAvn35ut2xiR+l23TLTfjquNzDeu5+XSZU/NvD/fDz9dOLM+v30elYZpc+Vx/ZKO/WozTlHbmiXa3rjWv6a2UyBmw9tXTX/ECo+OOPp9VPS9aSd1HyBk/wWbI5f9eR+fzmpnERCsWJDI1z/ehMMwMH2tMw6bpJHjeuXGHinz+9PO9295oPeET8++x9KHsS74BFL5f3t73Jxdk4DNfM0RiKbXNy0MO69c1ghThA4o/ff13+O/y+7ccv791B+/jB0M38yIhQ8TvQQqehP1FeG+dZTuokjaWct2eEYdZzSZUxndOGif/xdIl5vXgzOvE3swbDgRzQu1P69dh9/fKX+cTJdRbe6UAr3TRLQyp2s+AEhSl3YFO/+/DrVdvUW1CyHryv/lKBaR+l6/dbOdSXa8d19DZOGkLM6AoOOkuzeYNOGQ1Ux/HS4E437yW/XCja82gtgRA/WtUM3K1Ys95tQ2UIQ2uOzqZzmv/XfE8TS7k46sX8cUd+hDErb9crGexj9reF+Gn4ttttB+74rHcnjcRLWx+qfsrn3e/qJMEqMNZjCOscsiVLikqAkA9K4BHxejxm7pR3dQ4vRexQCx4vTfKhH78y2zfeX0/JE9Gr+O6SdxrAp1PO3ClvaxU6g95roLz3D/yRwb7xjpohixwFmGriJ9/9WZj4V1NU+8zcbd7XOxTqbck8D5GmPh93+fNYbwTKAUeo+i3mUT2iSQG0MLCm/s54JIePeLNCcbSFSGZmnJaFXtm24ppmvxoDxFCvoh8dwCN/+ZhOf3AfD5+522JWaFtiiZsVGafkPa5snJk/P+/QVX908xPbtgAo3zG6tjI19Y/fgDvpkfWFs+0jZvX4+bD92Gh7Xdp6mt0rIzz94XEyxih2zM5ZyhfY1Bv7eNuuuT9iNW9UHzbD/WW4tGj41UP/8CjTTVZTfsZZkuiMbbh53s9cvqmvll1zdnzIoD703MaXUf687g/mX1xztclIm3XqWqBt+OdewTSTkFu841NnfWdPcFZLeFmt7Aa0/9t37W5hk6cUmHt9U/nCxL897D793/dfnjsD+IzT/OUTunPmfntiYHKgrOu32t+r76EkxqkCBvmeFWJiFP/28O3w9UVzxGbfEcBnzu7PnXXqyU5kz6Wvs6/zv1fPCYe5o64CusN2w4lMe0bXw7mLeNKTNDMA81r1lEsYrsW+uVZPc5Hd+Lb0ApEzwg5Bte/TEMzIEf8cIeJHgZCpHlU97eKVVTlrL9dcqsD6zlbv0Q7owyrCatZOox7cx3ufnANe1gY2r6qnXrakK1v9JbvL7+8biHdK3UH/ajDJ35Rw3lH9afbnNr9VH2HBmqVEjRdur32nqgX2S7oU0FO2OIBTykDz4+fkYo+0UhFQlNtKYLp+J30lMO68v/jjj/+JNXMnOEM/fRU9F3jENaou+1LQX2uA6P7NZxhSVYKTYfpA/VApEQ8yvzLtOIdHgNW+qnj44DD2c9/KYzs0iP/I0sy3O9MBN79Zo3F23iklGKN8rfnT6kjPNCzQka4KjEAXYtyfnj9EmLkTXGVCzjUq6schXx75JvP6Hn+vRbe1NG0B9Eqay7+hF1QYWVyCJvtW6qc/gGEVgEa+ur3V+zBlkBYhTkUATuCIZTYxpmwHJJOwSR9Zvdrvx/S/6fRt5k9Q+VNWoNZgzjW8KsCa+uGEvOeg3uN+VLJ5oPoliXaZdmz7s2KH+RPouk4D0IqwqQqg3AsY3CnugEvKFveGsX3c6J+PkpQNGA4CSNpoaDXQP75K/VAR4hV30NWEs3vrUR10VI1mLx8rW2d+SIdq8K5h3vj67/wTOAJVHXgJ+eAeeHVNLPtLtpAJ1HjjdJ9qABTv2bnDspbZqvPoJzyuRo4U/XKGX6x30hlJcbTuahFgEY9S73PVj8a8T73xvBDdIzCAGUq/LwvvrfrTTdXogfTxj9Op3XhNvba19kqPvQkBURVYPSxUfsN65iThRN2GQiJeb96vswi8AUVgFTCZv75oOmGSSX7J4r3UDxnQ3FVm2z1CaoPLvMSmCmRwX0hTbxyaw9VLt/n32jAQbW0w1Q/w+pilAqQO/OBr59BZKxhtwQ/tlt/S3FBKRWj3ayWujPZTyi9jAkdgNgWe0Fn/lUH+onpZsw3vNgb7qeRnvqBCwmYJZf6U4Y7BinnTp6zM1/RCV9ThyHxBhYzVPHyttvpaWvkw8/YsJkb9e/XCfCJyX1AhYfcDUm++6Vwy+QTmVyxN/3JeCDOKUMl9QYWMQ06A+VPCAZ88dU+U5brfl2cEIIcYerJfUCHh8gJammV/N4l96qAf0A/6bOto7adtyhnVnwCn2QDq3V7j249i/uQ6rW+dHd5QlHiANbd6mNO49mOZH3DO8H+xtwMjJTX1MGlO9XCf8W4dLnX0MbL3mOQ1VQHo4O40PK3Aa98Q4mHSXOo9VcaxH9t86CSvx5Rt7MO5AZgBx/2+EBrp7V+DPuatcCKvsk0X8R7ObPKRCokfG5HC/ABGf1l9/MnTmVF+kD2y54YkMz/gJ7+sUb3At7wN7gniNty+92naUCpbV7/Gv6y17ola7MDwT21eALIPEv/42XojY1zWRlBlrGn0acdq2EcMTUGf/M6nrstqIOLHUd3xzvOGtljxaGOq/GgTNH4PmspkfsIkH7LmbjoRf/iaYFQ/EGBsdbeXJCdl3M8by2v+pB/1e1xQkeQ4fiTQ2NV++vVX2lowNvcZzWsAiLc8iyAkaysExgb7GVbeSSxVYLhrS1HmIX384bfhvgi3YQ8c9IPI2O4MfqBDXIYnHH4hniEKATZli7k8vgjxw1SO8bksKRkfUD/+jjs+oKXA4/gRujKZbqSX3b5k/kq+KlCseHLzgrz2deavnDfE3ZlyxUcxL8hnXzT38BFe3ApQsPho5gWZ7HuZn4jTEpQsPqp5gflxfNHAmFeg6RSKFh/d/IDlcYwRuDT35MfzmHrQi3jICl7bEzkJ2ceeyAG1CGWLT2r+SuwqEN28ik5/4eJJzaNO9OsI3ZPk5jWULp70PAtVXob6AK8TBZgPFS9O2YkZXc0JHKKGskTzZoA1Ivb9tt0QiB9O1x7+5Zs1FFJZ+SbH1YqwJ+4+vPfH/jZE/LBAQ3Oynuq7NGJeRb2IMbD38CVY/N2Hv/980i7PIdvjPswbsYwoAipI+ODu7WH3+fSqOWlLV1U7Nw/Er2IUP6oXEK+XJc0thJwjvCrEs3l6qMRHHNwJqNfIk2YXQL7DujoinjxISzH/JVvQRxAf5TiEzRMTLP5wO0iOOqoXsHlaQsVbFt0TzzyweVIo5urln/CsfSEXVcoQL4/5eiI+QoiWYz69+uA+/mh8QhX5JHPD5tMHfSWHcyMRzJehPoP5zsWXEvTpzdOIf9bdMyHC+cS2zSdVX5f4OOaLUC8WY6U0X5n4OPFZgvnxWSbptldVHy9g8zRUJz6S+QLUT88vSrS1+sRHklSK+VRBX6H4dpv7lOarFN+6+RTq6xTfbEc/XWGTwHyl4pvt6JOZr1V8s819KvP1io8T9Pmb+0TmKxbfaNDPF9JGNl+1+EhBHyFPH67mo6qvW3ybZ22uF8/HNF+7+CaDPoX56sXHUZ856BOYb0B8JPX0WXoQ33wT4qOozxv00c03Ij5KhDZtvhnxUYKePEc4y32x4hzWtSO+tdXX0h3RYphvSXxjQR/XfFPiGwv6qOYbE99W0Mc035r4poJevvEp9RCvPfEtBf3qlre05hsUH0N9rqCPZ75J8Q2pX5snVN+o+CjqqTMEsb7BOZ35ZsVHUJ8n6COZb1h8K+rjmG9afBvqladZEHX0jYtvQr36HBMS882Lb0F9DPMdiB8ev0WdIW1+LiKY70L8iV5VYvX05nsRTx/2aZ/5Tm6+H/GnusOe2nxX4qtWT2y+M/Ex1KdyT2u+O/H1Ht5tHksaZL5D8dWqJzXfpfgo6hO4pzTfqfgYphKo35pHq+9W/KnKCb3t48ex5nsWf6rw8I7MfOfiY0zokWa3gcp89+JP5O4jqycyz+IHqNVHdL8VjxrisfiJesJeYx4R9Cx+oRb1JOZZvAxt2EdTT2GexStUoZ7APIvfQBr2kdSHm2fxOmjVR3CvE+9nnsXrIQ57cvfB5lm8EeLenth9qHkWb4F6kE/qPtA8i7dT7pSeVjzcfLD4w22yx4jnodgpvTDzoeLfHu6Hn6+fXjyzrohzmUd4QeZDxR9/PK1+wrOuDEr5VDkZzIPUc8R7QCefKB+9eVDQB/fxx7vG+3gFKvk0ueDN86geAY18ijwM4gHmWTySM4F9AvVG8y71VOKbH9xpCZYfrt5k3hX0HPGhBIZ+sHqk+QjidzOItLUSYj+01cCZ54inAy8/TL3ZvEU9i6cFKz8o7I3mLUEfPHN3N7Xr2wP5LsULkO0+Xr1ZvNl8cMS/PXzDZd04GPnosLeZN6gPb+qP33+hsu4AhHyke4t5Q9BzHx8Z/3Yf5d7bPItPwdlTP0K91bxGPY34Z10/z+IVfPT7q7eZ1wQ9i08NVL+veqv4rXkWnweIfU/1fua5j8+I077fOM/LPIvPjcO+j3q7+TUsvghs9j3C3sM8iy8Hs32oexZfLyb5MPVw8yy+QPRHfKCwB5tn8cWi0e92z+JbQZXvUg81z+IrYB37DvVA8yy+Ghb9dvUw8yy+Mkb5VvUg8yy+QlzneSDmWXylWOUDzLP4mjmb9LvNs/jKEd41+p3mWXz9XMf6cgPgMs/im2AV8KN9h3kW3wrb2V3r2J/Ft4Nq+cv4or4CsPiWsIzwVPUsvi1WsW3r5ll8c0jqLeZZfIMsYW82z+LbZFZvNM/iW2UKe5N5Ft8wtnkcFt8257PBPItvHcPsHYtvny88c9cporXnmbse0fTzLL4LtuZZfB9szLP4TlDNs/heUMyz+E5h8Z3C4juFxXcKi+8UFt8pLL5TWHynsPhOYfGdwuI7hcV3CovvlJjimZKJJ16tB3nSZtpsjbssw+IzpGXxFGlZPAoWnyEti6dIy+JRsPgMaVk8RVoWj4JQPFMTLL5TWHynsPhOYfGdwuI7hcV3CovvFBbfKSy+U6jEH+92n16QaQ+3u909dsNvD9ikbw+7D7+QaS+7/PEJl/L3J3RpDWmDSmuBSLwo/ufPuLTH779Oh9+wCp7RpfB4f3pFVlaxy8+otK+iwiBLa0gbVloLROKPP57G+ojgVRTBI1Lf4Z//RqYUu4zl8PUFl/7xw1+XUsKV1pg2qLQkiMQPJfEdXw+xad9+/o1t6g9f/4Nu6vERPwjHltZcWUJKeoZIvGgzA3bn7eEbLuHzN3Qff7i9HwygwA9phDxsaU3i0aUlU0TEH++Q3+SyWbz4gF0WnewrbnQXHvHo0lpRQB8/xB6O52EBOa4cjn/gxQc0cAd0H38d1ROM6QlH9d/Qo/qwb4I/nHvEN/WBEY8traG1oPFewnH8GLb4o3FsyssuI4/FxZEVdmAYehwfVloLPHPXKSy+U1h8p7D4TmHxncLiO4XFdwqL7xQW3yksvlNYfKew+E5h8Z3C4juFxXcKi+8UFt8pLL5TWHynsPhO6VD8srB5+m1cuIpeHV4nPYt/nVbZHm7FTxbfOrPh8SLE4YX//jxd6TCsuD78898f//fnf+12316xV2uUT8fil6b+9ydxccXlj8dv4iIZ0fS/PXy+tASf220HWPzw4/jHi/j3x3D9+XCxy89fw/8UF6YWCYufLlD5dvl3Ms7i20Qr/u3nXxzxjaMVPw7tpz6exTeJuHvQbicuVpXFn54/Xkf1LJ5pFhbfKSy+U1h8p7D4TmHxncLiO4XFdwqL7xQW3yksvlNYfKew+E5h8Z3C4juFxXcKi+8UFt8p/w9AQBW0PtL+jQAAAABJRU5ErkJggg==" alt=""/> </p>
+
+</body>
+
+</html>
+

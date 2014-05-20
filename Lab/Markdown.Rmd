@@ -1,0 +1,26 @@
+ # Header 1
+
+## Header 2
+This is a line of text
+
+A blank line makes a new paragraph
+
+<!-- This is a comment -->
+
+## Some R Code
+
+```{r basic-code}
+1 + 1
+```
+
+## More Complex Code
+```{r more-code}
+x <- 1:10
+x
+x * 2
+```
+
+## A Graph
+```{r first-graph}
+hist(rnorm(1000))
+```

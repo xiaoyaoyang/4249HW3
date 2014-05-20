@@ -1,0 +1,39 @@
+# Header 1
+
+## Header 2
+
+### Header 3
+
+_single underscores makes italic_
+
+__double underscores makes bold__
+
+A new paragraph is started by leaving a blank line.  this is just like with LaTeX.
+
+* First item in a list
+* Second item
+    * subitem
+    * another subitem
+* One last item
+
+1. Apples
+1. Bananas
+1. Mangoes
+1. Kumquat
+
+```{r first-chunk}
+1 + 1
+
+x <- 1:10
+# showing x
+x
+x*2
+```
+
+Now let's show plot.
+
+```{r diamonds-plot,cache=TRUE,cache=TRUE,warning=FALSE,message=FALSE}
+require(ggplot2)
+data(diamonds)
+ggplot(diamonds, aes(x=carat, y=price, color=color)) + geom_point()
+```

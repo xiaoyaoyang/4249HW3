@@ -1,0 +1,102 @@
+\documentclass{article}
+% preamble
+% this is a comment
+% anyhting following the % is a comment
+
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.png,.jpg}
+
+\title{A Simple Article}
+\author{Jared P. Lander\\ Columbia University}
+\date{February 10th, 2014}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Getting Started}
+\label{sec:GettingStarted}
+This is the first section of our article.  the only thing it will talk about is writing simple LaTeX.
+
+This is the first thing I am writing in LaTeX.  Just something simple for right now to test things out.  More will come later.
+
+This is my second paragraph.  It was created by leaving a blank line.  Just writing more so the paragraph it is physically longer.  This is to show you how text wraps.
+
+Now I am writing a third paragraph.  Notice the blank line again.  Just writing more so the paragraph it is physically longer.  This is to show you how text wraps.
+
+\section{More Information}
+\label{sec:MoreInfo}
+Here is another section.  In Section~\ref{sec:GettingStarted} we learned some basics and now we will see just a bit more.  Suppose this section is getting too long so it should be broken up into subsections.
+
+\subsection{First Subsection}
+\label{FirstSub}
+Content for a subsection.
+
+\subsection{Another Subsection}
+\label{AnotherSub}
+More content that is nested in Section~\ref{sec:MoreInfo}.
+
+\section{Last Bit}
+\label{sec:LastBit}
+This section was just created to show how to stop a preceding subsection, section or chapter.  Note that chapters are only available in books, not articles.
+
+\section{R Code Time}
+\label{sec:RCode}
+First let's test if R is working.
+<<r-test>>=
+1 + 1
+@
+
+<<more-complex-code>>=
+x <- 1:10
+x
+x * 2
+@
+
+That was fun, now let's fit a regression.
+
+<<diamonds-model,cache=TRUE>>=
+# load ggplot
+require(ggplot2)
+
+# load and view the diamonds data
+data(diamonds)
+head(diamonds)
+
+# fit a model
+mod1 <- lm(price ~ carat + cut, data=diamonds)
+
+summary(mod1)
+@
+
+You can see a scatterplot of the \texttt{diamonds} data in Figure~\ref{fig:diamonds-scatter}.
+
+<<diamonds-scatter,cache=TRUE,dev='png',fig.cap='A scatterplot of diamonds.  Carat is on the x-axis, price on the y-axis and color is mapped to color.',out.width='.7\\linewidth',echo=TRUE,fig.align='center',fig.pos='!hbtp',fig.scap='Diamonds scatterplot',tidy=FALSE>>=
+ggplot(diamonds, aes(x=carat, y=price, color=color)) + 
+    geom_point()
+@
+
+\section{Math}
+\label{sec:Math}
+The world's most famous equation is in Equation~\ref{eq:Famous}.
+
+\begin{equation}
+    e=mc^2 \label{eq:Famous}
+\end{equation}
+
+Let's see some greek letters and square roots in Equation~\ref{eq:MoreComplex}.
+\begin{equation}
+    \alpha = \sqrt{\Gamma} + \gamma \label{eq:MoreComplex}
+\end{equation}
+
+\begin{equation}
+    E[X] = \frac{1}{n} \sum_{i=1}^n x_i
+\end{equation}
+
+\section{Some Odds and Ends}
+\label{sec:odds}
+To quote text you have to use backticks and single quote.  The bird said, ``It sure is sunny today.''  This might be a bit complex\footnote{All of life can be comxplex.} but so what.
+
+\listoffigures
+
+\end{document}
